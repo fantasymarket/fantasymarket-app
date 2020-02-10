@@ -1,6 +1,31 @@
 {
-  "name": "fantasymarket-app",
-  "version": "0.0.1",
-  "repository": "https://github.com/explodingcamera/fantasymarket-app.git",
-  "private": true
+	"name": "fantasymarket-app",
+	"version": "0.0.1",
+	"repository": "https://github.com/explodingcamera/fantasymarket-app.git",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"test": "yarn run lint",
+		"lint": "eslint .",
+		"ava": "ava ."
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "npm test"
+		}
+	},
+	"devDependencies": {
+		"@explodingcamera/eslint-config": "^2.3.0",
+		"ava": "^3.3.0",
+		"eslint": "^6.8.0"
+	},
+	"dependencies": {
+		"@explodingcamera/next-plugin-styled-components": "^1.1.0",
+		"babel-plugin-module-resolver": "^4.0.0",
+		"husky": "^4.2.1",
+		"next": "^9.2.1",
+		"react": "^16.12.0",
+		"react-dom": "^16.12.0",
+		"styled-components": "^5.0.1"
+	}
 }
