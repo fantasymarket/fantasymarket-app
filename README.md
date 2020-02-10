@@ -1,11 +1,4 @@
 <h1>FANTASYMARKET-APP</h1>
-<a href="https://travis-ci.com/explodingcamera/fantasymarket-app">
-  <img src="https://img.shields.io/travis/com/explodingcamera/fantasymarket-app?style=for-the-badge" alt="Build Status">
-</a>
-<a href="https://github.com/styled-components/styled-components">
-  <img src="https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e&style=for-the-badge" alt="style: styled-components">
-</a>
-<br>
 
 ## Table of Contents
 
