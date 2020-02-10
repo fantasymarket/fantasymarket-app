@@ -1,5 +1,8 @@
 <h1>FANTASYMARKET-APP</h1>
 
+![Node.js CI](https://github.com/explodingcamera/fantasymarket-app/workflows/Node.js%20CI/badge.svg?branch=develop)
+![netlify](https://img.shields.io/netlify/306db36d-47d1-40d3-9f52-c52a5b7633e5?style=flat)
+
 ## Table of Contents
 
 - [Project Structure](#structure)
@@ -14,7 +17,7 @@
 **fantasymarket-app**
 ├── [components](components/) _# reusable react components_
 ├── [pages](packages/) &nbsp;&nbsp;&nbsp;&nbsp; _# page components_
-└── [static](static/) &nbsp;&nbsp;&nbsp; _# static files_</pre></big>
+└── [public](public/) &nbsp;&nbsp;&nbsp; _# static files_</pre></big>
 
 ## Installation
 

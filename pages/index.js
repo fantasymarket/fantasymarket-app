@@ -1,16 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import Layout from 'components/layout';
 
-const Wrapper = styled.div`
-	h1 {
-		font-family: monospace;
-	}
-`;
+const Wrapper = styled(Layout)``;
 
 const Home = () => {
 	return (
 		<Wrapper>
-			<h1>Hello World</h1>
+			<h1>FantasyMarket</h1>
 		</Wrapper>
 	);
 };
