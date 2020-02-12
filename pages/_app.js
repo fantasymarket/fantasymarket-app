@@ -58,6 +58,18 @@ const GlobalStyle = createGlobalStyle`
 	h4 {
 		margin: 0;
 	}
+
+	h1 {
+		color: white;
+	}
+
+	h2, h3 {
+		color: #d6d6d6;
+	}
+
+	p {
+		color: #e0e0e0;
+	}
 `;
 
 function CustomApp({ Component, pageProps }) {
