@@ -70,6 +70,10 @@ const GlobalStyle = createGlobalStyle`
 	p {
 		color: #e0e0e0;
 	}
+
+	body {
+		background-color: #0e0e0e;
+	}
 `;
 
 function CustomApp({ Component, pageProps }) {
