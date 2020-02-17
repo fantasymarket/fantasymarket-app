@@ -12,11 +12,11 @@ const Wrapper = styled(Layout)`
 const Home = () => {
 	return (
 		<Wrapper>
-			<h1>FantasyMarket</h1>
+			<h1>Lets go fam</h1>
 			<br />
-			<Link href="/landing-page">
+			<Link href="/">
 				<a>
-					<Button primary>GET STARTED</Button>
+					<Button primary>Get back</Button>
 				</a>
 			</Link>
 		</Wrapper>

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Button from 'components/ui/button';
+import Link from 'next/link';
 
 const NavWrapper = styled.div`
 	display: flex;
@@ -26,7 +27,12 @@ const NavWrapper = styled.div`
 const Nav = () => {
 	return (
 		<NavWrapper>
-			<h1>FantasyMarket</h1>
+			<Link href="/">
+				<a>
+					<h1>FantasyMarket</h1>
+				</a>
+			</Link>
+
 			<div>
 				<Button>signup</Button>
 				<Button>login</Button>
