@@ -22,6 +22,7 @@ const conf = {
 				alias: {
 					components: './components',
 					pages: './pages',
+					utils: './utils',
 				},
 			},
 		],
