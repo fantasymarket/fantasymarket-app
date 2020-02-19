@@ -72,7 +72,11 @@ const GlobalStyle = createGlobalStyle`
 	}
 
 	body {
-		background-color: #0e0e0e;
+		background-image: linear-gradient( 135deg, #00250f 10%, #1a002d 100%);
+	}
+
+	a {
+		text-decoration-color: #22ff8f;
 	}
 `;
 

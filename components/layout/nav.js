@@ -1,13 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import Button from 'components/ui/button';
+import Link from 'next/link';
 
 const NavWrapper = styled.div`
 	display: flex;
-	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-		0 2px 4px -1px rgba(0, 0, 0, 0.06);
 	padding: 0.7rem 0.6rem 0.7rem 1rem;
-	background-color: #212121;
 	align-items: center;
 	justify-content: space-between;
 
@@ -16,6 +14,7 @@ const NavWrapper = styled.div`
 		padding-top: 0.1rem;
 		font-size: 1.4rem;
 		font-weight: 400;
+		filter: drop-shadow(0px 0px 3px rgba(34, 255, 143, 0.69));
 	}
 
 	> div > button:first-of-type {
@@ -26,7 +25,12 @@ const NavWrapper = styled.div`
 const Nav = () => {
 	return (
 		<NavWrapper>
-			<h1>FantasyMarket</h1>
+			<Link href="/">
+				<a>
+					<h1>FantasyMarket</h1>
+				</a>
+			</Link>
+
 			<div>
 				<Button>signup</Button>
 				<Button>login</Button>

@@ -2,10 +2,11 @@ import styled, { css } from 'styled-components';
 
 const Button = styled.button`
 	padding: 0.5rem 0.5rem 0.4rem 0.5rem;
-	background: #ffffff1c;
+	background: rgba(255, 255, 255, 0.11);
 	border: 2px solid rgba(255, 255, 255, 0.32);
 	color: white;
 	cursor: pointer;
+	border-radius: 6px;
 
 	transition: all 0.2s ease-in-out;
 	&:hover {

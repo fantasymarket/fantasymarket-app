@@ -11,6 +11,7 @@ const FooterWrapper = styled.div`
 		padding-top: 0.1rem;
 		font-size: 1rem;
 		font-weight: 400;
+		filter: drop-shadow(0px 0px 3px rgba(34, 255, 143, 0.49));
 	}
 `;
 
