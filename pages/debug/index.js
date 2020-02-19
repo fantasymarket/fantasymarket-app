@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import Layout from 'components/layout';
 
-import BasicStockComponent from 'components/charts/stocks-basic';
+// Import BasicStockComponent from 'components/chart/stock-minimal';
+import Chart from 'components/chart/stock';
 
 const Wrapper = styled(Layout)`
 	align-items: center;
@@ -12,7 +13,8 @@ const Wrapper = styled(Layout)`
 const Debug = () => {
 	return (
 		<Wrapper>
-			<BasicStockComponent />
+			{/* <BasicStockComponent /> */}
+			<Chart />
 		</Wrapper>
 	);
 };
