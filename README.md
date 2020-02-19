@@ -2,6 +2,7 @@
 
 ![Node.js CI](https://github.com/explodingcamera/fantasymarket-app/workflows/Node.js%20CI/badge.svg?branch=develop)
 ![netlify](https://img.shields.io/netlify/306db36d-47d1-40d3-9f52-c52a5b7633e5?style=flat)
+[![Coverage Status](https://coveralls.io/repos/github/explodingcamera/fantasymarket-app/badge.svg?t=LFt2Sc)](https://coveralls.io/github/explodingcamera/fantasymarket-app)
 
 ## Table of Contents
 
