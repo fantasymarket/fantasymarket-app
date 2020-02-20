@@ -37,6 +37,7 @@ const GlobalStyle = createGlobalStyle`
 	}
 
 	a {
+		color: white;
 		text-decoration-color: #22ff8f;
 	}
 `;

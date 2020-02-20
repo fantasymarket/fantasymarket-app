@@ -55,7 +55,7 @@ const Wrapper = styled.div`
 	filter: drop-shadow(0px 0px 3px rgba(34, 255, 143, 0.69));
 `;
 
-const ChartComponent = () => {
+const ChartComponent = ({ ...rest }) => {
 	const wrapperRef = useRef();
 	const chartRef = useRef();
 	const [chart, setChart] = useState();
@@ -66,11 +66,9 @@ const ChartComponent = () => {
 	useEffect(() => {
 		async function initChart() {
 			setLoading(true);
-			console.log(size);
 			const { createChart } = await import('lightweight-charts');
 			const chart = createChart(chartRef.current, {
-				width: 100,
-				height: 100,
+				...size,
 				layout: {
 					backgroundColor: 'transparent',
 					textColor: 'white',
@@ -154,7 +152,7 @@ const ChartComponent = () => {
 	}, [chart, size, size.height, size.width]);
 
 	return (
-		<Wrapper ref={wrapperRef}>
+		<Wrapper ref={wrapperRef} {...rest}>
 			<div ref={chartRef} />
 		</Wrapper>
 	);
