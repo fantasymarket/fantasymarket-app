@@ -17,9 +17,20 @@ const NavWrapper = styled.div`
 		filter: drop-shadow(0px 0px 3px rgba(34, 255, 143, 0.69));
 	}
 
+	> div {
+		display: flex;
+		align-items: center;
+	}
+
 	> div > button:first-of-type {
 		margin-right: 0.5rem;
 	}
+`;
+
+const Username = styled.h2`
+	margin-top: 0.2rem;
+	font-size: 1rem;
+	margin-right: 1rem;
 `;
 
 const Nav = () => {
@@ -32,8 +43,8 @@ const Nav = () => {
 			</Link>
 
 			<div>
-				<Button>signup</Button>
-				<Button>login</Button>
+				<Username>Guest 123124234</Username>
+				<Button>Settings</Button>
 			</div>
 		</NavWrapper>
 	);

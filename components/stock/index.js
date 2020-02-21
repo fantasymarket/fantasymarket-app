@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import StockChart from 'components/chart/stock';
 import Button from 'components/ui/button';
 
+import News from './news';
+
 const Wrapper = styled.div`
 	display: flex;
 	margin-top: 3rem;
@@ -49,20 +51,26 @@ const SidebarWrapper = styled.div`
 	button {
 		margin-bottom: 0.5rem;
 	}
+`;
 
-	table {
-		border-collapse: collapse;
-		p {
-			margin: 0.2rem 0;
-			font-weight: 600;
-		}
-		td:last-of-type p {
-			text-orientation: sideways;
-			text-align: right;
-			font-weight: 400;
-		}
+const Stats = styled.table`
+	border-collapse: collapse;
+	p {
+		margin: 0.2rem 0;
+		font-weight: 600;
+	}
+	td {
+		height: 2rem;
+	}
+	td:first-of-type p {
+		font-weight: 300;
+	}
+	td:last-of-type p {
+		text-align: right;
+		font-weight: 400;
 	}
 `;
+
 const Description = styled.div`
 	display: flex;
 	margin-top: 3rem;
@@ -72,16 +80,70 @@ const Description = styled.div`
 	}
 `;
 
+const Performance = styled.div`
+	button {
+		width: 100%;
+	}
+
+	h1 {
+		margin-bottom: 1rem;
+		font-size: 1.4rem;
+
+		b {
+			color: black;
+			padding: 0.2rem 0.2rem 0 0.2rem;
+			border-radius: 4px;
+		}
+
+		span b {
+			font-size: 1.1rem;
+			margin-bottom: 0.5rem;
+		}
+
+		span.down {
+			color: #ff2255;
+		}
+		span.up {
+			color: #22ff8f;
+		}
+		p.left {
+			text-align: left;
+		}
+
+		table {
+			border-collapse: collapse;
+			p {
+				margin: 0.2rem 0;
+				font-weight: 600;
+			}
+			td:last-of-type p {
+				margin-left: 1rem;
+				text-align: left;
+				font-weight: 400;
+			}
+		}
+	}
+	h2.price {
+		font-size: 1.8rem;
+		span {
+			color: white;
+		}
+	}
+	h2 {
+		font-size: 1.2rem;
+	}
+`;
+
 const Stock = ({ symbol }) => {
 	return (
 		<Wrapper>
 			<ChartWrapper>
 				<ChartTitle>
 					<h1>Alphabet Inc. ({symbol})</h1>
-					<h1>$11.54</h1>
+					<h1>$1029.27</h1>
 					<h3>
-						<span>
-							<b>UP</b> $2.35 (3.89%)
+						<span className="down">
+							<b>DOWN</b> -$3.24 (-0.31%)
 						</span>{' '}
 						Today
 					</h3>
@@ -90,6 +152,14 @@ const Stock = ({ symbol }) => {
 				<Description>
 					<div>
 						<h1>News</h1>
+						<News
+							news={[
+								{
+									title: 'Google did an oopsie',
+									content: 'Big oof',
+								},
+							]}
+						/>
 					</div>
 					<div>
 						<h1>About</h1>
@@ -149,17 +219,60 @@ const Stock = ({ symbol }) => {
 				</Description>
 			</ChartWrapper>
 			<SidebarWrapper>
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<Button primary>BUY</Button>
-				<Button>SELL</Button>
+				<Performance>
+					<Button primary>TRADE</Button>
+					<br />
+					<br />
+					<h2 className="price">Change</h2>
+					<h1>
+						<table>
+							<tbody>
+								<tr>
+									<td>
+										<p>1h</p>
+									</td>
+									<td>
+										<p>
+											<span className="up">+2.2%</span>
+										</p>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<p>24h</p>
+									</td>
+									<td>
+										<p>
+											<span className="up">+9.1%</span>
+										</p>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<p>7d</p>
+									</td>
+									<td>
+										<p>
+											<span className="down">-10.1%</span>
+										</p>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</h1>
 
+					<h2>Shares Owned</h2>
+					<h1>46 Shares</h1>
+
+					<h2>Average Cost</h2>
+					<h1>$800</h1>
+
+					<h2>Total Cost</h2>
+					<h1>$36,800</h1>
+				</Performance>
 				<br />
 				<h2>Stats</h2>
-				<table>
+				<Stats>
 					<tbody>
 						<tr>
 							<td>
@@ -174,11 +287,57 @@ const Stock = ({ symbol }) => {
 								<p>Volume (24h)</p>
 							</td>
 							<td>
-								<p>$20 Mio</p>
+								<p>582,709</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p>Previous Close </p>
+							</td>
+							<td>
+								<p>$1,518.15</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p>Open </p>
+							</td>
+							<td>
+								<p>$1,518.15</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p>1y Target Est </p>
+							</td>
+							<td>
+								<p>$1,616.37</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p>Day's Range</p>
+							</td>
+							<td>
+								<p>
+									$1,498.39
+									<br />- $1,512.21
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p>52 Week Range</p>
+							</td>
+							<td>
+								<p>
+									$1,025.00
+									<br />- $1,532.11
+								</p>
 							</td>
 						</tr>
 					</tbody>
-				</table>
+				</Stats>
 			</SidebarWrapper>
 		</Wrapper>
 	);
