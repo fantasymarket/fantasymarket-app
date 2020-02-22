@@ -18,7 +18,7 @@ const conf = {
 		[
 			'module-resolver',
 			{
-				root: ['./'],
+				root: [__dirname],
 				alias: {
 					components: './components',
 					pages: './pages',

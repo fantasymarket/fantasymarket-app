@@ -26,5 +26,4 @@ const mockGraph = ({
 	return a;
 };
 
-console.log(mockGraph());
 export default mockGraph;

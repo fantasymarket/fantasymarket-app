@@ -54,7 +54,11 @@ $ yarn
 Run all tests + linters
 
 ```bash
-$ yarn run test
+$ yarn lint 						# check for linting errors
+$ yarn test 						# run all tests
+$ yarn test:unit 				# run unit tests
+$ yarn test:integration # run integration tests
+$ yarn test:coverage		# check test coverage
 ```
 
 <br>

@@ -106,7 +106,6 @@ const ChartComponent = ({ ...rest }) => {
 	useEffect(() => {
 		if (!chart) return;
 		chart.resize(size.height, size.width);
-		console.log(size);
 	}, [chart, size, size.height, size.width]);
 
 	return (

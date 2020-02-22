@@ -22,9 +22,9 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-yarn-
     - run: yarn install
-    - run: yarn run build
-    - run: yarn run test
-    - run: yarn run coverage
+    - run: yarn build
+    - run: yarn test
+    - run: yarn test:coverage
     - name: Coveralls GitHub Action
       uses: coverallsapp/github-action@v1.0.1
       with:
