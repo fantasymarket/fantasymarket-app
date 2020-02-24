@@ -50,7 +50,7 @@ const Home = () => {
 				>
 					GET STARTED
 				</Button>
-				<Link href="/debug">
+				<Link href="/stock?symbol=GOOG">
 					<a>
 						<Button>Demo</Button>
 					</a>

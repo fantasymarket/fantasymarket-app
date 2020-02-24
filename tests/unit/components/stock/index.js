@@ -4,13 +4,9 @@ import React from 'react';
 import toJson from 'enzyme-to-json';
 import { mount } from 'enzyme';
 
-import Layout from 'components/layout';
+import Stock from 'components/stock';
 
-test('Layout component', t => {
-	const tree = mount(
-		<Layout>
-			<h1>Page</h1>
-		</Layout>,
-	);
+test('Stock component', t => {
+	const tree = mount(<Stock />);
 	t.snapshot(toJson(tree));
 });

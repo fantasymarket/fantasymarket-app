@@ -18,6 +18,10 @@
 **fantasymarket-app**
 ├── [components](components/) _# reusable react components_
 ├── [pages](packages/) &nbsp;&nbsp;&nbsp;&nbsp; _# page components_
+├── [utils](utils/) &nbsp;&nbsp;&nbsp;&nbsp; _# utility functions_
+├── [tests](tests/) &nbsp;&nbsp;&nbsp;&nbsp; _# tests_
+│   ├── integration &nbsp;&nbsp;&nbsp;&nbsp; _# integration/e2e tests_
+│   └── unit &nbsp;&nbsp;&nbsp;&nbsp; _# unit & snapshot tests_
 └── [public](public/) &nbsp;&nbsp;&nbsp; _# static files_</pre></big>
 
 ## Installation
@@ -56,6 +60,7 @@ Run all tests + linters
 ```bash
 $ yarn lint 						# check for linting errors
 $ yarn test 						# run all tests
+$ yarn test -u					# run all tests & update snapshots
 $ yarn test:unit 				# run unit tests
 $ yarn test:integration # run integration tests
 $ yarn test:coverage		# check test coverage

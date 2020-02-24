@@ -1,53 +1,56 @@
 {
 	"name": "fantasymarket-app",
 	"version": "0.0.1",
-	"repository": "https://github.com/explodingcamera/fantasymarket-app.git",
 	"private": true,
+	"repository": "https://github.com/explodingcamera/fantasymarket-app.git",
 	"scripts": {
-		"dev": "next dev",
 		"build": "next build",
-		"export": "next export",
 		"deploy": "yarn run build && yarn run export",
+		"dev": "next dev",
+		"export": "next export",
 		"lint": "eslint .",
 		"test": "nyc ava",
-		"test:unit": "nyc ava 'tests/unit/**'",
+		"test:coverage": "nyc report --reporter=lcov",
 		"test:integration": "nyc ava 'tests/integration/**'",
-		"test:coverage": "nyc report --reporter=lcov"
+		"test:unit": "nyc ava 'tests/unit/**'"
 	},
 	"husky": {
 		"hooks": {
 			"pre-commit": "npm test"
 		}
 	},
-	"devDependencies": {
-		"@babel/plugin-proposal-decorators": "^7.8.3",
-		"@babel/plugin-proposal-optional-chaining": "^7.8.3",
-		"@babel/register": "^7.8.3",
-		"@explodingcamera/eslint-config": "^2.3.0",
-		"ava": "^3.3.0",
-		"babel-plugin-istanbul": "^6.0.0",
-		"browser-env": "^3.3.0",
-		"enzyme": "^3.11.0",
-		"eslint": "^6.8.0",
-		"react-addons-test-utils": "^15.6.2",
-		"react-test-renderer": "^16.12.0"
-	},
 	"dependencies": {
-		"@ava/babel": "^1.0.1",
-		"@explodingcamera/next-plugin-styled-components": "^1.1.0",
-		"@rehooks/component-size": "^1.0.3",
-		"babel-plugin-module-resolver": "^4.0.0",
-		"esm": "^3.2.25",
-		"husky": "^4.2.3",
-		"lightweight-charts": "^1.2.1",
-		"modern-normalize": "^0.6.0",
-		"next": "^9.2.2",
-		"next-transpile-modules": "^3.0.2",
-		"nyc": "^15.0.0",
-		"react": "^16.12.0",
-		"react-dom": "^16.12.0",
-		"react-icons": "^3.9.0",
-		"styled-components": "^5.0.1",
-		"victory": "^34.1.1"
+		"@ava/babel": "1.0.1",
+		"@babel/plugin-proposal-decorators": "7.8.3",
+		"@babel/plugin-proposal-optional-chaining": "7.8.3",
+		"@explodingcamera/next-plugin-styled-components": "1.1.0",
+		"@rehooks/component-size": "1.0.3",
+		"babel-plugin-module-resolver": "4.0.0",
+		"esm": "3.2.25",
+		"husky": "4.2.3",
+		"lightweight-charts": "1.2.2",
+		"modern-normalize": "0.6.0",
+		"next": "9.2.2",
+		"next-transpile-modules": "3.0.2",
+		"nyc": "15.0.0",
+		"prop-types": "^15.7.2",
+		"react": "16.12.0",
+		"react-dom": "16.12.0",
+		"react-icons": "3.9.0",
+		"styled-components": "5.0.1",
+		"victory": "34.1.1"
+	},
+	"devDependencies": {
+		"@babel/register": "7.8.3",
+		"@explodingcamera/eslint-config": "3.0.0",
+		"ava": "3.4.0",
+		"browser-env": "3.3.0",
+		"enzyme": "3.11.0",
+		"enzyme-adapter-react-16": "^1.15.2",
+		"enzyme-to-json": "3.4.4",
+		"eslint": "6.8.0",
+		"puppeteer": "^2.1.1",
+		"serve-handler": "^6.1.2",
+		"test-listen": "^1.1.0"
 	}
 }
