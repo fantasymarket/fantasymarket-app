@@ -1,9 +1,13 @@
 const roundTo = (precision, value, roundingFunc = Math.round) => {
-	if (precision === 0 || Number.isNaN(precision)) {
+	if (
+		typeof precision !== 'number' ||
+		typeof value !== 'number' ||
+		precision === 0
+	) {
 		throw new Error('roundTo: Invalid Value');
 	}
 
-	return roundingFunc(value / precision) * precision;
+	return Number((roundingFunc(value / precision) * precision).toFixed(13));
 };
 
 export default roundTo;

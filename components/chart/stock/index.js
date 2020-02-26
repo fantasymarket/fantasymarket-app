@@ -2,51 +2,9 @@ import React, { useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import useComponentSize from '@rehooks/component-size';
 
-const demoData = [
-	{ time: '2019-04-11', value: 80.01 },
-	{ time: '2019-04-12', value: 96.63 },
-	{ time: '2019-04-13', value: 76.64 },
-	{ time: '2019-04-14', value: 81.89 },
-	{ time: '2019-04-15', value: 74.43 },
-	{ time: '2019-04-16', value: 80.01 },
-	{ time: '2019-04-17', value: 96.63 },
-	{ time: '2019-04-18', value: 76.64 },
-	{ time: '2019-04-19', value: 81.89 },
-	{ time: '2019-04-20', value: 74.43 },
+import mockGraph from 'utils/mock-graph';
 
-	{ time: '2019-05-11', value: 180.01 },
-	{ time: '2019-05-12', value: 196.63 },
-	{ time: '2019-05-13', value: 176.64 },
-	{ time: '2019-05-14', value: 181.89 },
-	{ time: '2019-05-15', value: 174.43 },
-	{ time: '2019-05-16', value: 180.01 },
-	{ time: '2019-05-17', value: 196.63 },
-	{ time: '2019-05-18', value: 176.64 },
-	{ time: '2019-05-19', value: 181.89 },
-	{ time: '2019-05-20', value: 174.43 },
-
-	{ time: '2019-06-11', value: 280.01 },
-	{ time: '2019-06-12', value: 296.63 },
-	{ time: '2019-06-13', value: 276.64 },
-	{ time: '2019-06-14', value: 281.89 },
-	{ time: '2019-06-15', value: 274.43 },
-	{ time: '2019-06-16', value: 280.01 },
-	{ time: '2019-06-17', value: 296.63 },
-	{ time: '2019-06-18', value: 276.64 },
-	{ time: '2019-06-19', value: 281.89 },
-	{ time: '2019-06-20', value: 274.43 },
-
-	{ time: '2019-07-11', value: 180.01 },
-	{ time: '2019-07-12', value: 196.63 },
-	{ time: '2019-07-13', value: 176.64 },
-	{ time: '2019-07-14', value: 181.89 },
-	{ time: '2019-07-15', value: 174.43 },
-	{ time: '2019-07-16', value: 180.01 },
-	{ time: '2019-07-17', value: 196.63 },
-	{ time: '2019-07-18', value: 176.64 },
-	{ time: '2019-07-19', value: 181.89 },
-	{ time: '2019-07-20', value: 174.43 },
-];
+const demoData = mockGraph(100);
 
 const Wrapper = styled.div`
 	flex: 1;
@@ -55,7 +13,7 @@ const Wrapper = styled.div`
 	filter: drop-shadow(0px 0px 3px rgba(34, 255, 143, 0.69));
 `;
 
-const ChartComponent = () => {
+const ChartComponent = ({ ...rest }) => {
 	const wrapperRef = useRef();
 	const chartRef = useRef();
 	const [chart, setChart] = useState();
@@ -66,11 +24,9 @@ const ChartComponent = () => {
 	useEffect(() => {
 		async function initChart() {
 			setLoading(true);
-			console.log(size);
 			const { createChart } = await import('lightweight-charts');
 			const chart = createChart(chartRef.current, {
-				width: 100,
-				height: 100,
+				...size,
 				layout: {
 					backgroundColor: 'transparent',
 					textColor: 'white',
@@ -150,11 +106,10 @@ const ChartComponent = () => {
 	useEffect(() => {
 		if (!chart) return;
 		chart.resize(size.height, size.width);
-		console.log(size);
 	}, [chart, size, size.height, size.width]);
 
 	return (
-		<Wrapper ref={wrapperRef}>
+		<Wrapper ref={wrapperRef} {...rest}>
 			<div ref={chartRef} />
 		</Wrapper>
 	);

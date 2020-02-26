@@ -1,10 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
-import PropTypes from 'prop-types';
-import 'modern-normalize/modern-normalize.css';
 import './../public/static/fonts/space-grotesk/styles.css';
+import 'modern-normalize/modern-normalize.css';
 
 const GlobalStyle = createGlobalStyle`
 
@@ -37,18 +37,19 @@ const GlobalStyle = createGlobalStyle`
 	}
 
 	a {
+		color: white;
 		text-decoration-color: #22ff8f;
 	}
 `;
 
-function CustomApp({ Component, pageProps }) {
+const CustomApp = ({ Component, pageProps }) => {
 	return (
 		<ThemeProvider theme={{}}>
 			<GlobalStyle />
 			<Component {...pageProps} />
 		</ThemeProvider>
 	);
-}
+};
 
 CustomApp.propTypes = {
 	Component: PropTypes.any.isRequired,
