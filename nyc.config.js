@@ -1,13 +1,16 @@
 module.exports = {
 	all: true,
 	exclude: [
-		'.next/**/*',
-		'out/**/*',
 		'node_modules/**/*',
-		'public',
+		'coverage/**/*',
 		'*.config.*',
+		'.next/**/*',
+		'tests/**/*',
+		'pages/**/*',
+		'out/**/*',
+		'public',
 	],
-	include: ['**', 'components/**/*.js'],
+	include: ['**', 'components/**/*'],
 	require: ['esm', '@babel/register'],
 	reporter: 'text-summary',
 };

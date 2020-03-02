@@ -105,8 +105,8 @@ const ChartComponent = ({ ...rest }) => {
 
 	useEffect(() => {
 		if (!chart) return;
-		chart.resize(size.height, size.width);
-	}, [chart, size, size.height, size.width]);
+		chart.resize(size.width, size.height);
+	}, [chart, size, size.width, size.height]);
 
 	return (
 		<Wrapper ref={wrapperRef} {...rest}>
