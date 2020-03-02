@@ -1,13 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
-import Button from 'components/ui/button';
+import Icon from 'components/ui/icon';
 import Link from 'next/link';
+
+import { FiSettings } from 'react-icons/fi';
+
+import { useRouter } from 'next/router';
 
 const NavWrapper = styled.div`
 	display: flex;
-	padding: 0.7rem 0.6rem 0.7rem 1rem;
+	padding: 1.7rem 1.2rem 0.7rem 1.3rem;
+	margin-bottom: 1rem;
 	align-items: center;
-	justify-content: space-between;
 
 	h1 {
 		color: white;
@@ -17,7 +21,35 @@ const NavWrapper = styled.div`
 		filter: drop-shadow(0px 0px 3px rgba(34, 255, 143, 0.69));
 	}
 
+	> ul {
+		display: flex;
+		list-style: none;
+		padding: 0;
+		margin: 0.2rem 0 0 1rem;
+
+		li a {
+			text-decoration: underline;
+			text-decoration-color: transparent;
+
+			transition: all 0.2s ease-in-out;
+			margin: 0 0.3rem;
+			color: rgba(255, 255, 255, 0.77);
+		}
+		li:not(.active):hover a {
+			color: rgba(255, 255, 255, 0.9);
+			text-decoration-color: rgba(255, 255, 255, 0.9);
+		}
+		li.active a {
+			color: white;
+			filter: drop-shadow(0px 0px 3px rgba(34, 255, 143, 0.69));
+		}
+		li.active:hover a {
+			text-decoration-color: white;
+		}
+	}
+
 	> div {
+		margin-left: auto;
 		display: flex;
 		align-items: center;
 	}
@@ -30,10 +62,11 @@ const NavWrapper = styled.div`
 const Username = styled.h2`
 	margin-top: 0.2rem;
 	font-size: 1rem;
-	margin-right: 1rem;
+	margin-right: 0.2rem;
 `;
 
 const Nav = () => {
+	const router = useRouter();
 	return (
 		<NavWrapper>
 			<Link href="/">
@@ -42,9 +75,44 @@ const Nav = () => {
 				</a>
 			</Link>
 
+			<ul>
+				<li className={router?.pathname.startsWith('/dashboard') || undefined}>
+					<Link href="/dashboard">
+						<a>dashboard</a>
+					</Link>
+				</li>
+				<li className={router?.pathname.startsWith('/stocks') || undefined}>
+					<Link href="/stocks">
+						<a>stocks</a>
+					</Link>
+				</li>
+				<li className={router?.pathname.startsWith('/portfolio') || undefined}>
+					<Link href="/portfolio">
+						<a>portfolio</a>
+					</Link>
+				</li>
+				<li className={router?.pathname.startsWith('/portfolio') || undefined}>
+					<Link href="/portfolio">
+						<a>orders</a>
+					</Link>
+				</li>
+				<li className={router?.pathname.startsWith('/help') || undefined}>
+					<Link href="/portfolio">
+						<a>help</a>
+					</Link>
+				</li>
+			</ul>
+
 			<div>
 				<Username>Guest 123124234</Username>
-				<Button>Settings</Button>
+
+				<Link href="/settings">
+					<a>
+						<Icon>
+							<FiSettings />
+						</Icon>
+					</a>
+				</Link>
 			</div>
 		</NavWrapper>
 	);

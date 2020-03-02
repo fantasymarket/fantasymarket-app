@@ -1,12 +1,9 @@
+const withSC = require('@explodingcamera/next-plugin-styled-components');
 const withTM = require('next-transpile-modules')([
 	'lightweight-charts',
 	'fancy-canvas',
 ]);
 
-const config = {
-	experimental: {
-		plugins: true,
-	},
-};
+const config = {};
 
-module.exports = withTM(config);
+module.exports = withSC(withTM(config));

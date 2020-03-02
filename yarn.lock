@@ -1090,10 +1090,10 @@
     eslint-plugin-unicorn "16.1.1"
     prettier "1.19.1"
 
-"@explodingcamera/next-plugin-styled-components@1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@explodingcamera/next-plugin-styled-components/-/next-plugin-styled-components-1.1.0.tgz#baffd2551cefde901ad8a050548a2ccdf03e0760"
-  integrity sha512-i4hwsFOBaBGOHKPuYjpUVrd7mAsuWLZ+SwNKu/DrP3n5BQEp+brlmF+a2Tv6WBQu08hV53mO4xN2SDwZsUzzAw==
+"@explodingcamera/next-plugin-styled-components@1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@explodingcamera/next-plugin-styled-components/-/next-plugin-styled-components-1.2.0.tgz#f97d61a0b33444727130aa7c39d54c162fe86c53"
+  integrity sha512-RuvU/aDFlA9ADhhnN4HiZlBuI4MaV+VLximauWQZc8jxu69egve2VBjtBA3kuE1Qmlqr8Hd/LZyA9Ofkehzz0Q==
   dependencies:
     babel-plugin-styled-components "1.10.7"
 
