@@ -2,7 +2,7 @@ import test from 'ava';
 import React from 'react';
 
 import toJson from 'enzyme-to-json';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 import StockChart from 'components/chart/stock';
 import StockChartMinimal from 'components/chart/stock-minimal';
@@ -13,6 +13,6 @@ test('StockChart component', t => {
 });
 
 test('StockChartMinimal component', t => {
-	const tree = shallow(<StockChartMinimal />);
+	const tree = mount(<StockChartMinimal />);
 	t.snapshot(toJson(tree));
 });
