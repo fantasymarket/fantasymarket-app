@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import Head from 'next/head';
 
 import './../public/static/fonts/space-grotesk/styles.css';
 import 'modern-normalize/modern-normalize.css';
@@ -10,7 +11,6 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
 const GlobalStyle = createGlobalStyle`
 
 	* {
-		font-display: optional;
 		font-family: 'Space Grotesk', monospace;
 	}
 
@@ -46,6 +46,9 @@ const GlobalStyle = createGlobalStyle`
 const CustomApp = ({ Component, pageProps }) => {
 	return (
 		<ThemeProvider theme={{}}>
+			<Head>
+				<title>FantasyMarket</title>
+			</Head>
 			<GlobalStyle />
 			<Component {...pageProps} />
 		</ThemeProvider>

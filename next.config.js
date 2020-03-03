@@ -4,6 +4,10 @@ const withTM = require('next-transpile-modules')([
 	'fancy-canvas',
 ]);
 
-const config = {};
+const config = {
+	experimental: {
+		polyfillsOptimization: true,
+	},
+};
 
 module.exports = withSC(withTM(config));

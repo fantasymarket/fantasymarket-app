@@ -1,0 +1,8 @@
+{
+  "name": "FantasyMarket",
+  "short_name": "FantasyMarket",
+  "lang": "en-US",
+  "start_url": "/",
+  "display": "minimal-ui",
+  "theme_color": "#22ff8f"
+}
