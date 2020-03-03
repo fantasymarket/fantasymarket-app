@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { FiChevronUp, FiChevronDown, FiMinus } from 'react-icons/fi';
+import { useTable, useSortBy } from 'react-table';
+
 const DashboardWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -184,6 +187,7 @@ const AllStocks = styled.table`
 	color: rgb(255, 255, 255, 0.9);
 	border-collapse: collapse;
 	border-spacing: 0;
+
 	tr td {
 		border-top: 1px solid white;
 		padding: 1rem 0;
@@ -195,15 +199,23 @@ const AllStocks = styled.table`
 	}
 
 	th {
-		vertical-align: bottom;
+		user-select: none;
+		span svg {
+			width: 20px;
+			height: 20px;
+			vertical-align: middle;
+		}
+		align-items: center;
+
 		text-align: left;
 		font-size: 1rem;
-		font-weight: 400;
+		font-weight: 800;
 	}
 
 	h1 {
 		display: table;
 		font-size: 1rem;
+		font-weight: 400;
 	}
 `;
 
@@ -222,7 +234,64 @@ const SectionTitle = styled.h1`
 // /stock/GOOG									=> Specific stock info when clicking on a stock
 // /stock/GOOG?from=""&to=""
 
+const columns = [
+	{
+		Header: 'Name',
+		accessor: 'name',
+	},
+	{
+		Header: 'Symbol',
+		accessor: 'symbol',
+	},
+	{
+		Header: 'Value',
+		accessor: 'value',
+		Cell: ({ cell: { value } }) =>
+			new Intl.NumberFormat('en-US', {
+				style: 'currency',
+				currency: 'USD',
+			}).format(value),
+	},
+];
+
+const data = [
+	{
+		name: 'Alphabet Inc.',
+		symbol: 'GOOG',
+		value: '100.2',
+	},
+	{
+		name: 'Apple Inc.		',
+		symbol: 'APL',
+		value: '112.2',
+	},
+	{
+		name: 'Microsoft',
+		symbol: 'MSFT',
+		value: '200.2',
+	},
+	{
+		name: 'ExxonMobil',
+		symbol: 'EXN',
+		value: '90.2',
+	},
+];
+
 const Dashboard = ({ ...rest }) => {
+	const {
+		getTableProps,
+		getTableBodyProps,
+		headerGroups,
+		rows,
+		prepareRow,
+	} = useTable(
+		{
+			columns,
+			data,
+		},
+		useSortBy,
+	);
+
 	return (
 		<DashboardWrapper {...rest}>
 			<Stats>
@@ -304,70 +373,62 @@ const Dashboard = ({ ...rest }) => {
 				</ul>
 			</News>
 			<SectionTitle>All Stocks</SectionTitle>
-			<AllStocks>
+			<AllStocks {...getTableProps}>
 				<thead>
-					<tr>
-						<th>Name</th>
-						<th>Symbol</th>
-						<th>Value per Stock</th>
-					</tr>
+					{headerGroups.map(headerGroup => (
+						<tr
+							key={headerGroups.indexOf(headerGroup)}
+							{...headerGroup.getHeaderGroupProps()}
+						>
+							{headerGroup.headers.map(column => (
+								// Add the sorting props to control sorting. For this example
+								// we can add them into the header props
+								<th
+									key={headerGroup.headers.indexOf(column)}
+									{...column.getHeaderProps(column.getSortByToggleProps())}
+								>
+									{column.render('Header')}
+									{/* Add a sort direction indicator */}
+									<span>
+										{column.isSorted ? (
+											column.isSortedDesc ? (
+												<>
+													{' '}
+													<FiChevronDown />
+												</>
+											) : (
+												<>
+													{' '}
+													<FiChevronUp />
+												</>
+											)
+										) : (
+											<>
+												{' '}
+												<FiMinus />
+											</>
+										)}
+									</span>
+								</th>
+							))}
+						</tr>
+					))}
 				</thead>
-				<tbody>
-					<tr>
-						<td>
-							<h1>Alphabet Inc.</h1>
-						</td>
-						<td>
-							<h1>GOOG</h1>
-						</td>
-						<td>
-							<h1>1354.32</h1>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<h1>Apple Inc.</h1>
-						</td>
-						<td>
-							<h1>APPL</h1>
-						</td>
-						<td>
-							<h1>1354.32</h1>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<h1>ExxonMobil</h1>
-						</td>
-						<td>
-							<h1>XONA</h1>
-						</td>
-						<td>
-							<h1>1354.32</h1>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<h1>General Electric</h1>
-						</td>
-						<td>
-							<h1>GE</h1>
-						</td>
-						<td>
-							<h1>1354.32</h1>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<h1>Microsoft</h1>
-						</td>
-						<td>
-							<h1>MSF</h1>
-						</td>
-						<td>
-							<h1>1354.32</h1>
-						</td>
-					</tr>
+				<tbody {...getTableBodyProps()}>
+					{rows.map(row => {
+						prepareRow(row);
+						return (
+							<tr key={rows.indexOf(row)} {...row.getRowProps()}>
+								{row.cells.map(cell => {
+									return (
+										<td key={row.cells.indexOf(cell)} {...cell.getCellProps()}>
+											{cell.render('Cell')}
+										</td>
+									);
+								})}
+							</tr>
+						);
+					})}
 				</tbody>
 			</AllStocks>
 		</DashboardWrapper>
