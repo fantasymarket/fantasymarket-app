@@ -78,6 +78,12 @@ const Stats = styled.div`
 			margin: 0 2rem;
 		}
 	}
+
+	@media (max-width: 750px) {
+		> div h2 {
+			font-size: calc(1rem + 10vw);
+		}
+	}
 `;
 
 const StockOverview = styled.ul`
@@ -93,8 +99,6 @@ const StockOverview = styled.ul`
 
 		h1 {
 			font-weight: 800;
-		}
-		h2 {
 		}
 
 		&.down h3 {
@@ -118,6 +122,19 @@ const StockOverview = styled.ul`
 				border-radius: 4px;
 				color: black;
 			}
+		}
+	}
+
+	@media (max-width: 750px) {
+		flex-wrap: wrap;
+		> li h1 {
+			font-size: calc(0.7rem + 2vw);
+		}
+		> li h2 {
+			font-size: calc(0.4rem + 2vw);
+		}
+		> li h3 {
+			font-size: calc(0.3rem + 2vw);
 		}
 	}
 `;
@@ -150,6 +167,15 @@ const News = styled.div`
 				font-size: 1.1rem;
 				margin-bottom: 0.4rem;
 			}
+		}
+	}
+
+	@media (max-width: 750px) {
+		> ul li h1 {
+			font-size: calc(0.7rem + 2vw);
+		}
+		> ul li time {
+			font-size: calc(0.4rem + 2vw);
 		}
 	}
 `;

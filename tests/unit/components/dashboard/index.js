@@ -4,13 +4,9 @@ import React from 'react';
 import toJson from 'enzyme-to-json';
 import { shallow } from 'enzyme';
 
-import Layout from 'components/layout';
+import Dashboard from 'components/dashboard';
 
-test('Layout component', t => {
-	const tree = shallow(
-		<Layout>
-			<h1>Page</h1>
-		</Layout>,
-	);
+test('Dashboard component', t => {
+	const tree = shallow(<Dashboard />);
 	t.snapshot(toJson(tree));
 });

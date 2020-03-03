@@ -22,6 +22,7 @@ const Wrapper = styled(Layout)`
 	h2 {
 		font-size: 2rem;
 		filter: drop-shadow(0px 0px 3px rgba(34, 255, 143, 0.39));
+		text-align: center;
 	}
 
 	button {
@@ -31,6 +32,17 @@ const Wrapper = styled(Layout)`
 
 	> div > button:first-of-type {
 		margin-right: 0.8rem;
+	}
+
+	@media (max-width: 750px) {
+		h2 {
+			font-size: calc(0.5rem + 4vw);
+		}
+
+		h1 {
+			margin-bottom: 2rem;
+			font-size: calc(1rem + 4vw);
+		}
 	}
 `;
 

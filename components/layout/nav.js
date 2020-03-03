@@ -49,6 +49,9 @@ const NavWrapper = styled.div`
 		li.active:hover a {
 			/* text-decoration-color: white; */
 		}
+		li.settings-btn {
+			display: none;
+		}
 	}
 
 	> div {
@@ -59,6 +62,37 @@ const NavWrapper = styled.div`
 
 	> div > button:first-of-type {
 		margin-right: 0.5rem;
+	}
+
+	@media (max-width: 750px) {
+		padding: 1.4rem 1rem 0 1rem;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin-bottom: 0;
+
+		> h1 {
+		}
+
+		> div {
+			order: 2;
+
+			margin-left: 0.5rem;
+			.settings-btn {
+				display: none;
+			}
+		}
+
+		> ul {
+			margin: 0;
+			overflow-x: auto;
+			padding: 1rem;
+			width: 100%;
+			justify-content: center;
+			order: 3;
+			li.settings-btn {
+				display: block;
+			}
+		}
 	}
 `;
 
@@ -81,34 +115,55 @@ const Nav = () => {
 
 			<ul>
 				<li
-					className={router?.pathname?.startsWith?.('/dashboard') && 'active'}
+					className={
+						router?.pathname?.startsWith?.('/dashboard') ? 'active' : undefined
+					}
 				>
 					<Link href="/dashboard">
 						<a>dashboard</a>
 					</Link>
 				</li>
-				{/* <li className={router?.pathname?.startsWith?.('/stocks') && 'active'}>
+				{/* <li className={router?.pathname?.startsWith?.('/stocks') ? 'active'}:undefined>
 					<Link href="/stocks">
 						<a>stocks</a>
 					</Link>
 				</li> */}
 				<li
-					className={router?.pathname?.startsWith?.('/portfolio') && 'active'}
+					className={
+						router?.pathname?.startsWith?.('/portfolio') ? 'active' : undefined
+					}
 				>
 					<Link href="/portfolio">
 						<a>portfolio</a>
 					</Link>
 				</li>
 				<li
-					className={router?.pathname?.startsWith?.('/portfolio') && 'active'}
+					className={
+						router?.pathname?.startsWith?.('/portfolio') ? 'active' : undefined
+					}
 				>
-					<Link href="/portfolio">
+					<Link href="/orders">
 						<a>orders</a>
 					</Link>
 				</li>
-				<li className={router?.pathname?.startsWith?.('/help') && 'active'}>
-					<Link href="/portfolio">
+				<li
+					className={
+						router?.pathname?.startsWith?.('/help') ? 'active' : undefined
+					}
+				>
+					<Link href="/help">
 						<a>help</a>
+					</Link>
+				</li>
+				<li
+					className={
+						(router?.pathname?.startsWith?.('/settings')
+							? 'active'
+							: undefined) + ' settings-btn'
+					}
+				>
+					<Link href="/settings">
+						<a>settings</a>
 					</Link>
 				</li>
 			</ul>
@@ -117,7 +172,7 @@ const Nav = () => {
 				<Username>Guest 123124234</Username>
 
 				<Link href="/settings">
-					<a>
+					<a className="settings-btn">
 						<Icon>
 							<FiSettings />
 						</Icon>

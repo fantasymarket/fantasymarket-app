@@ -10,6 +10,11 @@ import Sidebar from './sidebar';
 const Wrapper = styled.div`
 	display: flex;
 	margin-top: 3rem;
+
+	@media (max-width: 750px) {
+		margin-top: 0;
+		flex-wrap: wrap;
+	}
 `;
 
 const ChartWrapper = styled.div`
@@ -22,6 +27,11 @@ const ChartWrapper = styled.div`
 const StyledStockChart = styled(StockChart)`
 	height: 40vh;
 	min-height: 30rem;
+
+	@media (max-width: 750px) {
+		height: 30vh;
+		min-height: 10rem;
+	}
 `;
 
 const ChartTitle = styled.div`
@@ -50,6 +60,10 @@ const Description = styled.div`
 
 	> div {
 		flex: 1;
+	}
+
+	@media (max-width: 750px) {
+		flex-wrap: wrap;
 	}
 `;
 
