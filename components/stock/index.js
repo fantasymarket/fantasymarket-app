@@ -10,6 +10,11 @@ import Sidebar from './sidebar';
 const Wrapper = styled.div`
 	display: flex;
 	margin-top: 3rem;
+
+	@media (max-width: 750px) {
+		margin-top: 0;
+		flex-wrap: wrap;
+	}
 `;
 
 const ChartWrapper = styled.div`
@@ -22,6 +27,11 @@ const ChartWrapper = styled.div`
 const StyledStockChart = styled(StockChart)`
 	height: 40vh;
 	min-height: 30rem;
+
+	@media (max-width: 750px) {
+		height: 30vh;
+		min-height: 10rem;
+	}
 `;
 
 const ChartTitle = styled.div`
@@ -32,7 +42,7 @@ const ChartTitle = styled.div`
 	}
 
 	h3 {
-		span {
+		span.down {
 			color: #22ff8f;
 		}
 		b {
@@ -51,6 +61,10 @@ const Description = styled.div`
 	> div {
 		flex: 1;
 	}
+
+	@media (max-width: 750px) {
+		flex-wrap: wrap;
+	}
 `;
 
 const Stock = ({ symbol, about, news }) => {
@@ -61,7 +75,7 @@ const Stock = ({ symbol, about, news }) => {
 					<h1>Alphabet Inc. ({symbol})</h1>
 					<h1>$1029.27</h1>
 					<h3>
-						<span className="down">
+						<span className="up">
 							<b>DOWN</b> -$3.24 (-0.31%)
 						</span>{' '}
 						Today

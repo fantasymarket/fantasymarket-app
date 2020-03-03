@@ -26,14 +26,6 @@ const conf = {
 				},
 			},
 		],
-		[
-			'styled-components',
-			{
-				ssr: true,
-				displayName: true,
-				pure: true,
-			},
-		],
 	],
 };
 
