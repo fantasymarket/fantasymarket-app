@@ -36,15 +36,18 @@ const NavWrapper = styled.div`
 			color: rgba(255, 255, 255, 0.77);
 		}
 		li:not(.active):hover a {
+			filter: drop-shadow(0px 0px 3px rgba(34, 255, 143, 0.69));
+
 			color: rgba(255, 255, 255, 0.9);
-			text-decoration-color: rgba(255, 255, 255, 0.9);
+			/* text-decoration-color: rgba(255, 255, 255, 0.9); */
 		}
 		li.active a {
+			font-weight: 600;
 			color: white;
 			filter: drop-shadow(0px 0px 3px rgba(34, 255, 143, 0.69));
 		}
 		li.active:hover a {
-			text-decoration-color: white;
+			/* text-decoration-color: white; */
 		}
 	}
 
@@ -67,6 +70,7 @@ const Username = styled.h2`
 
 const Nav = () => {
 	const router = useRouter();
+
 	return (
 		<NavWrapper>
 			<Link href="/">
@@ -76,27 +80,33 @@ const Nav = () => {
 			</Link>
 
 			<ul>
-				<li className={router?.pathname.startsWith('/dashboard') || undefined}>
+				<li
+					className={router?.pathname?.startsWith?.('/dashboard') && 'active'}
+				>
 					<Link href="/dashboard">
 						<a>dashboard</a>
 					</Link>
 				</li>
-				<li className={router?.pathname.startsWith('/stocks') || undefined}>
+				{/* <li className={router?.pathname?.startsWith?.('/stocks') && 'active'}>
 					<Link href="/stocks">
 						<a>stocks</a>
 					</Link>
-				</li>
-				<li className={router?.pathname.startsWith('/portfolio') || undefined}>
+				</li> */}
+				<li
+					className={router?.pathname?.startsWith?.('/portfolio') && 'active'}
+				>
 					<Link href="/portfolio">
 						<a>portfolio</a>
 					</Link>
 				</li>
-				<li className={router?.pathname.startsWith('/portfolio') || undefined}>
+				<li
+					className={router?.pathname?.startsWith?.('/portfolio') && 'active'}
+				>
 					<Link href="/portfolio">
 						<a>orders</a>
 					</Link>
 				</li>
-				<li className={router?.pathname.startsWith('/help') || undefined}>
+				<li className={router?.pathname?.startsWith?.('/help') && 'active'}>
 					<Link href="/portfolio">
 						<a>help</a>
 					</Link>

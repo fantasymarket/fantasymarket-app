@@ -32,7 +32,7 @@ const ChartTitle = styled.div`
 	}
 
 	h3 {
-		span {
+		span.down {
 			color: #22ff8f;
 		}
 		b {
@@ -61,7 +61,7 @@ const Stock = ({ symbol, about, news }) => {
 					<h1>Alphabet Inc. ({symbol})</h1>
 					<h1>$1029.27</h1>
 					<h3>
-						<span className="down">
+						<span className="up">
 							<b>DOWN</b> -$3.24 (-0.31%)
 						</span>{' '}
 						Today
