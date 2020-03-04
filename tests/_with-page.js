@@ -19,7 +19,7 @@ export default async function withPage(t, run) {
 	const page = await browser.newPage();
 
 	try {
-		await run(t, page, baseUrl);
+		await run(t, { page, baseUrl, browser });
 	} finally {
 		await page.close();
 		await browser.close();
