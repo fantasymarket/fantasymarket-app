@@ -19,7 +19,12 @@ const ChartComponent = ({ ...rest }) => {
 	const [chart, setChart] = useState();
 	const [loading, setLoading] = useState();
 
-	const size = useComponentSize(wrapperRef);
+	let size = { width: 0, height: 0 };
+	if (process.browser) {
+		// This is possible since process.browser is a constant and will never change
+		// eslint-disable-next-line react-hooks/rules-of-hooks
+		size = useComponentSize(wrapperRef);
+	}
 
 	useEffect(() => {
 		async function initChart() {

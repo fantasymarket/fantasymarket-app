@@ -3,6 +3,14 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import generateDateAxis from 'utils/date-axis';
 
+import {
+	VictoryChart,
+	VictoryLine,
+	VictoryZoomContainer,
+	VictoryBrushContainer,
+	VictoryAxis,
+} from 'victory';
+
 const StockChartWrapper = styled.div`
 	svg > * {
 		fill: white !important;
@@ -25,14 +33,6 @@ const StockChartWrapper = styled.div`
 		}
 	}
 `;
-
-import {
-	VictoryChart,
-	VictoryLine,
-	VictoryZoomContainer,
-	VictoryBrushContainer,
-	VictoryAxis,
-} from 'victory';
 
 const BasicStockComponent = ({ data }) => {
 	const [selectedDomain, setSelectedDomain] = useState(null);
