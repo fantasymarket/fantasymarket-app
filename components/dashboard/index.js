@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import { FiChevronUp, FiChevronDown, FiMinus } from 'react-icons/fi';
 import { useTable, useSortBy } from 'react-table';
 
+import Link from 'next/link';
+
 const DashboardWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -229,7 +231,12 @@ const SectionTitle = styled.h1`
 const columns = [
 	{
 		Header: 'Name',
-		accessor: 'name',
+		// eslint-disable-next-line react/prop-types
+		accessor: ({ symbol, name }) => (
+			<Link href="/stock/[symbol]" as={`/stock/${symbol}`}>
+				<a>{name}</a>
+			</Link>
+		),
 	},
 	{
 		Header: 'Symbol',

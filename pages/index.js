@@ -64,7 +64,7 @@ const Home = () => {
 					<Button primary>Let's GO</Button>
 				</Link>
 
-				<Link href="/stock?symbol=GOOG">
+				<Link href="/stock/[pid]" as={`/stock/${'GOOG'}`}>
 					<a>
 						<Button>Demo</Button>
 					</a>
