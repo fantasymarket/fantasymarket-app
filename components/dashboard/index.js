@@ -226,14 +226,6 @@ const SectionTitle = styled.h1`
 	font-size: 1.3rem;
 `;
 
-// /user/stats						=> Stats Component: worst, best Performer, total value, portfolio trend
-// /news?from=""&to=""		=> News Component, active news names
-// /stocks								=> Stock Overview
-// /stocks?from=""&to=""	=> stocks
-
-// /stock/GOOG									=> Specific stock info when clicking on a stock
-// /stock/GOOG?from=""&to=""
-
 const columns = [
 	{
 		Header: 'Name',
@@ -252,6 +244,14 @@ const columns = [
 				currency: 'USD',
 			}).format(value),
 	},
+	{
+		Header: 'Market Cap',
+		accessor: ({ value, shares }) =>
+			new Intl.NumberFormat('en-US', {
+				style: 'currency',
+				currency: 'USD',
+			}).format(parseFloat(value, 10) * shares),
+	},
 ];
 
 const data = [
@@ -259,21 +259,25 @@ const data = [
 		name: 'Alphabet Inc.',
 		symbol: 'GOOG',
 		value: '100.2',
+		shares: 10000000,
 	},
 	{
 		name: 'Apple Inc.		',
 		symbol: 'APL',
 		value: '112.2',
+		shares: 10000000,
 	},
 	{
 		name: 'Microsoft',
 		symbol: 'MSFT',
 		value: '200.2',
+		shares: 10000000,
 	},
 	{
 		name: 'ExxonMobil',
 		symbol: 'EXN',
 		value: '90.2',
+		shares: 10000000,
 	},
 ];
 
