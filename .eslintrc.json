@@ -1,3 +1,10 @@
 {
-  "extends": "@explodingcamera/eslint-config"
+	"extends": ["@explodingcamera/eslint-config", "plugin:jest/recommended"],
+	"globals": {
+    "page": true,
+    "browser": true,
+    "context": true,
+		"jestPuppeteer": true,
+		"__BASE_URL__": "readonly"
+  }
 }

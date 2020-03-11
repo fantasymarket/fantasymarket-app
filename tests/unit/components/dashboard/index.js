@@ -1,12 +1,11 @@
-import test from 'ava';
 import React from 'react';
-
-import toJson from 'enzyme-to-json';
-import { shallow } from 'enzyme';
-
 import Dashboard from 'components/dashboard';
+import { render } from '@testing-library/react';
 
-test('Dashboard component', t => {
-	const tree = shallow(<Dashboard />);
-	t.snapshot(toJson(tree));
+describe('Dashboard component', () => {
+	const container = render(<Dashboard />);
+
+	it('renders the component', () => {
+		expect(container.firstChild).toMatchSnapshot();
+	});
 });

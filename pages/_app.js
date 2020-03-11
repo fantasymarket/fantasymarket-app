@@ -6,7 +6,6 @@ import Head from 'next/head';
 
 import './../public/static/fonts/space-grotesk/styles.css';
 import 'modern-normalize/modern-normalize.css';
-import 'react-perfect-scrollbar/dist/css/styles.css';
 
 const GlobalStyle = createGlobalStyle`
 

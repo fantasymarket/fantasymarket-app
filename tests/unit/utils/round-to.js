@@ -1,19 +1,32 @@
-import test from 'ava';
 import roundTo from 'utils/round-to';
 
-test('rounding actually works', t => {
-	t.is(roundTo(5, 314.1592653), 315);
-	t.is(roundTo(5, 314.1592653, Math.floor), 310);
-	t.is(roundTo(0.1, 314.1592653), 314.2);
-	t.is(roundTo(0.05, 314.1592653), 314.15);
-	t.is(roundTo(2, 314.1592653), 314);
-	t.is(roundTo(1000, 514.1592653), 1000);
-	t.is(roundTo(13, 314.1592653), 312);
-	t.is(roundTo(10, Infinity), Infinity);
-	t.is(roundTo(Infinity, 10), NaN);
-	t.throws(() => roundTo(0, 314));
-	t.throws(() => roundTo('20', '139.1'));
-	t.throws(() => roundTo('JeööpWpröd'));
-	t.is(roundTo(5, -23), -25);
-	t.is(roundTo(-20, 100), 100);
+describe('round number to precision', () => {
+	it('', () => {
+		expect(roundTo(5, 314.1592653)).toBe(315);
+		expect(roundTo(2, 314.1592653)).toBe(314);
+		expect(roundTo(13, 314.1592653)).toBe(312);
+		expect(roundTo(0.1, 314.1592653)).toBe(314.2);
+		expect(roundTo(1000, 514.1592653)).toBe(1000);
+		expect(roundTo(0.05, 314.1592653)).toBe(314.15);
+	});
+
+	it('works with infinities', () => {
+		expect(roundTo(Infinity, 10)).toBe(NaN);
+		expect(roundTo(10, Infinity)).toBe(Infinity);
+	});
+
+	it('works with negative values', () => {
+		expect(roundTo(5, -23)).toBe(-25);
+		expect(roundTo(-20, 100)).toBe(100);
+	});
+
+	it('rounds with custom rounding function', () => {
+		expect(roundTo(5, 314.1592653, Math.floor)).toBe(310);
+	});
+
+	it('throws for invalid arguments', () => {
+		expect(() => roundTo(0, 314)).toThrow();
+		expect(() => roundTo('20', '139.1')).toThrow();
+		expect(() => roundTo('JeööpWprdöd')).toThrow();
+	});
 });

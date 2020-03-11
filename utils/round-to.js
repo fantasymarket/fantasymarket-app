@@ -7,7 +7,7 @@ const roundTo = (precision, value, roundingFunc = Math.round) => {
 		throw new Error('roundTo: Invalid Value');
 	}
 
-	return Number((roundingFunc(value / precision) * precision).toFixed(13));
+	return Number((roundingFunc(value / precision) * precision).toFixed(12));
 };
 
 export default roundTo;

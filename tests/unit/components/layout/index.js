@@ -1,16 +1,12 @@
-import test from 'ava';
 import React from 'react';
-
-import toJson from 'enzyme-to-json';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 
 import Layout from 'components/layout';
 
-test('Layout component', t => {
-	const tree = shallow(
-		<Layout>
-			<h1>Page</h1>
-		</Layout>,
-	);
-	t.snapshot(toJson(tree));
+describe('Layout component', () => {
+	const container = render(<Layout>Page Content </Layout>);
+
+	it('renders the component', () => {
+		expect(container.firstChild).toMatchSnapshot();
+	});
 });

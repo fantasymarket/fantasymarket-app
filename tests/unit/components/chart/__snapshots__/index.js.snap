@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StockChart component renders the component 1`] = `undefined`;
+
+exports[`StockChartMinimal component renders the component 1`] = `undefined`;
