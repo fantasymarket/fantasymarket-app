@@ -1,4 +1,4 @@
-import roundTo from './round-to';
+import roundToMultiple from './round-to-multiple';
 
 function addDays(date, days) {
 	const copy = new Date(Number(date));
@@ -19,7 +19,7 @@ const mockGraph = ({
 		s.index += x;
 		a.push({
 			time: addDays(startDate, i).toDateString(),
-			value: roundTo(0.01, s.index),
+			value: roundToMultiple(0.01, s.index),
 		});
 	}
 

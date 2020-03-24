@@ -9,9 +9,9 @@
 		"dev": "next dev",
 		"export": "next export",
 		"lint": "eslint .",
-		"test": "jest --projects tests/integration tests/unit",
+		"test": "yarn run deploy && jest --projects tests/integration tests/unit",
 		"test:changed": "yarn test -o",
-		"test:integration": "jest --projects tests/integration",
+		"test:integration": "yarn run deploy && jest --projects tests/integration",
 		"test:unit": "jest --projects tests/unit"
 	},
 	"husky": {

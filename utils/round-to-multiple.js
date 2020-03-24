@@ -1,4 +1,4 @@
-const roundTo = (precision, value, roundingFunc = Math.round) => {
+const roundToMultiple = (precision, value, roundingFunc = Math.round) => {
 	if (
 		typeof precision !== 'number' ||
 		typeof value !== 'number' ||
@@ -10,4 +10,4 @@ const roundTo = (precision, value, roundingFunc = Math.round) => {
 	return Number((roundingFunc(value / precision) * precision).toFixed(12));
 };
 
-export default roundTo;
+export default roundToMultiple;

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import formatMoney from 'utils/format-money';
-import roundTo from 'utils/round-to';
+import roundToMultiple from 'utils/round-to-multiple';
 
 const Wrapper = styled.ul`
 	list-style: none;
@@ -67,7 +67,10 @@ const Overview = ({ stocks }) => {
 				price24h = parseFloat(price24h, 10);
 
 				const positiv = price + price24h > price;
-				const percentage = roundTo(0.01, (price24h / (price - price24h)) * 100);
+				const percentage = roundToMultiple(
+					0.01,
+					(price24h / (price - price24h)) * 100,
+				);
 
 				return (
 					<li key={stocks.indexOf(stock)} className={positiv ? 'up' : 'down'}>

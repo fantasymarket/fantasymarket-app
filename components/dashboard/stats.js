@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import formatMoney from 'utils/format-money';
-import roundTo from 'utils/round-to';
+import roundToMultiple from 'utils/round-to-multiple';
 
 const Wrapper = styled.div`
 	display: flex;
@@ -90,7 +90,10 @@ var Stats = ({ total, total24h }) => {
 	total24h = parseFloat(total24h, 10);
 
 	const positiv = total + total24h > total;
-	const percentage = roundTo(0.01, (total24h / (total - total24h)) * 100);
+	const percentage = roundToMultiple(
+		0.01,
+		(total24h / (total - total24h)) * 100,
+	);
 
 	return (
 		<Wrapper>
