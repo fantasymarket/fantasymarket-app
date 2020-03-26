@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// TODO: import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -43,7 +43,7 @@ const Wrapper = styled.div`
 	}
 `;
 
-const News = ({ news }) => {
+const News = () => {
 	return (
 		<Wrapper>
 			<ul>
@@ -78,7 +78,7 @@ const News = ({ news }) => {
 };
 
 News.propTypes = {
-	news: PropTypes.array.isRequired,
+	// TODO: mews: PropTypes.array.isRequired,
 };
 
 export default News;
