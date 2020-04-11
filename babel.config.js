@@ -23,6 +23,7 @@ const conf = {
 					components: './components',
 					pages: './pages',
 					utils: './utils',
+					api: './api',
 				},
 			},
 		],

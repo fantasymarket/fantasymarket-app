@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
@@ -6,6 +6,8 @@ import Head from 'next/head';
 
 import './../public/static/fonts/space-grotesk/styles.css';
 import 'modern-normalize/modern-normalize.css';
+
+import { APIProvider, init } from 'api';
 
 const GlobalStyle = createGlobalStyle`
 
@@ -43,14 +45,18 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const CustomApp = ({ Component, pageProps }) => {
+	const [api] = useState(() => init());
+
 	return (
-		<ThemeProvider theme={{}}>
-			<Head>
-				<title>FantasyMarket</title>
-			</Head>
-			<GlobalStyle />
-			<Component {...pageProps} />
-		</ThemeProvider>
+		<APIProvider value={api}>
+			<ThemeProvider theme={{}}>
+				<Head>
+					<title>FantasyMarket</title>
+				</Head>
+				<GlobalStyle />
+				<Component {...pageProps} />
+			</ThemeProvider>
+		</APIProvider>
 	);
 };
 
