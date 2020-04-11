@@ -1,0 +1,3 @@
+Contact: mailto:mail@henrygressmann.de
+Encryption: https://keybase.io/explodingcamera/pgp_keys.asc
+Preferred-Languages: en, de
