@@ -1,8 +1,15 @@
-import { observable, computed, reaction } from 'mobx';
+import { observable, reaction } from 'mobx';
 import ky from 'ky-universal';
 import jwtDecode from 'jwt-decode';
+import { ignore } from 'mobx-sync';
 
 class UserStore {
+	@ignore
+	cfg = {};
+
+	@ignore
+	stores = {};
+
 	constructor(stores, cfg) {
 		this.stores = stores;
 		this.cfg = cfg;
@@ -11,35 +18,56 @@ class UserStore {
 		// since we don't want the server to
 		// create guest users for every request
 		if (process.browser) {
-			reaction(
+			const disposer = reaction(
 				() => [cfg.get('hydrated'), this.firstLoad],
-				() => cfg.get('hydrated') && this.firstLoad && this.create(),
+				() => {
+					if (!cfg.get('hydrated') || !this.firstLoad) return;
+
+					this.create()
+						.then(() => {
+							this.firstLoad = false;
+							disposer();
+						})
+						.catch(err => console.error(err));
+				},
 			);
 		}
+
+		reaction(
+			() => [cfg.get('hydrated'), this.token],
+			() => {
+				if (!cfg.get('hydrated')) return;
+				this.authenticated = this.verifyAuthToken(this.token);
+				if (!this.authenticated) this.logout();
+			},
+		);
 	}
+
+	verifyAuthToken = token => {
+		if (token === '') return false;
+
+		const t = jwtDecode(token);
+		return t?.exp && Date.now() < t.exp * 1000;
+	};
 
 	// We track the first load, since we
 	// always create a new guest account
 	// for new users
-	@observable firstLoad = false;
+	@observable firstLoad = true;
 
 	@observable user = {};
 	@observable token = '';
+	@observable authenticated = false;
 
 	// We track past usernames so users
 	// don't loose their progress when they forget their username
 	// NOTE: only added after user presses logout and can be cleared on the login screen
 	@observable pastUsernames = [];
 
-	@computed authenticated = () => {
-		const token = jwtDecode(this.token);
-		return token?.exp && Date.now() > token.exp * 1000;
-	};
-
 	login = (username = '', password = '') =>
 		ky
-			.post('/user/login', {
-				prefixURL: this.cfg.get('apiBase'),
+			.post('user/login', {
+				prefixUrl: this.cfg.get('apiBase'),
 				body: { username, password },
 			})
 			.json()
@@ -56,9 +84,10 @@ class UserStore {
 
 	create = () =>
 		ky
-			.put('/user', {
-				prefixURL: this.cfg.get('apiBase'),
+			.put('user', {
+				prefixUrl: this.cfg.get('apiBase'),
 			})
+			.json()
 			.then(({ token, user }) => {
 				if (!token || !user) {
 					throw new Error('invalid server response');
@@ -71,9 +100,10 @@ class UserStore {
 			});
 
 	logout = () => {
-		this.pastUsernames.push(this.user.username);
+		if (this.user.username) this.pastUsernames.push(this.user.username);
 		this.user = {};
 		this.token = '';
+		this.authenticated = false;
 	};
 }
 export default UserStore;

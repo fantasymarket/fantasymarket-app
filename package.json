@@ -8,7 +8,7 @@
 		"deploy": "yarn run build && yarn run export",
 		"dev": "next dev",
 		"export": "next export",
-		"lint": "eslint .",
+		"lint": "eslint . --format=\"pretty\"",
 		"test": "yarn run deploy && jest --projects tests/integration tests/unit",
 		"test:changed": "yarn test -o",
 		"test:integration": "yarn run deploy && jest --projects tests/integration",
@@ -49,7 +49,7 @@
 	},
 	"devDependencies": {
 		"@babel/register": "7.9.0",
-		"@explodingcamera/eslint-config": "4.2.0",
+		"@explodingcamera/eslint-config": "5.0.0",
 		"@testing-library/jest-dom": "5.5.0",
 		"@testing-library/react": "10.0.2",
 		"browser-env": "3.3.0",

@@ -3,9 +3,14 @@ import styled from 'styled-components';
 import Icon from 'components/ui/icon';
 import Link from 'next/link';
 
+import { observer } from 'mobx-react-lite';
+
 import { FiSettings } from 'react-icons/fi';
 
 import { useRouter } from 'next/router';
+import { useAPI } from 'api';
+
+import Button from 'components/ui/button';
 
 const NavWrapper = styled.div`
 	display: flex;
@@ -104,6 +109,7 @@ const Username = styled.h2`
 
 const Nav = () => {
 	const router = useRouter();
+	const api = useAPI();
 
 	return (
 		<NavWrapper>
@@ -169,15 +175,25 @@ const Nav = () => {
 			</ul>
 
 			<div>
-				<Username>Guest 123124234</Username>
+				{api?.user?.authenticated ? (
+					<>
+						<Username>{api?.user?.user?.username}</Username>
 
-				<Link href="/settings">
-					<a className="settings-btn">
-						<Icon>
-							<FiSettings />
-						</Icon>
-					</a>
-				</Link>
+						<Link href="/settings">
+							<a className="settings-btn">
+								<Icon>
+									<FiSettings />
+								</Icon>
+							</a>
+						</Link>
+					</>
+				) : (
+					<Link href="/settings">
+						<a className="settings-btn">
+							<Button>Login</Button>
+						</a>
+					</Link>
+				)}
 			</div>
 		</NavWrapper>
 	);
@@ -185,4 +201,4 @@ const Nav = () => {
 
 Nav.propTypes = {};
 
-export default Nav;
+export default observer(Nav);

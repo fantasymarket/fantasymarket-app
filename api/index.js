@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
+import 'mobx-react-lite/batchingOptOut';
 
+import React, { useContext } from 'react';
 import { AsyncTrunk } from 'mobx-sync';
 import { observable } from 'mobx';
-
 import UserStore from './user';
 
 export const init = () => {
@@ -16,17 +16,27 @@ export const init = () => {
 
 	if (process.browser) {
 		Promise.all(
-			Object.values(stores).map(store =>
-				new AsyncTrunk(store, { storage: global.localStorage }).init(),
-			),
+			Object.entries(stores).map(([name, store]) => {
+				return new AsyncTrunk(store, {
+					storage: global.localStorage,
+					delay: 0,
+					storageKey: name,
+				}).init();
+			}),
 		)
-			.then(() => cfg.set('hydrated', true))
+			.then(() => {
+				cfg.set('hydrated', true);
+			})
 			.catch(err => console.error(err));
 	} else {
 		cfg.set('hydrated', true);
 	}
 
-	return Object.assign(stores, { cfg });
+	if (process.env.NODE_ENV !== 'production' && process.browser) {
+		global.api = stores;
+	}
+
+	return { ...stores, cfg };
 };
 
 export const APIContext = React.createContext();
