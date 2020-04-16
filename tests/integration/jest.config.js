@@ -1,15 +1,10 @@
-module.exports = {
-	testMatch: ['<rootDir>/*/**/*.[jt]s?(x)'],
+const path = require('path');
 
-	preset: 'jest-puppeteer',
+module.exports = {
+	rootDir: path.join(__dirname, './../../'),
+
+	testMatch: ['<rootDir>/tests/integration/*/**/*.[jt]s?(x)'],
 
 	// A path to a module which exports an async function that is triggered once before all test suites
-	globalSetup: '<rootDir>/setup.js',
-
-	// A path to a module which exports an async function that is triggered once after all test suites
-	globalTeardown: '<rootDir>/teardown.js',
-
-	globals: {
-		__BASE_URL__: 'http://localhost:5123/',
-	},
+	setupFilesAfterEnv: ['<rootDir>/tests/integration/jest.setup.js'],
 };

@@ -3,9 +3,19 @@
 
 module.exports = {
 	clearMocks: true,
-
 	verbose: false,
+	projects: ['./tests/e2e', './tests/integration', './tests/unit'],
+	rootDir: __dirname,
 
-	// The glob patterns Jest uses to detect test files
-	testMatch: ['**/tests/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[tj]s?(x)'],
+	moduleNameMapper: {
+		'@/(.*)': '<rootDir>/source/$1',
+	},
+
+	coverageReporters: ['lcov'],
+	collectCoverage: false,
+	collectCoverageFrom: [
+		'<rootDir>/api/**/*.{js,ts}',
+		'<rootDir>/utils/**/*.{js,ts}',
+		'<rootDir>/components/**/*.{js,ts}',
+	],
 };

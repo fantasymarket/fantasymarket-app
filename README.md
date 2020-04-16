@@ -2,6 +2,7 @@
 
 ![Node.js CI](https://github.com/explodingcamera/fantasymarket-app/workflows/Node.js%20CI/badge.svg?branch=develop)
 ![netlify](https://img.shields.io/netlify/306db36d-47d1-40d3-9f52-c52a5b7633e5?style=flat)
+[![codecov](https://codecov.io/gh/explodingcamera/fantasymarket-app/branch/develop/graph/badge.svg?token=dI7hJAkn8Q)](https://codecov.io/gh/explodingcamera/fantasymarket-app)
 
 ## Table of Contents
 
@@ -19,7 +20,8 @@
 ├── [pages](packages/) &nbsp;&nbsp;&nbsp;&nbsp; _# page components_
 ├── [utils](utils/) &nbsp;&nbsp;&nbsp;&nbsp; _# utility functions_
 ├── [tests](tests/) &nbsp;&nbsp;&nbsp;&nbsp; _# tests_
-│   ├── integration &nbsp; _# integration/e2e tests_
+│   ├── e2e &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _# e2e tests_
+│   ├── integration &nbsp; _# integration tests_
 │   └── unit &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _# unit & snapshot tests_
 └── [public](public/) &nbsp;&nbsp;&nbsp; _# static files_</pre></big>
 

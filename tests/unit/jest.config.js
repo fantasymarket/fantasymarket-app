@@ -1,6 +1,10 @@
+const path = require('path');
+
 module.exports = {
-	testMatch: ['<rootDir>/*/**/*.[jt]s?(x)'],
+	rootDir: path.join(__dirname, './../../'),
+
+	testMatch: ['<rootDir>/tests/unit/*/**/*.[jt]s?(x)'],
 
 	// A path to a module which exports an async function that is triggered once before all test suites
-	setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+	setupFilesAfterEnv: ['<rootDir>/tests/unit/jest.setup.js'],
 };
