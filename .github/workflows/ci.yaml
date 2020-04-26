@@ -8,10 +8,12 @@ jobs:
         node-version: [12.x]
     steps:
     - uses: actions/checkout@v2
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+
     - name: Get yarn cache
       id: yarn-cache
       run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -21,11 +23,24 @@ jobs:
         key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
         restore-keys: |
           ${{ runner.os }}-yarn-
-    - run: yarn install
-    - run: yarn build
-    - run: yarn export
-    - run: yarn test
-    - uses: codecov/codecov-action@v1
+
+    - name: Install libgbm-dev (for puppeteer)
+      run: sudo apt-get install libgbm-dev
+
+    - name: Install NPM dependencies
+      run: yarn install
+
+    - name: Build Website
+      run: yarn build
+
+    - name: Export Website as a static Bundle
+      run: yarn export
+
+    - name: Run tests
+      run: yarn test
+
+    - name: Check Test-Coverage
+      uses: codecov/codecov-action@v1
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         file: ./coverage/lcov.info
