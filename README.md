@@ -1,10 +1,15 @@
-<h1>FantasyMarket</h1>
+# FantasyMarket [![Website](https://img.shields.io/website?label=staging&url=http%3A%2F%2Fdevelop--fantasymarket.netlify.com%2F)](https://develop--fantasymarket.netlify.com/) [![Website](https://img.shields.io/website?label=production&url=http%3A%2F%2Ffantasymarket.netlify.com%2F)](https://fantasymarket.netlify.com/)
+
 
 ![Node.js CI](https://github.com/explodingcamera/fantasymarket-app/workflows/Node.js%20CI/badge.svg?branch=develop)
 ![netlify](https://img.shields.io/netlify/306db36d-47d1-40d3-9f52-c52a5b7633e5?style=flat)
 [![codecov](https://codecov.io/gh/explodingcamera/fantasymarket-app/branch/develop/graph/badge.svg?token=dI7hJAkn8Q)](https://codecov.io/gh/explodingcamera/fantasymarket-app)
 ![Security Headers](https://img.shields.io/security-headers?url=http%3A%2F%2Fdevelop--fantasymarket.netlify.com%2F)
 ![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade/develop--fantasymarket.netlify.com?publish)
+
+
+
+
 
 ## Table of Contents
 
