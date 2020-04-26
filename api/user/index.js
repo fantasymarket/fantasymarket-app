@@ -1,5 +1,4 @@
 import { observable, reaction } from 'mobx';
-import ky from 'ky-universal';
 import jwtDecode from 'jwt-decode';
 import { ignore } from 'mobx-sync';
 
@@ -10,7 +9,8 @@ class UserStore {
 	@ignore
 	stores = {};
 
-	constructor(stores, cfg) {
+	constructor({ transportLayer, stores, cfg }) {
+		this.req = transportLayer;
 		this.stores = stores;
 		this.cfg = cfg;
 
@@ -65,39 +65,28 @@ class UserStore {
 	@observable pastUsernames = [];
 
 	login = (username = '', password = '') =>
-		ky
-			.post('user/login', {
-				prefixUrl: this.cfg.get('apiBase'),
-				body: { username, password },
-			})
-			.json()
-			.then(({ token, user }) => {
-				if (!token || !user) {
-					throw new Error('invalid server response');
-				}
+		this.req.user.login({ username, password }).then(({ token, user }) => {
+			if (!token || !user) {
+				throw new Error('invalid server response');
+			}
 
-				this.user = user;
-				this.token = token;
+			this.user = user;
+			this.token = token;
 
-				return user;
-			});
+			return user;
+		});
 
 	create = () =>
-		ky
-			.put('user', {
-				prefixUrl: this.cfg.get('apiBase'),
-			})
-			.json()
-			.then(({ token, user }) => {
-				if (!token || !user) {
-					throw new Error('invalid server response');
-				}
+		this.req.user.create().then(({ token, user }) => {
+			if (!token || !user) {
+				throw new Error('invalid server response');
+			}
 
-				this.user = user;
-				this.token = token;
+			this.user = user;
+			this.token = token;
 
-				return user;
-			});
+			return user;
+		});
 
 	logout = () => {
 		if (this.user.username) this.pastUsernames.push(this.user.username);
@@ -106,4 +95,5 @@ class UserStore {
 		this.authenticated = false;
 	};
 }
+
 export default UserStore;

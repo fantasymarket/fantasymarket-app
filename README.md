@@ -19,6 +19,7 @@
 ├── [components](components/) _# reusable react components_
 ├── [pages](packages/) &nbsp;&nbsp;&nbsp;&nbsp; _# page components_
 ├── [utils](utils/) &nbsp;&nbsp;&nbsp;&nbsp; _# utility functions_
+├── [api](api/) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _# api/state management_
 ├── [tests](tests/) &nbsp;&nbsp;&nbsp;&nbsp; _# tests_
 │   ├── e2e &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _# e2e tests_
 │   ├── integration &nbsp; _# integration tests_
@@ -31,7 +32,6 @@
 
 - [node.js >=12.10](https://nodejs.org/en/download/)
 - [yarn >=1.17](https://classic.yarnpkg.com/en/docs/install)
-- [docker (optional, used to deploy)](https://docs.docker.com/engine/installation/#supported-platforms)
 
 ### 2. Clone Repo
 
@@ -60,9 +60,11 @@ Run all tests + linters
 
 ```bash
 $ yarn lint 			# check for linting errors
-$ yarn test 			# run all tests
-$ yarn test -u			# run all tests & update snapshots
+$ yarn test 			# run tests
+$ yarn test -u			# run tests & update snapshots
+$ yarn test:full 		# run all tests (including e2e/browser testing)
 $ yarn test:unit 		# run unit tests
+$ yarn test:e2e 		# run end-to-end tests
 $ yarn test:integration # run integration tests
 ```
 
