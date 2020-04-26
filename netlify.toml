@@ -1,9 +1,13 @@
 [build]
   publish = "out"
-  command = "yarn run deploy"
+  command = "yarn run deploy:ci"
 
 [[headers]]
   for = "/*"
   [headers.values]
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
+		X-Content-Type-Options = "nosniff"
+		Referrer-Policy = "no-referrer"
+		Content-Security-Policy = "default-src 'self'; style-src 'unsafe-inline'"
+		Feature-Policy = "geolocation 'none'; notifications 'none'; microphone 'none'; camera 'none'; gyroscope 'none'; vibrate 'none';"

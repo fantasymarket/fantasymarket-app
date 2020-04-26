@@ -19,7 +19,25 @@
 		"moduleResolution": "node",
 		"resolveJsonModule": true,
 		"isolatedModules": true,
-		"jsx": "preserve"
+		"jsx": "preserve",
+		"baseUrl": ".",
+		"paths": {
+			"api/*": [
+				"api/*"
+			],
+			"components/*": [
+				"components/*"
+			],
+			"public/*": [
+				"public/*"
+			],
+			"utils/*": [
+				"utils/*"
+			],
+			"tests/*": [
+				"tests/*"
+			]
+		}
 	},
 	"include": [
 		"**/*.ts",
