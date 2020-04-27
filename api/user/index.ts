@@ -1,13 +1,32 @@
 import { observable, reaction } from 'mobx';
 import jwtDecode from 'jwt-decode';
 import { ignore } from 'mobx-sync';
+import TransportLayer from 'api/transport';
+import { API, Config } from '..';
+
+export interface User {
+	username?: string,
+	userID?: string,
+}
 
 class UserStore {
-	@ignore
-	cfg = {};
+	@ignore req: TransportLayer
+	@ignore stores: API = {}
+	@ignore cfg: Config = observable.map();
 
-	@ignore
-	stores = {};
+	// We track the first load, since we
+	// always create a new guest account
+	// for new users
+	@observable firstLoad = true;
+
+	@observable user: User = {};
+	@observable token = '';
+	@observable authenticated = false;
+
+	// We track past usernames so users
+	// don't loose their progress when they forget their username
+	// NOTE: only added after user presses logout and can be cleared on the login screen
+	@observable pastUsernames = [];
 
 	constructor({ transportLayer, stores, cfg }) {
 		this.req = transportLayer;
@@ -43,26 +62,12 @@ class UserStore {
 		);
 	}
 
-	verifyAuthToken = token => {
+	verifyAuthToken = (token: string): boolean => {
 		if (token === '') return false;
 
 		const t = jwtDecode(token);
 		return t?.exp && Date.now() < t.exp * 1000;
 	};
-
-	// We track the first load, since we
-	// always create a new guest account
-	// for new users
-	@observable firstLoad = true;
-
-	@observable user = {};
-	@observable token = '';
-	@observable authenticated = false;
-
-	// We track past usernames so users
-	// don't loose their progress when they forget their username
-	// NOTE: only added after user presses logout and can be cleared on the login screen
-	@observable pastUsernames = [];
 
 	login = (username = '', password = '') =>
 		this.req.user.login({ username, password }).then(({ token, user }) => {
