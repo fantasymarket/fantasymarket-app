@@ -1,6 +1,3 @@
-import UserTransport from './../user';
-import { ObservableMap, observable } from 'mobx';
-
 export const sampleToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwidXNlciI6eyJ1c2VybmFtZSI6ImV4YW1wbGUiLCJ1c2VySUQiOiIxMjMifSwiaWF0IjoxNTE2MjM5MDIyLCJleHAiOjkwMDAwMDAwMDB9.VtmEiR1igdvU84AucOjVWl_C-UNX0_zosUs84FK32fc'
 export const sampleError = "some error"
 export const sampleUser = {

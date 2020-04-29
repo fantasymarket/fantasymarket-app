@@ -5,7 +5,7 @@ import { AsyncTrunk } from 'mobx-sync';
 import { observable, ObservableMap } from 'mobx';
 import UserStore from './user';
 
-import * as transportLayer from './transport';
+import TransportLayer from './transport';
 
 export type Config = ObservableMap<string, ConfigKey>;
 export type ConfigKey = string | number | boolean | object;
@@ -20,6 +20,8 @@ export const init = (): API => {
 		hydrated: false,
 		apiBase: process.env.apiBase,
 	});
+
+	const transportLayer = new TransportLayer({ cfg })
 
 	const stores: API = {};
 	stores.user = new UserStore({ transportLayer, stores, cfg });
