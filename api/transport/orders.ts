@@ -1,5 +1,7 @@
 import ky from 'ky-universal';
 import { ObservableMap } from 'mobx';
+import { PaginatedResponse, PaginatedRequest } from '.';
+import { AssetType } from './assets';
 
 interface OrdersTransport {
 	get({
@@ -20,12 +22,14 @@ export type OrderType = "market" | "limit" | "stop" | "stop-loss";
 export type OrderSide = "buy" | "sell";
 export interface OrderRequest {
 	orderID: string;
+	userID: string;
 	type: OrderType;
 	side: OrderSide;
-	symbol: string;
+	assetSymbol: string;
+	assetType: AssetType,
 	quantity: number;
-	limitPrice: number;
-	stopPrice: number,
+	limitPrice?: number;
+	stopPrice?: number,
 }
 
 export type OrderStatus = "filled" | "canceled" | "waiting";
@@ -36,6 +40,11 @@ export interface OrderResponse extends OrderRequest {
 	status: OrderStatus;
 }
 
+export interface OrdersResponse extends PaginatedResponse {
+	orders: OrderResponse[];
+}
+
+export interface AllOrdersRequest extends Partial<OrderRequest>, PaginatedRequest { }
 
 class OrdersTransport implements OrdersTransport {
 	cfg: ObservableMap;

@@ -1,17 +1,15 @@
 import { observable, reaction } from 'mobx';
-import jwtDecode from 'jwt-decode';
 import { ignore } from 'mobx-sync';
-import TransportLayer from 'api/transport';
-import { API, Config } from '..';
 
-export interface User {
-	username?: string,
-	userID?: string,
-}
+import jwtDecode from 'jwt-decode';
+
+import { Config, Stores } from '..';
+import { User } from 'api/transport/user';
+import TransportLayer from 'api/transport';
 
 class UserStore {
 	@ignore req: TransportLayer
-	@ignore stores: API = {}
+	@ignore stores: Stores = {}
 	@ignore cfg: Config = observable.map();
 
 	// We track the first load, since we
@@ -28,7 +26,11 @@ class UserStore {
 	// NOTE: only added after user presses logout and can be cleared on the login screen
 	@observable pastUsernames = [];
 
-	constructor({ transportLayer, stores, cfg }) {
+	constructor({ transportLayer, stores, cfg }: {
+		transportLayer: TransportLayer;
+		stores: Stores;
+		cfg: Config;
+	}) {
 		this.req = transportLayer;
 		this.stores = stores;
 		this.cfg = cfg;

@@ -1,18 +1,22 @@
 import 'mobx-react-lite/batchingOptOut';
 
 import React, { useContext } from 'react';
+
 import { AsyncTrunk } from 'mobx-sync';
 import { observable, ObservableMap } from 'mobx';
-import UserStore from './user';
 
+import UserStore from './user';
 import TransportLayer from './transport';
 
 export type Config = ObservableMap<string, ConfigKey>;
 export type ConfigKey = string | number | boolean | object;
-export interface API {
+
+export interface Stores {
 	user?: UserStore;
+}
+
+export interface API extends Stores {
 	cfg?: Config;
-	[key: string]: object;
 }
 
 export const init = (): API => {
@@ -23,7 +27,7 @@ export const init = (): API => {
 
 	const transportLayer = new TransportLayer({ cfg })
 
-	const stores: API = {};
+	const stores: Stores = {};
 	stores.user = new UserStore({ transportLayer, stores, cfg });
 
 	if (process.browser) {

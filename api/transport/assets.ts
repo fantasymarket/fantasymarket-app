@@ -14,9 +14,13 @@ interface AssetsTransport {
 export type AssetType = "stock" | "crypto" | "etf"
 export interface AssetResponse {
 	symbol: string;
+	type: AssetType,
 	name: string;
+	description?: string;
 	price: number;
 	price24h?: number;
+	volume?: number;
+	volume24h?: number;
 }
 
 class AssetsTransport implements AssetsTransport {

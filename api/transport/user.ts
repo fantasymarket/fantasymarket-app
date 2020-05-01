@@ -17,19 +17,25 @@ interface UserTransport {
 
 export interface Portfolio {
 	portfolioID: string;
+	userID: string;
+
 	items: PortfolioItem[];
 	balance: number;
 }
+
 export interface PortfolioItem {
 	portfolioItemID: string;
-	symbol: string;
-	type: AssetType;
+	portfolioID: string;
+	assetSymbol: string;
+	assetType: AssetType;
+	amount: number;
 }
 
 export interface User {
 	userID?: string,
 	username?: string,
 }
+
 export interface LoginResponse {
 	token: string;
 	user?: User;

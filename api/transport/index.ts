@@ -22,3 +22,15 @@ export default class TransportLayer {
 		this.user = new UserTransport({ cfg });
 	}
 }
+
+export interface PaginatedRequest {
+	limit?: number;
+	offset?: number;
+	sortBy?: string;
+	order?: "ascending" | "descending"
+}
+
+export interface PaginatedResponse {
+	count: number;
+	total: number;
+}
