@@ -37,12 +37,13 @@ export const init = (): API => {
 					storage: localStorage,
 					delay: 0,
 					storageKey: name,
-				}).init();
+				}).init().then(() => {
+					if (store.hydrated === false)
+						store.hydrated = true
+				});
 			}),
 		)
-			.then(() => {
-				cfg.set('hydrated', true);
-			})
+			.then(() => { })
 			.catch(err => console.error(err));
 	} else {
 		// Stores don't need to be hydrated on the serverside,

@@ -1,4 +1,4 @@
-import { observable, reaction } from 'mobx';
+import { observable, reaction, action, when } from 'mobx';
 import { ignore } from 'mobx-sync';
 
 import jwtDecode from 'jwt-decode';
@@ -10,7 +10,9 @@ import TransportLayer from 'api/transport';
 class UserStore {
 	@ignore req: TransportLayer
 	@ignore stores: Stores = {}
-	@ignore cfg: Config = observable.map();
+	@ignore cfg: Config
+	@ignore @observable hydrated = false;
+	@ignore checkAuthInterval
 
 	// We track the first load, since we
 	// always create a new guest account
@@ -38,30 +40,31 @@ class UserStore {
 		// This is only run in the browser
 		// since we don't want the server to
 		// create guest users for every request
-		if (process.browser) {
-			const disposer = reaction(
-				() => [cfg.get('hydrated'), this.firstLoad],
-				() => {
-					if (!cfg.get('hydrated') || !this.firstLoad) return;
-
-					this.create()
-						.then(() => {
-							this.firstLoad = false;
-							disposer();
-						})
-						.catch(err => console.error(err));
-				},
-			);
-		}
+		when(
+			() => process.browser && this.hydrated && this.firstLoad,
+			() =>
+				this.create()
+					.then(() => {
+						this.firstLoad = false;
+					})
+					.catch(err => console.error(err))
+		)
 
 		reaction(
-			() => [cfg.get('hydrated'), this.token],
-			() => {
-				if (!cfg.get('hydrated')) return;
-				this.authenticated = this.verifyAuthToken(this.token);
-				if (!this.authenticated) this.logout();
-			},
+			() => [this.hydrated, this.token],
+			() => this.checkAuthentification(),
 		);
+
+		this.checkAuthInterval = global.setInterval(this.checkAuthentification, 30 * 1000)
+	}
+
+	// cleanup will clear all currently running intervals
+	cleanup = () => clearInterval(this.checkAuthInterval)
+
+	checkAuthentification = () => {
+		if (!this.hydrated) return;
+		this.authenticated = this.verifyAuthToken(this.token);
+		if (!this.authenticated) this.logout();
 	}
 
 	verifyAuthToken = (token: string): boolean => {

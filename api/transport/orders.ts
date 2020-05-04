@@ -18,7 +18,7 @@ interface OrdersTransport {
 	create(order: OrderRequest): Promise<OrderResponse>;
 }
 
-export type OrderType = "market" | "limit" | "stop" | "stop-loss";
+export type OrderType = "market" | "limit" | "trailing-stop" | "stop-loss";
 export type OrderSide = "buy" | "sell";
 export interface OrderRequest {
 	orderID: string;
