@@ -22,29 +22,29 @@ const stockData = [
 	{
 		name: 'Alphabet Inc.',
 		symbol: 'GOOG',
-		price: '1000',
-		price24h: '-22',
+		price: '10030',
+		price24h: '9300',
 		shares: 10000000,
 	},
 	{
 		name: 'Apple Inc.		',
 		symbol: 'APL',
-		price: '2540',
-		price24h: '12',
+		price: '25430',
+		price24h: '23000',
 		shares: 10000000,
 	},
 	{
 		name: 'Microsoft',
 		symbol: 'MSFT',
-		price: '234234',
-		price24h: '-12',
+		price: '23432',
+		price24h: '24342',
 		shares: 10000000,
 	},
 	{
 		name: 'ExxonMobil',
 		symbol: 'EXN',
-		price: '2342',
-		price24h: '2000',
+		price: '23342',
+		price24h: '21342',
 		shares: 10000000,
 	},
 ];
@@ -52,7 +52,7 @@ const stockData = [
 const Dashboard = ({ ...rest }) => {
 	return (
 		<DashboardWrapper {...rest}>
-			<Stats total={10000000} total24h={12345} />
+			<Stats balance={10000000} balance24h={10000000 - 12345} />
 			<SectionTitle>Todays Top Gainers/Loosers</SectionTitle>
 			<StockOverview stocks={stockData} />
 			<br />

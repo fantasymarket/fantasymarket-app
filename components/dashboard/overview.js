@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import formatMoney from 'utils/format-money';
 import roundToMultiple from 'utils/round-to-multiple';
+import percentageDifference from 'utils/percentage-difference';
 
 const Wrapper = styled.ul`
 	list-style: none;
@@ -66,10 +67,11 @@ const Overview = ({ stocks }) => {
 				price = parseFloat(price, 10);
 				price24h = parseFloat(price24h, 10);
 
-				const positiv = price + price24h > price;
+				const diff = price - price24h;
+				const positiv = diff > 0;
 				const percentage = roundToMultiple(
 					0.01,
-					(price24h / (price - price24h)) * 100,
+					percentageDifference(price24h, price),
 				);
 
 				return (
@@ -77,7 +79,7 @@ const Overview = ({ stocks }) => {
 						<h1>
 							{name} <span>({symbol})</span>
 						</h1>
-						<h2>{formatMoney(stock.price)}</h2>
+						<h2>{formatMoney(price)}</h2>
 						<h3>
 							<b>{positiv ? 'UP' : 'DOWN'}</b> {positiv && '+'}
 							{percentage}%
@@ -85,27 +87,6 @@ const Overview = ({ stocks }) => {
 					</li>
 				);
 			})}
-			{/* <li className="up">
-				<h1>Apple Inc.</h1>
-				<h2>GOOG</h2>
-				<h3>
-					<b>UP</b> +10%
-				</h3>
-			</li>
-			<li className="down">
-				<h1>Microsoft</h1>
-				<h2>GOOG</h2>
-				<h3>
-					<b>DOWN</b> -10%
-				</h3>
-			</li>
-			<li className="down">
-				<h1>ExxonMobil</h1>
-				<h2>GOOG</h2>
-				<h3>
-					<b>DOWN</b> -10%
-				</h3>
-			</li> */}
 		</Wrapper>
 	);
 };

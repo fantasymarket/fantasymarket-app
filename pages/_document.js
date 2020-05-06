@@ -18,7 +18,7 @@ class MyDocument extends Document {
 						name="description"
 						content="YOUR road to success in the stock market! No signup required, start learning RIGHT AWAY!"
 					/>
-					<link rel="manifest" href="manifest.json" />
+					<link rel="manifest" href="/manifest.json" />
 					<meta name="theme-color" content="#7bffc5" />
 					<meta name="msapplication-navbutton-color" content="#22ff8f" />
 					<meta name="msapplication-TileColor" content="#00aba9" />

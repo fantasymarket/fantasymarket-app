@@ -7,6 +7,10 @@ import StockChart from 'components/chart/stock';
 import News from './news';
 import Sidebar from './sidebar';
 
+import formatMoney from 'utils/format-money';
+import roundToMultiple from 'utils/round-to-multiple';
+import percentageDifference from 'utils/percentage-difference';
+
 const Wrapper = styled.div`
 	display: flex;
 	margin-top: 3rem;
@@ -67,16 +71,29 @@ const Description = styled.div`
 	}
 `;
 
-const Stock = ({ symbol, about, news }) => {
+const Stock = (stock) => {
+
+	let { symbol, name, news, price, price24h, about } = stock;
+
+	price = parseFloat(price, 10);
+	price24h = parseFloat(price24h, 10);
+
+	const diff = price - price24h;
+	const positiv = diff > 0;
+	const percentage = roundToMultiple(
+		0.01,
+		percentageDifference(price24h, price),
+	);
+
 	return (
 		<Wrapper>
 			<ChartWrapper>
 				<ChartTitle>
 					<h1>Alphabet Inc. ({symbol})</h1>
-					<h1>$1029.27</h1>
+					<h1>{formatMoney(price)}</h1>
 					<h3>
-						<span className="up">
-							<b>DOWN</b> -$3.24 (-0.31%)
+						<span className={positiv ? 'up' : 'down'}>
+							<b>{positiv ? 'UP' : 'DOWN'}</b> {formatMoney(diff)} ({positiv && '+'}{percentage}%)
 						</span>{' '}
 						Today
 					</h3>
@@ -108,6 +125,8 @@ Stock.propTypes = {
 
 Stock.defaultProps = {
 	symbol: 'GOOG',
+	price: 102212,
+	price24h: 101212,
 	news: [
 		{
 			title: 'Google did an oopsie',
@@ -116,51 +135,6 @@ Stock.defaultProps = {
 	],
 	about: (
 		<>
-			<b>Alphabet Inc.</b> is an American multinational{' '}
-			<a href="/wiki/Conglomerate_(company)" title="Conglomerate (company)">
-				conglomerate
-			</a>{' '}
-			headquartered in{' '}
-			<a
-				href="/wiki/Mountain_View,_California"
-				title="Mountain View, California"
-			>
-				Mountain View, California
-			</a>
-			. It was created through a{' '}
-			<a href="/wiki/Restructuring" title="Restructuring">
-				corporate restructuring
-			</a>{' '}
-			of Google on October 2, 2015, and became the parent company of Google and
-			several former Google{' '}
-			<a href="/wiki/Subsidiary" title="Subsidiary">
-				subsidiaries
-			</a>
-			. The two founders of Google assumed executive roles in the new company,
-			with{' '}
-			<a href="/wiki/Larry_Page" title="Larry Page">
-				Larry Page
-			</a>{' '}
-			serving as CEO and{' '}
-			<a href="/wiki/Sergey_Brin" title="Sergey Brin">
-				Sergey Brin
-			</a>{' '}
-			as president. Alphabet is the{' '}
-			<a
-				href="/wiki/List_of_the_largest_information_technology_companies"
-				className="mw-redirect"
-				title="List of the largest information technology companies"
-			>
-				world's fourth-largest technology company
-			</a>{' '}
-			by revenue and one of the{' '}
-			<a
-				href="/wiki/List_of_public_corporations_by_market_capitalization"
-				title="List of public corporations by market capitalization"
-			>
-				world's most valuable companies
-			</a>
-			.
 		</>
 	),
 };

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import Layout from 'components/layout';
 import { useRouter } from 'next/router';
 
-// Import BasicStockComponent from 'components/chart/stock-minimal';
 import Stock from 'components/stock';
 
 const Wrapper = styled(Layout)``;

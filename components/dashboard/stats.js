@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import formatMoney from 'utils/format-money';
 import roundToMultiple from 'utils/round-to-multiple';
+import percentageDifference from 'utils/percentage-difference';
 
 const Wrapper = styled.div`
 	display: flex;
@@ -85,27 +86,28 @@ const Wrapper = styled.div`
 	}
 `;
 
-var Stats = ({ total, total24h }) => {
-	total = parseFloat(total, 10);
-	total24h = parseFloat(total24h, 10);
+var Stats = ({ balance, balance24h }) => {
+	balance = parseFloat(balance, 10);
+	balance24h = parseFloat(balance24h, 10);
 
-	const positiv = total + total24h > total;
+	const diff = balance - balance24h
+	const positiv = diff > 0;
 	const percentage = roundToMultiple(
 		0.01,
-		(total24h / (total - total24h)) * 100,
+		percentageDifference(balance24h, balance),
 	);
 
 	return (
 		<Wrapper>
 			<div>
-				<h1>Total Value</h1>
-				<h2>{formatMoney(total)}</h2>
+				<h1>balance Value</h1>
+				<h2>{formatMoney(balance)}</h2>
 
 				{percentage !== 0 && (
 					<h3 className={positiv ? 'up' : 'down'}>
 						<b>{positiv ? 'UP' : 'DOWN'}</b>
 						{positiv && '+'}
-						{formatMoney(total24h)} ({positiv && '+'}
+						{formatMoney(diff)} ({positiv && '+'}
 						{percentage}%) in the last 24h
 					</h3>
 				)}
@@ -115,9 +117,8 @@ var Stats = ({ total, total24h }) => {
 };
 
 Stats.propTypes = {
-	total: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-	total24h: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
-		.isRequired,
+	balance: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+	balance24h: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
 };
 
 export default Stats;
