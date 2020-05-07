@@ -6,7 +6,7 @@
 [![codecov](https://codecov.io/gh/fantasymarket/fantasymarket-app/branch/develop/graph/badge.svg)](https://codecov.io/gh/fantasymarket/fantasymarket-app)
 [![Security Headers](https://img.shields.io/security-headers?url=http%3A%2F%2Fdevelop--fantasymarket.netlify.app%2F)](https://securityheaders.com/?q=http%3A%2F%2Fdevelop--fantasymarket.netlify.app%2F&followRedirects=on)
 [![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade/develop--fantasymarket.netlify.app?publish)](https://observatory.mozilla.org/analyze/develop--fantasymarket.netlify.app)
-
+[![Maintainability](https://api.codeclimate.com/v1/badges/0b67777ccab5a08e0546/maintainability)](https://codeclimate.com/github/fantasymarket/fantasymarket-app/maintainability)
 
 ## Table of Contents
 
