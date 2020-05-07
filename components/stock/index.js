@@ -4,8 +4,8 @@ import styled from 'styled-components';
 
 import StockChart from 'components/chart/stock';
 
-import News from './news';
 import Sidebar from './sidebar';
+import Description from './description';
 
 import formatMoney from 'utils/format-money';
 import roundToMultiple from 'utils/round-to-multiple';
@@ -58,23 +58,7 @@ const ChartTitle = styled.div`
 	}
 `;
 
-const Description = styled.div`
-	display: flex;
-	margin-top: 3rem;
-
-	> div {
-		flex: 1;
-	}
-
-	@media (max-width: 750px) {
-		flex-wrap: wrap;
-	}
-`;
-
-const Stock = (stock) => {
-
-	let { symbol, name, news, price, price24h, about } = stock;
-
+const Stock = ({ symbol, name, news, price, price24h, about }) => {
 	price = parseFloat(price, 10);
 	price24h = parseFloat(price24h, 10);
 
@@ -89,28 +73,21 @@ const Stock = (stock) => {
 		<Wrapper>
 			<ChartWrapper>
 				<ChartTitle>
-					<h1>Alphabet Inc. ({symbol})</h1>
+					<h1>
+						{name} ({symbol})
+					</h1>
 					<h1>{formatMoney(price)}</h1>
 					<h3>
 						<span className={positiv ? 'up' : 'down'}>
-							<b>{positiv ? 'UP' : 'DOWN'}</b> {formatMoney(diff)} ({positiv && '+'}{percentage}%)
+							<b>{positiv ? 'UP' : 'DOWN'}</b> {formatMoney(diff)} (
+							{positiv && '+'}
+							{percentage}%)
 						</span>{' '}
 						Today
 					</h3>
 				</ChartTitle>
 				<StyledStockChart />
-				<Description>
-					<div>
-						<h1>News</h1>
-						<News news={news} />
-					</div>
-					<div>
-						<h1>About</h1>
-						<div>
-							<p>{about}</p>
-						</div>
-					</div>
-				</Description>
+				<Description news={news} about={about} />
 			</ChartWrapper>
 			<Sidebar />
 		</Wrapper>
@@ -119,8 +96,11 @@ const Stock = (stock) => {
 
 Stock.propTypes = {
 	symbol: PropTypes.string,
-	news: PropTypes.any,
+	name: PropTypes.string,
+	news: PropTypes.array,
 	about: PropTypes.node,
+	price: PropTypes.number,
+	price24h: PropTypes.number,
 };
 
 Stock.defaultProps = {
@@ -133,10 +113,7 @@ Stock.defaultProps = {
 			content: 'Big oof',
 		},
 	],
-	about: (
-		<>
-		</>
-	),
+	about: null,
 };
 
 export default Stock;

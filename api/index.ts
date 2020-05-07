@@ -19,17 +19,7 @@ export interface API extends Stores {
 	cfg?: Config;
 }
 
-export const init = (): API => {
-	const cfg = observable.map({
-		hydrated: false,
-		apiBase: process.env.apiBase,
-	});
-
-	const transportLayer = new TransportLayer({ cfg })
-
-	const stores: Stores = {};
-	stores.user = new UserStore({ transportLayer, stores, cfg });
-
+export const hydrateStores = (stores: Stores): void => {
 	if (process.browser) {
 		Promise.all(
 			Object.entries(stores).map(([name, store]) => {
@@ -37,19 +27,35 @@ export const init = (): API => {
 					storage: localStorage,
 					delay: 0,
 					storageKey: name,
-				}).init().then(() => {
-					if (store.hydrated === false)
-						store.hydrated = true
-				});
+				})
+					.init()
+					.then(() => {
+						if (store.hydrated === false) store.hydrated = true;
+					});
 			}),
-		)
-			.then(() => { })
-			.catch(err => console.error(err));
+		).catch(err => console.error(err));
 	} else {
 		// Stores don't need to be hydrated on the serverside,
 		// so we just pretend they were successfully hydrated
-		cfg.set('hydrated', true);
+
+		Object.entries(stores).forEach(([, store]) => {
+			if (store.hydrated === false) store.hydrated = true;
+		});
 	}
+};
+
+export const init = (): API => {
+	const cfg = observable.map({
+		hydrated: false,
+		apiBase: process.env.apiBase,
+	});
+
+	const transportLayer = new TransportLayer({ cfg });
+
+	const stores: Stores = {};
+	stores.user = new UserStore({ transportLayer, stores, cfg });
+
+	hydrateStores(stores);
 
 	const api: API = { ...stores, cfg };
 

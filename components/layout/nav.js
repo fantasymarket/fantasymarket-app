@@ -107,6 +107,29 @@ const Username = styled.h2`
 	margin-right: 0.2rem;
 `;
 
+const routes = [
+	{
+		name: 'dashboard',
+		url: '/dashboard',
+	},
+	{
+		name: 'portfolio',
+		url: '/portfolio',
+	},
+	{
+		name: 'orders',
+		url: '/orders',
+	},
+	{
+		name: 'help',
+		url: '/help',
+	},
+	{
+		name: 'settings',
+		url: '/settings',
+	},
+];
+
 const Nav = () => {
 	const router = useRouter();
 	const api = useAPI();
@@ -120,47 +143,18 @@ const Nav = () => {
 			</Link>
 
 			<ul>
-				<li
-					className={
-						router?.pathname?.startsWith?.('/dashboard') ? 'active' : undefined
-					}
-				>
-					<Link href="/dashboard">
-						<a>dashboard</a>
-					</Link>
-				</li>
-				{/* <li className={router?.pathname?.startsWith?.('/stocks') ? 'active'}:undefined>
-					<Link href="/stocks">
-						<a>stocks</a>
-					</Link>
-				</li> */}
-				<li
-					className={
-						router?.pathname?.startsWith?.('/portfolio') ? 'active' : undefined
-					}
-				>
-					<Link href="/portfolio">
-						<a>portfolio</a>
-					</Link>
-				</li>
-				<li
-					className={
-						router?.pathname?.startsWith?.('/portfolio') ? 'active' : undefined
-					}
-				>
-					<Link href="/orders">
-						<a>orders</a>
-					</Link>
-				</li>
-				<li
-					className={
-						router?.pathname?.startsWith?.('/help') ? 'active' : undefined
-					}
-				>
-					<Link href="/help">
-						<a>help</a>
-					</Link>
-				</li>
+				{routes.map(({ url, name }) => (
+					<li
+						key={name}
+						className={
+							router?.pathname?.startsWith?.(url) ? 'active' : undefined
+						}
+					>
+						<Link href={url}>
+							<a>{name}</a>
+						</Link>
+					</li>
+				))}
 				<li
 					className={
 						(router?.pathname?.startsWith?.('/settings')

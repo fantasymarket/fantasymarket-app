@@ -1,5 +1,5 @@
 import React from 'react';
-// TODO: import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -43,42 +43,56 @@ const Wrapper = styled.div`
 	}
 `;
 
-const News = () => {
+const sampleNews = [
+	{
+		date: '6. September 2020',
+		title: 'Presidential Election Looking good for the Liberal Candidate',
+		body: '',
+	},
+	{
+		date: '20. April 2020',
+		title: 'Deadly desease ravashes the country with 20 confirmed death - UK',
+		body: '',
+	},
+	{
+		date: '21. Juli 2020',
+		title: 'War threats between Canada and Alaska',
+		body: '',
+	},
+	{
+		date: '20. May 2020',
+		title:
+			'Increase travel as the first Olympic games in Hawaii are taking place',
+		body: '',
+	},
+	{
+		date: '20. January 2021',
+		title: 'Terror! As a horse runs around loose in a hospital',
+		body: '',
+	},
+];
+
+const News = ({ news }) => {
 	return (
 		<Wrapper>
 			<ul>
-				<li>
-					<time>6. September 2020</time>
-					<h1>Presidential Election Looking good for the Liberal Candidate</h1>
-				</li>
-				<li>
-					<time>20. April 2020</time>
-					<h1>
-						Deadly desease ravashes the country with 20 confirmed death - UK
-					</h1>
-				</li>
-				<li>
-					<time>21. Juli 2020</time>
-					<h1>War threats between Canada and Alaska</h1>
-				</li>
-				<li>
-					<time>20. May 2020</time>
-					<h1>
-						Increase travel as the first Olympic games in Hawaii are taking
-						place
-					</h1>
-				</li>
-				<li>
-					<time>20. January 2017</time>
-					<h1>Terror! As a horse runs around loose in a hospital</h1>
-				</li>
+				{news.map(({ date, title }) => (
+					<li key={title.replaceAll(' ', '')}>
+						<time>{date}</time>
+						<h1>{title}</h1>
+					</li>
+				))}
 			</ul>
 		</Wrapper>
 	);
 };
 
 News.propTypes = {
-	// TODO: news: PropTypes.array.isRequired,
+	news: PropTypes.array,
+};
+
+News.defaultProps = {
+	news: sampleNews,
 };
 
 export default News;
