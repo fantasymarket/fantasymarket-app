@@ -78,7 +78,7 @@ const News = () => {
 };
 
 News.propTypes = {
-	// TODO: mews: PropTypes.array.isRequired,
+	// TODO: news: PropTypes.array.isRequired,
 };
 
 export default News;

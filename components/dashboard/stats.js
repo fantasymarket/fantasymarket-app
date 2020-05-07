@@ -100,7 +100,7 @@ var Stats = ({ balance, balance24h }) => {
 	return (
 		<Wrapper>
 			<div>
-				<h1>balance Value</h1>
+				<h1>Total Portfolio Value</h1>
 				<h2>{formatMoney(balance)}</h2>
 
 				{percentage !== 0 && (
