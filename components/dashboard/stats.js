@@ -90,7 +90,7 @@ var Stats = ({ balance, balance24h }) => {
 	balance = parseFloat(balance, 10);
 	balance24h = parseFloat(balance24h, 10);
 
-	const diff = balance - balance24h
+	const diff = balance - balance24h;
 	const positiv = diff > 0;
 	const percentage = roundToMultiple(
 		0.01,
@@ -118,7 +118,8 @@ var Stats = ({ balance, balance24h }) => {
 
 Stats.propTypes = {
 	balance: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-	balance24h: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+	balance24h: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+		.isRequired,
 };
 
 export default Stats;

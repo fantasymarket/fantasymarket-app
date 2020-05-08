@@ -86,11 +86,13 @@ const Performance = styled.div`
 	}
 `;
 
-const Sidebar = ({ stats, changes, info }) => {
+const Sidebar = ({ stats, changes, info, onTradeClick }) => {
 	return (
 		<SidebarWrapper>
 			<Performance>
-				<Button primary>TRADE</Button>
+				<Button primary onClick={onTradeClick}>
+					TRADE
+				</Button>
 				<br />
 				<br />
 				<h2 className="price">Change</h2>
@@ -143,6 +145,7 @@ Sidebar.propTypes = {
 	info: PropTypes.array,
 	changes: PropTypes.array,
 	stats: PropTypes.array,
+	onTradeClick: PropTypes.func.isRequired,
 };
 
 Sidebar.defaultProps = {

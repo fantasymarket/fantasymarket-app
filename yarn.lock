@@ -2425,10 +2425,10 @@
     dom-accessibility-api "^0.4.3"
     pretty-format "^26.0.1"
 
-"@testing-library/jest-dom@5.6.0":
-  version "5.6.0"
-  resolved "https://registry.yarnpkg.com/@testing-library/jest-dom/-/jest-dom-5.6.0.tgz#85b2391233100794e381770de0f2a5b8fd16c8e2"
-  integrity sha512-9PRpjREPL8EnullMLxAVJhPEBaRJuV06as7KU9Zgw+3rRrcMAZiPTcrfq6qMAbZVQEnruQav7Zb5lJfEnQDCuw==
+"@testing-library/jest-dom@5.7.0":
+  version "5.7.0"
+  resolved "https://registry.yarnpkg.com/@testing-library/jest-dom/-/jest-dom-5.7.0.tgz#b2e2acb4c088a293d52ba2cd1674b526282a2f87"
+  integrity sha512-ZV0OtBXmTDEDxrIbqJXiOcXCZ6aIMpmDlmfHj0hGNsSuQ/nX0qPAs9HWmCzXvPfTrhufTiH2nJLvDJu/LgHzwQ==
   dependencies:
     "@babel/runtime" "^7.9.2"
     "@types/testing-library__jest-dom" "^5.0.2"
@@ -4761,7 +4761,12 @@ caniuse-api@^3.0.0:
     lodash.memoize "^4.1.2"
     lodash.uniq "^4.5.0"
 
-caniuse-lite@1.0.30001053, caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000989, caniuse-lite@^1.0.30001017, caniuse-lite@^1.0.30001039, caniuse-lite@^1.0.30001043:
+caniuse-lite@1.0.30001054:
+  version "1.0.30001054"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001054.tgz#7e82fc42d927980b0ce1426c4813df12381e1a75"
+  integrity sha512-jiKlTI6Ur8Kjfj8z0muGrV6FscpRvefcQVPSuMuXnvRCfExU7zlVLNjmOz1TnurWgUrAY7MMmjyy+uTgIl1XHw==
+
+caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000989, caniuse-lite@^1.0.30001017, caniuse-lite@^1.0.30001039, caniuse-lite@^1.0.30001043:
   version "1.0.30001053"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001053.tgz#b7ae027567ce2665b965b0437e4512b296ccd20d"
   integrity sha512-HtV4wwIZl6GA4Oznse8aR274XUOYGZnQLcf/P8vHgmlfqSNelwD+id8CyHOceqLqt9yfKmo7DUZTh1EuS9pukg==
@@ -11584,6 +11589,13 @@ next@9.3.6:
     webpack "4.43.0"
     webpack-sources "1.4.3"
 
+nextjs-progressbar@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/nextjs-progressbar/-/nextjs-progressbar-0.0.5.tgz#0116731b77838d05e9be520c3a894975fe4bf01c"
+  integrity sha512-TH2Xx84+/mJz3TQDrfobL3vwDFxHXnmHjsn3D1214ZpclBHDiZBfVbyWLnbaGNuTgJ9ww7T0ejWJj+jl0B2oLg==
+  dependencies:
+    nprogress "^0.2.0"
+
 nice-try@^1.0.4:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
@@ -11783,6 +11795,11 @@ npmlog@^4.1.2:
     console-control-strings "~1.1.0"
     gauge "~2.7.3"
     set-blocking "~2.0.0"
+
+nprogress@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/nprogress/-/nprogress-0.2.0.tgz#cb8f34c53213d895723fcbab907e9422adbcafb1"
+  integrity sha1-y480xTIT2JVyP8urkH6UIq28r7E=
 
 nth-check@^1.0.2, nth-check@~1.0.1:
   version "1.0.2"
@@ -13453,10 +13470,10 @@ react-helmet-async@^1.0.2:
     react-fast-compare "^3.0.1"
     shallowequal "^1.1.0"
 
-react-hook-form@^5.6.2:
-  version "5.6.2"
-  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-5.6.2.tgz#6a356d4bc61fbd7329b99ea2fb7239cdddeac31c"
-  integrity sha512-YIwXawj1ntsx+syqXptHEOpFU3rPdzJRC3s/oJ9Ga9HH8DqGt35b/7CeSnwYOr1X4c4gWM3OsDExtC1nsTHcwQ==
+react-hook-form@^5.6.3:
+  version "5.6.3"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-5.6.3.tgz#fb807450730daab8020d18cf7106754baa33e7d3"
+  integrity sha512-qqcoDM5UD69aUMQejhx90XM4gXUAlVRH3mDRa9TDZINK6FAM7EjReJKjiIZzU9mShjjKTQl3RpiHKaKzZqI7RA==
 
 react-hotkeys@2.0.0:
   version "2.0.0"

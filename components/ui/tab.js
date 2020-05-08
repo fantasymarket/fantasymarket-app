@@ -23,7 +23,7 @@ const TabButton = styled.button`
 	color: white;
 	outline: none;
 
-	transition: all 0.3s ease-in-out;
+	transition: all 0.1s ease-in-out;
 
 	${props =>
 		props.active &&
@@ -37,7 +37,6 @@ const Tab = ({ items, onChange, value }) => {
 	return (
 		<TabWrapper>
 			{items.map(item => {
-				console.log(value, item.value);
 				return (
 					<TabButton
 						key={item.key}
@@ -57,8 +56,13 @@ const Tab = ({ items, onChange, value }) => {
 
 Tab.propTypes = {
 	items: PropTypes.array.isRequired,
-	onChange: PropTypes.func.isRequired,
-	value: PropTypes.string.isRequired,
+	onChange: PropTypes.func,
+	value: PropTypes.string,
+};
+
+Tab.defaultProps = {
+	onChange: () => {},
+	value: '',
 };
 
 export default Tab;

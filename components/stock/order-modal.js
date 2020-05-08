@@ -8,11 +8,19 @@ import { Modal, ModalActions } from 'components/modal';
 import Button from 'components/ui/button';
 import Tab from 'components/ui/tab';
 
-const OrderWrapper = styled(Modal)``;
+const OrderWrapper = styled(Modal)`
+	> div > h1 {
+		margin-bottom: 1rem;
+	}
+`;
+
+const Option = styled.div`
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+`;
 
 const Order = ({ active, onToggle, stock }) => {
-	// TODO: const api = useAPI();
-
 	const { handleSubmit, watch, control, errors } = useForm();
 	const onSubmit = values => console.log(values);
 
@@ -22,20 +30,46 @@ const Order = ({ active, onToggle, stock }) => {
 	return (
 		active && (
 			<OrderWrapper active={active} onSubmit={handleSubmit(onSubmit)}>
-				{stock.symbol}
-				<Controller
-					as={<Tab items={{ buy: 'BUY', sell: 'SELL' }} />}
-					name="type"
-					control={control}
-					defaultValue="buy"
-					rules={{ required: true }}
-					onChange={value => value}
-				/>
-				Type: {watchType} {'\n'}
-				Side: {watchSide} {'\n'}
+				<h1>
+					{stock.name} ({stock.symbol})
+				</h1>
+				<Option>
+					<h2>Side</h2>
+					<Controller
+						as={
+							<Tab
+								items={[
+									{
+										key: 'buy',
+										value: 'BUY',
+										activeBackground: '#22ff8f',
+										activeColor: 'black',
+									},
+									{
+										key: 'sell',
+										value: 'SELL',
+										activeBackground: 'rgba(255, 0, 0, 0.8)',
+										activeColor: 'white',
+									},
+								]}
+							/>
+						}
+						name="side"
+						control={control}
+						rules={{ required: true }}
+						defaultValue="buy"
+						onChange={([value]) => value}
+					/>
+				</Option>
+				<br />
+				<h3>
+					Type: {watchType} {'\n'}
+				</h3>
+				<h3>
+					Side: {watchSide} {'\n'}
+				</h3>
 				<ModalActions>
-					{JSON.stringify(errors)}
-					<Button disabled>create</Button>
+					<Button disabled={Object.keys(errors).length !== 0}>Create</Button>
 					<Button onClick={onToggle}>Cancel</Button>
 				</ModalActions>
 			</OrderWrapper>

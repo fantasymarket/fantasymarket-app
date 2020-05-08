@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -10,6 +10,8 @@ import Description from './description';
 import formatMoney from 'utils/format-money';
 import roundToMultiple from 'utils/round-to-multiple';
 import percentageDifference from 'utils/percentage-difference';
+
+import OrderModal from './order-modal';
 
 const Wrapper = styled.div`
 	display: flex;
@@ -69,8 +71,16 @@ const Stock = ({ symbol, name, news, price, price24h, about }) => {
 		percentageDifference(price24h, price),
 	);
 
+	const [orderModalActive, setOrderModalActive] = useState(false);
+	const toggleModal = () => setOrderModalActive(a => !a);
+
 	return (
 		<Wrapper>
+			<OrderModal
+				active={orderModalActive}
+				onToggle={toggleModal}
+				stock={{ symbol, name }}
+			/>
 			<ChartWrapper>
 				<ChartTitle>
 					<h1>
@@ -89,7 +99,7 @@ const Stock = ({ symbol, name, news, price, price24h, about }) => {
 				<StyledStockChart />
 				<Description news={news} about={about} />
 			</ChartWrapper>
-			<Sidebar />
+			<Sidebar onTradeClick={toggleModal} />
 		</Wrapper>
 	);
 };
@@ -105,6 +115,7 @@ Stock.propTypes = {
 
 Stock.defaultProps = {
 	symbol: 'GOOG',
+	name: 'Alphabet inc.',
 	price: 102212,
 	price24h: 101212,
 	news: [
@@ -113,7 +124,7 @@ Stock.defaultProps = {
 			content: 'Big oof',
 		},
 	],
-	about: null,
+	about: '',
 };
 
 export default Stock;

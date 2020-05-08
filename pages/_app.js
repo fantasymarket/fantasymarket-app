@@ -7,6 +7,8 @@ import Head from 'next/head';
 import './../public/static/fonts/space-grotesk/styles.css';
 import 'modern-normalize/modern-normalize.css';
 
+import NextNprogress from 'nextjs-progressbar';
+
 import { GlobalStyle } from 'components/css';
 import { APIProvider, init } from 'api';
 
@@ -15,6 +17,14 @@ const CustomApp = ({ Component, pageProps }) => {
 
 	return (
 		<APIProvider value={api}>
+			<NextNprogress
+				options={{
+					showSpinner: false,
+					easing: 'ease',
+					speed: 500,
+					trickleSpeed: 200,
+				}}
+			/>
 			<ThemeProvider theme={{}}>
 				<Head>
 					<title>FantasyMarket</title>

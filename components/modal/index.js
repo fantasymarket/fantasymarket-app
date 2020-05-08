@@ -19,7 +19,7 @@ const ModalWrapper = styled.form`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	backdrop-filter: blur(2px);
+	backdrop-filter: blur(4px);
 
 	> div {
 		min-height: 10rem;
@@ -28,6 +28,7 @@ const ModalWrapper = styled.form`
 		padding: 1rem;
 
 		border: 2px solid rgb(255, 255, 255);
+		border-radius: 8px;
 		backdrop-filter: blur(8px);
 		background: rgba(255, 255, 255, 0.09);
 	}
@@ -71,8 +72,8 @@ Modal.propTypes = {
 Modal.defaultProps = {
 	width: undefined,
 	active: true,
-	onSubmit: () => { },
-	onClickOutside: () => { },
+	onSubmit: () => {},
+	onClickOutside: () => {},
 };
 
 const ModalActions = styled.div`
