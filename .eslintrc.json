@@ -2,15 +2,11 @@
 	"extends": [
 		"@explodingcamera/eslint-config"
 	],
-	"env": {
-		"browser": true,
-		"node": true,
-		"es2020": true
-	},
 	"overrides": [
 		{
 			"files": [
-				"**/tests/**"
+				"**/tests/**",
+				"**/__mocks__/**"
 			],
 			"env": {
 				"browser": true,
@@ -28,33 +24,6 @@
 				"context": true,
 				"jestPuppeteer": true,
 				"__BASE_URL__": "readonly"
-			}
-		},
-		{
-			"files": [
-				"**/*.ts",
-				"**/*.tsx"
-			],
-			"env": {
-				"browser": true,
-				"node": true,
-				"es2020": true
-			},
-			"extends": [
-				"@explodingcamera/eslint-config",
-				"plugin:@typescript-eslint/recommended"
-			],
-			"plugins": [
-				"@typescript-eslint"
-			],
-			"parser": "@typescript-eslint/parser",
-			"parserOptions": {
-				"ecmaVersion": 2018,
-				"sourceType": "module",
-				"ecmaFeatures": {
-					"jsx": true
-				},
-				"warnOnUnsupportedTypeScriptVersion": false
 			}
 		}
 	]

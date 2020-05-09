@@ -27,7 +27,7 @@ export interface PaginatedRequest {
 	limit?: number;
 	offset?: number;
 	sortBy?: string;
-	order?: "ascending" | "descending"
+	order?: 'ascending' | 'descending';
 }
 
 export interface PaginatedResponse {

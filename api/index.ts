@@ -22,7 +22,7 @@ export interface API extends Stores {
 export const hydrateStores = (stores: Stores): void => {
 	if (process.browser) {
 		Promise.all(
-			Object.entries(stores).map(([name, store]) => {
+			Object.entries(stores).map(async ([name, store]) => {
 				return new AsyncTrunk(store, {
 					storage: localStorage,
 					delay: 0,

@@ -4,35 +4,27 @@ import { PaginatedResponse, PaginatedRequest } from '.';
 import { AssetType } from './assets';
 
 interface OrdersTransport {
-	get({
-		orderID,
-	}: {
-		orderID: string;
-	}): Promise<OrderResponse>;
-	all(): Promise<OrderResponse[]>;
-	cancel({
-		orderID,
-	}: {
-		orderID: string;
-	}): Promise<OrderResponse>;
-	create(order: OrderRequest): Promise<OrderResponse>;
+	get: ({ orderID }: { orderID: string }) => Promise<OrderResponse>;
+	all: () => Promise<OrderResponse[]>;
+	cancel: ({ orderID }: { orderID: string }) => Promise<OrderResponse>;
+	create: (order: OrderRequest) => Promise<OrderResponse>;
 }
 
-export type OrderType = "market" | "limit" | "trailing-stop" | "stop-loss";
-export type OrderSide = "buy" | "sell";
+export type OrderType = 'market' | 'limit' | 'trailing-stop' | 'stop-loss';
+export type OrderSide = 'buy' | 'sell';
 export interface OrderRequest {
 	orderID: string;
 	userID: string;
 	type: OrderType;
 	side: OrderSide;
 	assetSymbol: string;
-	assetType: AssetType,
+	assetType: AssetType;
 	quantity: number;
 	limitPrice?: number;
-	stopPrice?: number,
+	stopPrice?: number;
 }
 
-export type OrderStatus = "filled" | "canceled" | "waiting";
+export type OrderStatus = 'filled' | 'canceled' | 'waiting';
 export interface OrderResponse extends OrderRequest {
 	createdAt: string;
 	filledAt?: string;
@@ -44,7 +36,9 @@ export interface OrdersResponse extends PaginatedResponse {
 	orders: OrderResponse[];
 }
 
-export interface AllOrdersRequest extends Partial<OrderRequest>, PaginatedRequest { }
+export interface AllOrdersRequest
+	extends Partial<OrderRequest>,
+		PaginatedRequest {}
 
 class OrdersTransport implements OrdersTransport {
 	cfg: ObservableMap;
@@ -53,43 +47,34 @@ class OrdersTransport implements OrdersTransport {
 		this.cfg = cfg;
 	}
 
-	get = ({
-		orderID,
-	}: {
-		orderID: string;
-	}): Promise<OrderResponse> =>
+	get = async ({ orderID }: { orderID: string }): Promise<OrderResponse> =>
 		ky
 			.get(`orders/${encodeURIComponent(orderID)}`, {
 				prefixUrl: this.cfg.get('apiBase'),
 			})
 			.json();
 
-	all = (): Promise<OrderResponse[]> =>
+	all = async (): Promise<OrderResponse[]> =>
 		ky
 			.get('orders', {
 				prefixUrl: this.cfg.get('apiBase'),
 			})
 			.json();
 
-	cancel = ({
-		orderID,
-	}: {
-		orderID: string;
-	}): Promise<OrderResponse> =>
+	cancel = async ({ orderID }: { orderID: string }): Promise<OrderResponse> =>
 		ky
-			.get('orders', {
+			.delete(`orders/${encodeURIComponent(orderID)}`, {
 				prefixUrl: this.cfg.get('apiBase'),
 			})
 			.json();
 
-	create = (order: OrderRequest): Promise<OrderResponse> =>
+	create = async (order: OrderRequest): Promise<OrderResponse> =>
 		ky
 			.put('orders', {
 				prefixUrl: this.cfg.get('apiBase'),
 				body: JSON.stringify(order),
 			})
 			.json();
-
 }
 
 export default OrdersTransport;

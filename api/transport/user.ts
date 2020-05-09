@@ -3,16 +3,16 @@ import { ObservableMap } from 'mobx';
 import { AssetType } from './assets';
 
 interface UserTransport {
-	login({
+	login: ({
 		username,
 		password,
 	}: {
 		username: string;
 		password: string;
-	}): Promise<LoginResponse>;
-	create(): Promise<LoginResponse>;
-	get(userID: string): Promise<User>;
-	portfolio(userID: string): Promise<Portfolio>
+	}) => Promise<LoginResponse>;
+	create: () => Promise<LoginResponse>;
+	get: (userID: string) => Promise<User>;
+	portfolio: (userID: string) => Promise<Portfolio>;
 }
 
 export interface Portfolio {
@@ -32,8 +32,8 @@ export interface PortfolioItem {
 }
 
 export interface User {
-	userID?: string,
-	username?: string,
+	userID?: string;
+	username?: string;
 }
 
 export interface LoginResponse {
@@ -49,7 +49,7 @@ class UserTransport implements UserTransport {
 		this.cfg = cfg;
 	}
 
-	login = ({
+	login = async ({
 		username,
 		password,
 	}: {
@@ -63,21 +63,21 @@ class UserTransport implements UserTransport {
 			})
 			.json();
 
-	create = (): Promise<LoginResponse> =>
+	create = async (): Promise<LoginResponse> =>
 		ky
 			.post('user/login', {
 				prefixUrl: this.cfg.get('apiBase'),
 			})
 			.json();
 
-	get = (userID: string): Promise<User> =>
+	get = async (userID: string): Promise<User> =>
 		ky
 			.get(`user/${encodeURIComponent(userID)}`, {
 				prefixUrl: this.cfg.get('apiBase'),
 			})
 			.json();
 
-	portfolio = (userID: string): Promise<Portfolio> =>
+	portfolio = async (userID: string): Promise<Portfolio> =>
 		ky
 			.get(`user/${encodeURIComponent(userID)}/portfolio`, {
 				prefixUrl: this.cfg.get('apiBase'),

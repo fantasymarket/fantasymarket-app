@@ -1,4 +1,4 @@
-import { observable, reaction, action, when } from 'mobx';
+import { observable, reaction, when } from 'mobx';
 import { ignore } from 'mobx-sync';
 
 import jwtDecode from 'jwt-decode';
@@ -46,7 +46,7 @@ class UserStore {
 		// create guest users for every request
 		when(
 			() => process.browser && this.hydrated && this.firstLoad,
-			() =>
+			async () =>
 				this.create()
 					.then(() => {
 						this.firstLoad = false;
@@ -66,9 +66,9 @@ class UserStore {
 	}
 
 	// Cleanup will clear all currently running intervals
-	cleanup = () => clearInterval(this.checkAuthInterval);
+	cleanup = (): void => clearInterval(this.checkAuthInterval);
 
-	checkAuthentification = () => {
+	checkAuthentification = (): void => {
 		if (!this.hydrated) return;
 		this.authenticated = this.verifyAuthToken(this.token);
 		if (!this.authenticated) this.logout();
@@ -81,7 +81,7 @@ class UserStore {
 		return t?.exp && Date.now() < t.exp * 1000;
 	};
 
-	login = (username = '', password = '') =>
+	login = async (username = '', password = ''): Promise<User> =>
 		this.req.user.login({ username, password }).then(({ token, user }) => {
 			if (!token || !user) {
 				throw new Error('invalid server response');
@@ -93,7 +93,7 @@ class UserStore {
 			return user;
 		});
 
-	create = () =>
+	create = async (): Promise<User> =>
 		this.req.user.create().then(({ token, user }) => {
 			if (!token || !user) {
 				throw new Error('invalid server response');
@@ -105,7 +105,7 @@ class UserStore {
 			return user;
 		});
 
-	logout = () => {
+	logout = (): void => {
 		if (this.user.username) this.pastUsernames.push(this.user.username);
 		this.user = {};
 		this.token = '';
