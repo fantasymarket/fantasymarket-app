@@ -1,6 +1,10 @@
 const path = require('path');
 
 module.exports = {
+	moduleNameMapper: {
+		'\\.(css|less|sass|scss)$': '<rootDir>/tests/__mocks__/style-mock.js',
+	},
+
 	rootDir: path.join(__dirname, './../../'),
 
 	testMatch: ['<rootDir>/tests/unit/*/**/*.[jt]s?(x)'],

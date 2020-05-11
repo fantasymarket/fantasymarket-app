@@ -7,10 +7,6 @@ module.exports = {
 	projects: ['./tests/e2e', './tests/integration', './tests/unit'],
 	rootDir: __dirname,
 
-	moduleNameMapper: {
-		'@/(.*)': '<rootDir>/source/$1',
-	},
-
 	coverageReporters: ['lcov'],
 	collectCoverage: false,
 	collectCoverageFrom: [

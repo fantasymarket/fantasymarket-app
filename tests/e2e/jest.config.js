@@ -10,6 +10,7 @@ module.exports = {
 	globalTeardown: '<rootDir>/teardown.js',
 
 	globals: {
-		__BASE_URL__: 'http://localhost:5123/',
+		__BASE_URL__: 'http://localhost:43210/',
+		__STORYBOOK_URL__: 'http://localhost:43211/',
 	},
 };

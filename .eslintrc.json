@@ -23,7 +23,8 @@
 				"browser": true,
 				"context": true,
 				"jestPuppeteer": true,
-				"__BASE_URL__": "readonly"
+				"__BASE_URL__": "readonly",
+				"__STORYBOOK_URL__": "readonly"
 			}
 		}
 	]
