@@ -1,6 +1,10 @@
 import { createGlobalStyle, css } from 'styled-components';
 
 export const styles = css`
+	#nprogress .bar {
+		background: linear-gradient(90deg, #00ffff, #00ff67);
+	}
+
 	* {
 		font-family: 'Space Grotesk', monospace;
 	}

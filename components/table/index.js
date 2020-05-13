@@ -1,44 +1,13 @@
 import React from 'react';
 
-import Link from 'next/link';
 import PropTypes from 'prop-types';
 
 import { useTable, useSortBy } from 'react-table';
 import { FiChevronUp, FiChevronDown, FiMinus } from 'react-icons/fi';
 
-import formatMoney from 'utils/format-money';
-import Table from './table';
+import Table from './wrapper';
 
-const columns = [
-	{
-		Header: 'Name',
-		// eslint-disable-next-line react/prop-types
-		accessor: ({ symbol, name }) => (
-			<Link href="/stock/[symbol]" as={`/stock/${symbol}`}>
-				<a>{name}</a>
-			</Link>
-		),
-	},
-	{
-		Header: 'Symbol',
-		accessor: 'symbol',
-	},
-	{
-		Header: 'Price',
-		accessor: 'price',
-		Cell: ({ cell: { value } }) => {
-			return formatMoney(parseFloat(value, 10));
-		},
-	},
-	{
-		Header: 'Market Cap',
-		accessor: ({ price, shares }) => {
-			return formatMoney(parseFloat(price, 10) * shares);
-		},
-	},
-];
-
-const StockTable = ({ data }) => {
+const StockTable = ({ data, columns }) => {
 	const {
 		getTableProps,
 		getTableBodyProps,
@@ -109,6 +78,7 @@ const StockTable = ({ data }) => {
 
 StockTable.propTypes = {
 	data: PropTypes.arrayOf(PropTypes.object).isRequired,
+	columns: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default StockTable;
