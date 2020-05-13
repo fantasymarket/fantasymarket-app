@@ -1,3 +1,22 @@
+## [0.1.0-beta.1](https://github.com/fantasymarket/fantasymarket-app/compare/0.1.0-beta.0...0.1.0-beta.1) (2020-05-13)
+
+
+### Features
+
+* add new input + tab components, implement order modal ([eb64a73](https://github.com/fantasymarket/fantasymarket-app/commit/eb64a73d3926ccad1133bf4e4b56e53df8dbee0e))
+* add progressbar & order modal ([bff865b](https://github.com/fantasymarket/fantasymarket-app/commit/bff865b40f1b2d5c6bee870143c5dad7c7dfef88))
+* add remaining transport layers ([e70019e](https://github.com/fantasymarket/fantasymarket-app/commit/e70019e3b99f2206bc98a2899e43718e188b1bf1))
+* add storybook + security headers ([cbb6d20](https://github.com/fantasymarket/fantasymarket-app/commit/cbb6d2003380af130ab4dfc8011fd9c54798b1e1))
+* change how the price difference is calculated ([41668ea](https://github.com/fantasymarket/fantasymarket-app/commit/41668eaf811769dbcf8e2a82e7ed2d782125e0a8))
+* switch api to typescript + add seperate transport layer ([06125cd](https://github.com/fantasymarket/fantasymarket-app/commit/06125cd5606b920cc9cd404f492ddb46e75a2456))
+
+
+### Bug Fixes
+
+* fix build script ([89a006c](https://github.com/fantasymarket/fantasymarket-app/commit/89a006cca731e5d391280fac38cd5891767afa9f))
+* fix csp headers ([43d961a](https://github.com/fantasymarket/fantasymarket-app/commit/43d961a3440de81515d8dc359ce414ac9dcd4f8a))
+* install missing dependency for google chrome in ci ([f856b38](https://github.com/fantasymarket/fantasymarket-app/commit/f856b38b169bd99f3b7eee01d0782f966c491104))
+
 ## 0.1.0-beta.0 (2020-04-21)
 
 
