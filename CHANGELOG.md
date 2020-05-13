@@ -1,3 +1,10 @@
+## [0.1.0-beta.2](https://github.com/fantasymarket/fantasymarket-app/compare/0.1.0-beta.1...0.1.0-beta.2) (2020-05-13)
+
+
+### Bug Fixes
+
+* fix build ([d04ff50](https://github.com/fantasymarket/fantasymarket-app/commit/d04ff50ead5caebfdeda2235a4bee50dde7dbdbf))
+
 ## [0.1.0-beta.1](https://github.com/fantasymarket/fantasymarket-app/compare/0.1.0-beta.0...0.1.0-beta.1) (2020-05-13)
 
 
