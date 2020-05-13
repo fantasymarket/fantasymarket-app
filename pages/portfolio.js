@@ -1,15 +1,16 @@
 import React from 'react';
 import Layout from 'components/layout';
-import { stockData } from 'components/dashboard';
-import StockTable from 'components/table/stock-table';
 
-const DashboardComponent = () => {
+import StockTable from 'components/table';
+import { columns, sampleData } from 'components/table/columns/stocks';
+
+const PortfolioComponent = () => {
 	return (
 		<Layout>
 			<h1>Your Portfolio</h1>
-			<StockTable data={stockData} />
+			<StockTable data={sampleData} columns={columns} />
 		</Layout>
 	);
 };
 
-export default DashboardComponent;
+export default PortfolioComponent;
