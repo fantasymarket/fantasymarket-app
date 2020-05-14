@@ -6,70 +6,109 @@ import { useForm, Controller } from 'react-hook-form';
 
 import { Modal, ModalActions } from 'components/modal';
 import Button from 'components/ui/button';
+import Input from 'components/ui/input';
 import Tab from 'components/ui/tab';
 
 const OrderWrapper = styled(Modal)`
-	> div > h1 {
-		margin-bottom: 1rem;
+	> div {
+		width: auto;
+		> h1 {
+			margin-bottom: 1rem;
+			> span {
+				font-weight: 200;
+			}
+		}
 	}
 `;
 
-const Option = styled.div`
+const Options = styled.div`
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
+	margin-bottom: 1rem;
+
+	> div:first-of-type {
+		margin-right: 0.8rem;
+	}
+	 {
+	}
 `;
 
-const Order = ({ active, onToggle, stock }) => {
-	const { handleSubmit, watch, control, errors } = useForm();
-	const onSubmit = values => console.log(values);
+const orderSide = [
+	{
+		key: 'buy',
+		value: 'BUY',
+		activeBackground: '#22ff8f',
+		activeColor: 'black',
+	},
+	{
+		key: 'sell',
+		value: 'SELL',
+		activeBackground: 'rgba(255, 0, 0, 0.8)',
+		activeColor: 'white',
+	},
+];
 
-	const watchType = watch('type', 'market');
-	const watchSide = watch('side', 'buy');
+const orderType = [
+	{
+		key: 'market',
+		value: 'market',
+	},
+	{
+		key: 'limit',
+		value: 'limit',
+	},
+	{
+		key: 'stop',
+		value: 'stop',
+	},
+	{
+		key: 'trailing-stop',
+		value: 'trailing stop',
+	},
+];
+
+const Order = ({ active, onToggle, stock }) => {
+	const { handleSubmit, control, errors } = useForm();
+	const onSubmit = values => console.log(values);
 
 	return (
 		active && (
 			<OrderWrapper active={active} onSubmit={handleSubmit(onSubmit)}>
 				<h1>
-					{stock.name} ({stock.symbol})
+					{stock.name} <span>({stock.symbol})</span>
 				</h1>
-				<Option>
-					<h2>Side</h2>
-					<Controller
-						as={
-							<Tab
-								items={[
-									{
-										key: 'buy',
-										value: 'BUY',
-										activeBackground: '#22ff8f',
-										activeColor: 'black',
-									},
-									{
-										key: 'sell',
-										value: 'SELL',
-										activeBackground: 'rgba(255, 0, 0, 0.8)',
-										activeColor: 'white',
-									},
-								]}
-							/>
-						}
-						name="side"
-						control={control}
-						rules={{ required: true }}
-						defaultValue="buy"
-						onChange={([value]) => value}
-					/>
-				</Option>
-				<br />
-				<h3>
-					Type: {watchType} {'\n'}
-				</h3>
-				<h3>
-					Side: {watchSide} {'\n'}
-				</h3>
+				<Options>
+					<div>
+						<h3>Side</h3>
+						<Controller
+							as={<Tab items={orderSide} />}
+							name="side"
+							control={control}
+							rules={{ required: true }}
+							defaultValue="buy"
+							onChange={([value]) => value}
+						/>
+					</div>
+
+					<div>
+						<h3>Type</h3>
+						<Controller
+							as={<Tab items={orderType} />}
+							name="type"
+							control={control}
+							rules={{ required: true }}
+							defaultValue="market"
+							onChange={([value]) => value}
+						/>
+					</div>
+				</Options>
+				<Input type="currency" label="Price per share" />
+				<Input type="number" label="Shares" />
 				<ModalActions>
-					<Button disabled={Object.keys(errors).length !== 0}>Create</Button>
+					<Button primary disabled={Object.keys(errors).length !== 0}>
+						Create
+					</Button>
 					<Button onClick={onToggle}>Cancel</Button>
 				</ModalActions>
 			</OrderWrapper>

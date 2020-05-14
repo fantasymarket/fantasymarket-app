@@ -88,35 +88,54 @@ exports[`Storyshots Icon With SVG 1`] = `
 
 exports[`Storyshots Input With Emoji 1`] = `
 <div
-  className="sc-AxiKw gXLmey"
+  className="sc-AxiKw cZopjF"
+  type="text"
 >
-  <input
-    value="😀 😎 👍 💯"
-  />
+  <div>
+    <input
+      type="text"
+      value="😀 😎 👍 💯"
+    />
+  </div>
 </div>
 `;
 
 exports[`Storyshots Input With Label 1`] = `
 <div
-  className="sc-AxiKw gXLmey"
+  className="sc-AxiKw cZopjF"
+  type="text"
 >
-  <input />
+  <div>
+    <input
+      type="text"
+    />
+  </div>
 </div>
 `;
 
 exports[`Storyshots Input With Placeholder 1`] = `
 <div
-  className="sc-AxiKw gXLmey"
+  className="sc-AxiKw cZopjF"
+  type="text"
 >
-  <input />
+  <div>
+    <input
+      type="text"
+    />
+  </div>
 </div>
 `;
 
 exports[`Storyshots Input With Text 1`] = `
 <div
-  className="sc-AxiKw gXLmey"
+  className="sc-AxiKw cZopjF"
+  type="text"
 >
-  <input />
+  <div>
+    <input
+      type="text"
+    />
+  </div>
 </div>
 `;
 
