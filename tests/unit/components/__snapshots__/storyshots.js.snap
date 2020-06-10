@@ -93,6 +93,8 @@ exports[`Storyshots Input With Emoji 1`] = `
 >
   <div>
     <input
+      aria-label="Emojis"
+      name="emojis"
       type="text"
       value="😀 😎 👍 💯"
     />
@@ -105,8 +107,13 @@ exports[`Storyshots Input With Label 1`] = `
   className="sc-AxiKw cZopjF"
   type="text"
 >
+  <label>
+    Some Label
+  </label>
   <div>
     <input
+      aria-label="Some Label"
+      name="some-label"
       type="text"
     />
   </div>
@@ -120,6 +127,9 @@ exports[`Storyshots Input With Placeholder 1`] = `
 >
   <div>
     <input
+      aria-label="Some Placeholder"
+      name=""
+      placeholder="Some Placeholder"
       type="text"
     />
   </div>
@@ -133,6 +143,8 @@ exports[`Storyshots Input With Text 1`] = `
 >
   <div>
     <input
+      aria-label="Text"
+      name="text"
       type="text"
     />
   </div>

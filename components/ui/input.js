@@ -58,33 +58,44 @@ const InputWrapper = styled.div`
 		`}
 `;
 
-const Input = ({ label, type, ...rest }) => {
+const Input = ({ label, hiddenLabel, type, name, ...rest }) => {
 	let input;
+
+	let props = {
+		...rest,
+		'aria-label': label || name || rest.placeholder || '',
+		name: name || (label || '').replace(/\s+/g, '-').toLowerCase(),
+	};
+
 	switch (type) {
 		case 'currency':
-			input = <CurrencyInput type="number" {...rest} />;
+			input = <CurrencyInput type="number" {...props} />;
 			break;
 		default:
-			input = <input type={type} {...rest} />;
+			input = <input type={type} {...props} />;
 			break;
 	}
 
 	return (
 		<InputWrapper type={type}>
-			{label && <label>{label}</label>}
+			{label && !hiddenLabel && <label>{label}</label>}
 			<div>{input}</div>
 		</InputWrapper>
 	);
 };
 
 Input.propTypes = {
-	label: PropTypes.any,
+	label: PropTypes.string,
 	type: PropTypes.string,
+	name: PropTypes.string,
+	hiddenLabel: PropTypes.bool,
 };
 
 Input.defaultProps = {
 	label: undefined,
+	name: undefined,
 	type: 'text',
+	hiddenLabel: false,
 };
 
 export default Input;

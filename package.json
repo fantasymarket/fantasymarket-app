@@ -22,8 +22,8 @@
 		"bump": "release-it",
 		"bump-rc": "release-it --preRelease=rc",
 		"bump-beta": "release-it --preRelease=beta",
-		"storybook": "start-storybook -c .storybook",
-		"storybook:build": "build-storybook -c .storybook -o public/storybook"
+		"storybook": "start-storybook -s ./public -c .storybook",
+		"storybook:build": "build-storybook -s ./public -c .storybook -o public/storybook"
 	},
 	"husky": {
 		"hooks": {
@@ -37,6 +37,7 @@
 		"@babel/plugin-proposal-optional-chaining": "7.10.1",
 		"@explodingcamera/next-plugin-styled-components": "1.3.0",
 		"@rehooks/component-size": "1.0.3",
+		"@storybook/addon-storyshots-puppeteer": "^5.3.19",
 		"babel-plugin-module-resolver": "4.0.0",
 		"husky": "4.2.5",
 		"jwt-decode": "2.2.0",
@@ -57,16 +58,16 @@
 		"react-dom": "16.13.1",
 		"react-hook-form": "^5.7.2",
 		"react-icons": "3.10.0",
-		"react-table": "7.1.0",
+		"react-table": "7.2.0",
 		"react-useportal": "^1.0.13",
 		"styled-components": "5.1.1",
 		"task": "1.3.2",
-		"victory": "34.3.10"
+		"victory": "34.3.11"
 	},
 	"devDependencies": {
 		"@babel/register": "7.10.1",
 		"@commitlint/config-conventional": "8.3.4",
-		"@explodingcamera/eslint-config": "7.0.0",
+		"@explodingcamera/eslint-config": "8.1.0",
 		"@release-it/conventional-changelog": "1.1.4",
 		"@storybook/addon-a11y": "6.0.0-beta.5",
 		"@storybook/addon-knobs": "6.0.0-beta.5",
@@ -76,11 +77,11 @@
 		"@storybook/react": "6.0.0-beta.5",
 		"@testing-library/jest-dom": "5.9.0",
 		"@testing-library/react": "10.2.1",
-		"@types/jest": "^25.2.3",
+		"@types/jest": "^26.0.0",
 		"babel-jest": "26.0.1",
 		"babel-loader": "8.1.0",
 		"browser-env": "3.3.0",
-		"caniuse-lite": "1.0.30001079",
+		"caniuse-lite": "1.0.30001081",
 		"commitlint": "8.3.5",
 		"eslint": "7.2.0",
 		"eslint-plugin-jest": "23.13.2",

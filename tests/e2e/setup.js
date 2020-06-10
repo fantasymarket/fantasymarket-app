@@ -1,10 +1,6 @@
 import jestDevServer from 'jest-dev-server';
 import jestPuppeteer from 'jest-environment-puppeteer';
 
-import { toMatchImageSnapshot } from 'jest-image-snapshot';
-
-expect.extend({ toMatchImageSnapshot });
-
 export default async function globalSetup() {
 	await jestDevServer.setup([
 		{
@@ -15,7 +11,7 @@ export default async function globalSetup() {
 		},
 		{
 			port: 43211,
-			command: 'start-storybook -c .storybook -p 43211',
+			command: 'start-storybook -s ./public -c .storybook -p 43211',
 			protocol: 'http',
 			launchTimeout: 50000,
 		},

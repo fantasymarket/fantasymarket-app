@@ -9,7 +9,11 @@ export default {
 	decorators: [withKnobs],
 };
 
-export const withText = () => <Input />;
-export const withEmoji = () => <Input value="😀 😎 👍 💯" />;
-export const withLabel = () => <Input label={text('label')} />;
-export const withPlaceholder = () => <Input placeholder={text('label')} />;
+export const withText = () => <Input label="Text" hiddenLabel />;
+export const withEmoji = () => (
+	<Input label="Emojis" hiddenLabel value="😀 😎 👍 💯" />
+);
+export const withLabel = () => <Input label={text('Label', 'Some Label')} />;
+export const withPlaceholder = () => (
+	<Input placeholder={text('Placeholder', 'Some Placeholder')} />
+);

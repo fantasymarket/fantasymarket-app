@@ -51,3 +51,5 @@ typings/
 
 # Next.js build output
 .next
+
+__diff_output__
