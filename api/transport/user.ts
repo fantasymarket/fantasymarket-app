@@ -65,7 +65,7 @@ class UserTransport implements UserTransport {
 
 	create = async (): Promise<LoginResponse> =>
 		ky
-			.post('user/login', {
+			.put('user/', {
 				prefixUrl: this.cfg.get('apiBase'),
 			})
 			.json();

@@ -13,7 +13,7 @@ const config = {
 	env: {
 		apiBase:
 			process.env.API_BASE || dev
-				? 'http://localhost:42069/v1'
+				? 'http://localhost:5000/v1'
 				: 'https://fantasymarket.herokuapp.com/v1',
 	},
 	async exportPathMap(defaultPathMap) {
