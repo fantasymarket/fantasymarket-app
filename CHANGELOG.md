@@ -1,3 +1,10 @@
+## [0.1.0](https://github.com/fantasymarket/fantasymarket-app/compare/0.1.0-beta.2...0.1.0) (2020-06-29)
+
+
+### Features
+
+* finish order modal ([f4eb66c](https://github.com/fantasymarket/fantasymarket-app/commit/f4eb66cf13fa91b64b772eb24f1702cb6b7a1003))
+
 ## [0.1.0-beta.2](https://github.com/fantasymarket/fantasymarket-app/compare/0.1.0-beta.1...0.1.0-beta.2) (2020-05-13)
 
 

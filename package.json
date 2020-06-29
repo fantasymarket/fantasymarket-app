@@ -1,6 +1,6 @@
 {
 	"name": "fantasymarket-app",
-	"version": "0.1.0-beta.2",
+	"version": "0.1.0",
 	"private": true,
 	"repository": "https://github.com/fantasymarket/fantasymarket-app.git",
 	"scripts": {
