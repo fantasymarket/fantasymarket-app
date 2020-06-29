@@ -12,5 +12,5 @@
     X-XSS-Protection = "1; mode=block"
 		X-Content-Type-Options = "nosniff"
 		Referrer-Policy = "no-referrer"
-		Content-Security-Policy = "default-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'https'"
+		Content-Security-Policy = "default-src 'self'; style-src 'self' 'unsafe-inline'; connect-src https:"
 		Feature-Policy = "geolocation 'none'; microphone 'none'; camera 'none'; gyroscope 'none';"
