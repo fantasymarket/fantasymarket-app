@@ -9,7 +9,7 @@ import UserStore from './user';
 import TransportLayer from './transport';
 
 export type Config = ObservableMap<string, ConfigKey>;
-export type ConfigKey = string | number | boolean | object;
+export type ConfigKey = string | number | boolean | Record<string, unknown>;
 
 export interface Stores {
 	user?: UserStore;

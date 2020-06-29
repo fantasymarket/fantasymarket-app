@@ -39,7 +39,7 @@ export interface User {
 export interface LoginResponse {
 	token: string;
 	user?: User;
-	error?: object | string;
+	error?: Record<string, unknown> | string;
 }
 
 class UserTransport implements UserTransport {

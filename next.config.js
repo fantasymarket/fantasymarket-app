@@ -11,9 +11,10 @@ const config = {
 		polyfillsOptimization: true,
 	},
 	env: {
-		apiBase: dev
-			? 'http://localhost:42069/v1'
-			: 'https://api.fantasymarket.explodingcamera.com/v1',
+		apiBase:
+			process.env.API_BASE || dev
+				? 'http://localhost:42069/v1'
+				: 'https://fantasymarket.herokuapp.com/v1',
 	},
 	async exportPathMap(defaultPathMap) {
 		const pathMap = {};
