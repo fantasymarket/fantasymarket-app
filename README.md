@@ -25,7 +25,7 @@
 ├── [utils](utils/) &nbsp;&nbsp;&nbsp;&nbsp; _# utility functions_
 ├── [api](api/) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _# api/state management_
 ├── [tests](tests/) &nbsp;&nbsp;&nbsp;&nbsp; _# tests_
-│   ├── e2e &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _# e2e tests_
+│   ├── e2e &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _# e2e tests (including automated screenshots)_
 │   ├── integration &nbsp; _# integration tests_
 │   └── unit &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _# unit & snapshot tests_
 └── [public](public/) &nbsp;&nbsp;&nbsp; _# static files_</pre></big>
@@ -67,6 +67,13 @@ $ yarn deploy
 ### API Server
 
 For running the API server, check out the documentation of [fantasymarket-api](https://github.com/fantasymarket/fantasymarket-api)
+
+
+### Our storybook
+
+To check out documentation and examples for our own custom and reusable react components, run
+`$ yarn storybook`
+
 
 ### Recommended Tools
 
