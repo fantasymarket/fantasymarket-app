@@ -1,10 +1,11 @@
 import React, { useRef, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+
 import styled from 'styled-components';
 import useComponentSize from '@rehooks/component-size';
 
 import mockGraph from 'utils/mock-graph';
-
-const demoData = mockGraph(100);
+import { defaultChartSettings } from './settings';
 
 const Wrapper = styled.div`
 	flex: 1;
@@ -13,7 +14,7 @@ const Wrapper = styled.div`
 	filter: drop-shadow(0px 0px 3px rgba(34, 255, 143, 0.69));
 `;
 
-const ChartComponent = ({ ...rest }) => {
+const ChartComponent = ({ chartSettings, data, ...rest }) => {
 	const wrapperRef = useRef();
 	const chartRef = useRef();
 	const [chart, setChart] = useState();
@@ -29,84 +30,29 @@ const ChartComponent = ({ ...rest }) => {
 	useEffect(() => {
 		async function initChart() {
 			setLoading(true);
+
 			const { createChart } = await import('lightweight-charts');
 			const chart = createChart(chartRef.current, {
 				...size,
-				layout: {
-					backgroundColor: 'transparent',
-					textColor: 'white',
-					fontSize: 16,
-					fontFamily: '"Space Grotesk", monospace',
-				},
-				grid: {
-					vertLines: {
-						color: 'rgba(70, 130, 180, 0.1)',
-						style: 2,
-						visible: false,
-					},
-					horzLines: {
-						color: 'rgba(70, 130, 180, 0.1)',
-						style: 1,
-						visible: false,
-					},
-				},
-				crosshair: {
-					vertLine: {
-						color: '#6A5ACD',
-						width: 0.5,
-						style: 1,
-						visible: true,
-						labelVisible: false,
-					},
-					horzLine: {
-						color: '#6A5ACD',
-						width: 0.5,
-						style: 0,
-						visible: true,
-						labelVisible: true,
-					},
-					mode: 1,
-				},
-				priceScale: {
-					position: 'right',
-					mode: 1,
-					autoScale: false,
-					invertScale: false,
-					alignLabels: false,
-					borderVisible: true,
-					borderColor: 'rgba(255, 255, 255, 0.11)',
-					scaleMargins: {
-						top: 0.1,
-						bottom: 0.1,
-					},
-				},
-				timeScale: {
-					rightOffset: 0,
-					barSpacing: 0,
-					fixLeftEdge: false,
-					lockVisibleTimeRangeOnResize: true,
-					rightBarStaysOnScroll: false,
-					borderVisible: true,
-					borderColor: 'rgba(255, 255, 255, 0.11)',
-					visible: true,
-					timeVisible: true,
-					secondsVisible: true,
-				},
+				...defaultChartSettings,
+				...chartSettings,
 			});
 			setChart(chart);
+
 			const lineSeries = chart.addLineSeries({
 				color: '#22ff8f',
 			});
-			lineSeries.setData(demoData);
+			lineSeries.setData(data);
+
 			chart.timeScale().setVisibleRange({
-				from: demoData[0].time,
-				to: demoData[demoData.length - 1].time,
+				from: data[0].time,
+				to: data[data.length - 1].time,
 			});
 		}
 
 		if (process.browser && !chart && !loading && size.height !== 0) initChart();
 		return () => {};
-	}, [chart, loading, size]);
+	}, [chart, loading, size, chartSettings, data]);
 
 	useEffect(() => {
 		if (!chart) return;
@@ -120,6 +66,13 @@ const ChartComponent = ({ ...rest }) => {
 	);
 };
 
-ChartComponent.propTypes = {};
+ChartComponent.propTypes = {
+	chartSettings: PropTypes.object,
+	data: PropTypes.array,
+};
+ChartComponent.defaultProps = {
+	chartSettings: {},
+	data: mockGraph(100),
+};
 
 export default ChartComponent;
