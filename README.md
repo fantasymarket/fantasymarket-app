@@ -64,6 +64,10 @@ $ yarn deploy
 # output: ./out/
 ```
 
+### API Server
+
+For running the API server, check out the documentation of [fantasymarket-api](https://github.com/fantasymarket/fantasymarket-api)
+
 ### Recommended Tools
 
 - `VSCode` (Recommended):
@@ -85,5 +89,13 @@ $ yarn test:unit -u		# run unit & update snapshots
 $ yarn test:e2e 		# run end-to-end tests
 $ yarn test:integration # run integration tests
 ```
+
+## Contributing
+
+When contributing to this project, please follow [these guidlines](https://github.com/explodingcamera/yags).
+
+Please utilize Pull Requests as these automatically run an extensive test suite and automatically generate a sharable preview deployment.
+
+When adding new, reusable components, please also include a storybook story ([example](components/ui/input.stories.js)).
 
 <br>
