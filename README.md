@@ -8,19 +8,20 @@
 [![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade/develop--fantasymarket.netlify.app?publish)](https://observatory.mozilla.org/analyze/develop--fantasymarket.netlify.app)
 [![Maintainability](https://api.codeclimate.com/v1/badges/0b67777ccab5a08e0546/maintainability)](https://codeclimate.com/github/fantasymarket/fantasymarket-app/maintainability)
 
-## Table of Contents
+## Introduction
 
-- [Project Structure](#structure)
-- [Installation](#installation)
-- [Development](#development)
-  - [Recommended Tools](#recommended-tools)
-  - [Testing](#testing)
+FantasyMarket is the best way to learn about the stock market. With no barrier to entry, you can begin exploring right away.
 
-## Structure
+This repo only contains the frontend, the backend is avilable at [fantasymarket/fantasymarket-api](https://github.com/fantasymarket/fantasymarket-api).
+
+You can check out the full documentation [here](docs).
+
+## Repo Structure
 
 <big><pre>
 **fantasymarket-app**
 ├── [components](components/) _# reusable react components_
+├── [docs](docs/) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _# documentation_
 ├── [pages](packages/) &nbsp;&nbsp;&nbsp;&nbsp; _# page components_
 ├── [utils](utils/) &nbsp;&nbsp;&nbsp;&nbsp; _# utility functions_
 ├── [api](api/) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _# api/state management_
@@ -30,7 +31,7 @@
 │   └── unit &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _# unit & snapshot tests_
 └── [public](public/) &nbsp;&nbsp;&nbsp; _# static files_</pre></big>
 
-## Installation
+## Getting started
 
 ### 1. Install Requirements
 
@@ -82,20 +83,6 @@ To check out documentation and examples for our own custom and reusable react co
 - `Atom`:
 	- `language-babel`, `linter-eslint`, `editorconfig`, `autocomplete-modules`
 
-### Testing
-
-Run all tests + linters
-
-```bash
-$ yarn lint 			# check for linting errors
-$ yarn test 			# run tests
-$ yarn test:full 		# run all tests (including e2e/browser testing)
-$ yarn test:types		# check types
-$ yarn test:unit 		# run unit tests
-$ yarn test:unit -u		# run unit & update snapshots
-$ yarn test:e2e 		# run end-to-end tests
-$ yarn test:integration # run integration tests
-```
 
 ## Contributing
 
