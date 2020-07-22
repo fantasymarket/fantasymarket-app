@@ -2,11 +2,9 @@ import initStoryshots from '@storybook/addon-storyshots';
 import { imageSnapshot } from '@storybook/addon-storyshots-puppeteer';
 
 const beforeScreenshot = () => {
-	return new Promise(resolve =>
-		setTimeout(() => {
-			resolve();
-		}, 1000),
-	);
+	return new Promise(resolve => {
+		setTimeout(resolve, 1000);
+	});
 };
 
 const getScreenshotOptions = () => {
