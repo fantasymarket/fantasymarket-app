@@ -1,51 +1,6 @@
 {
+	"extends": "./jsconfig.json",
 	"compilerOptions": {
-		"target": "ESNext",
-		"module": "esnext",
-		"lib": [
-			"esnext"
-		],
-		"strict": false,
-		"sourceMap": true,
-		"declaration": true,
-		"esModuleInterop": true,
-		"allowSyntheticDefaultImports": true,
-		"experimentalDecorators": true,
-		"emitDecoratorMetadata": true,
-		"allowJs": false,
-		"skipLibCheck": true,
-		"forceConsistentCasingInFileNames": true,
-		"noEmit": true,
-		"moduleResolution": "node",
-		"resolveJsonModule": true,
-		"isolatedModules": true,
-		"jsx": "preserve",
-		"baseUrl": ".",
-		"paths": {
-			"api/*": [
-				"api/*"
-			],
-			"components/*": [
-				"components/*"
-			],
-			"public/*": [
-				"public/*"
-			],
-			"utils/*": [
-				"utils/*"
-			],
-			"tests/*": [
-				"tests/*"
-			]
-		}
-	},
-	"include": [
-		"**/*.ts",
-		"**/*.tsx",
-		"**/*.js",
-		"**/*.jsx"
-	],
-	"exclude": [
-		"node_modues"
-	]
+		"allowJs": true,
+	}
 }

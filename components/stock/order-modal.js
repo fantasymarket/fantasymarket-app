@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 
 import { useForm, Controller } from 'react-hook-form';
 
-import { Modal, ModalActions } from 'components/modal';
-import Button from 'components/ui/button';
-import Input from 'components/ui/input';
-import Tab from 'components/ui/tab';
+import { Modal, ModalActions } from '@components/modal';
+import Button from '@components/ui/button';
+import Input from '@components/ui/input';
+import Tab from '@components/ui/tab';
 
 const OrderWrapper = styled(Modal)`
 	> div {

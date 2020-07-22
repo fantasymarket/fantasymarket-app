@@ -1,5 +1,5 @@
 import React from 'react';
-import Dashboard from 'components/dashboard';
+import Dashboard from '@components/dashboard';
 import { render } from '@testing-library/react';
 
 describe('Dashboard component', () => {

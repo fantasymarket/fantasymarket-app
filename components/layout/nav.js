@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Icon from 'components/ui/icon';
+import Icon from '@components/ui/icon';
 import Link from 'next/link';
 
 import { observer } from 'mobx-react-lite';
@@ -8,9 +8,9 @@ import { observer } from 'mobx-react-lite';
 import { FiSettings } from 'react-icons/fi';
 
 import { useRouter } from 'next/router';
-import { useAPI } from 'api';
+import { useAPI } from '@api';
 
-import Button from 'components/ui/button';
+import Button from '@components/ui/button';
 
 const NavWrapper = styled.div`
 	display: flex;

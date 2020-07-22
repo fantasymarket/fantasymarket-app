@@ -1,4 +1,4 @@
-import roundToMultiple from 'utils/round-to-multiple';
+import roundToMultiple from '@utils/round-to-multiple';
 
 describe('round number to precision', () => {
 	it('', () => {

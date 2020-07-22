@@ -1,12 +1,12 @@
-import UserStore from 'api/user';
-import TransportLayer from 'api/transport';
+import UserStore from '@api/user';
+import TransportLayer from '@api/transport';
 import { AsyncTrunk } from 'mobx-sync';
 import { observable, when } from 'mobx';
 
 // eslint-disable-next-line jest/no-mocks-import
-import { sampleUser } from 'api/transport/__mocks__/user';
+import { sampleUser } from '@api/transport/__mocks__/user';
 
-jest.mock('api/transport/user');
+jest.mock('@api/transport/user');
 
 const expiredToken =
 	'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyLCJleHAiOjE1MTYyMzkwMjJ9.4Adcj3UFYzPUVaVF43FmMab6RlaQD8A9V8wFzzht-KQ';

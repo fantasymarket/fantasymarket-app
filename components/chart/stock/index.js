@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import useComponentSize from '@rehooks/component-size';
 
-import mockGraph from 'utils/mock-graph';
+import mockGraph from '@utils/mock-graph';
 import { defaultChartSettings } from './settings';
 
 const Wrapper = styled.div`

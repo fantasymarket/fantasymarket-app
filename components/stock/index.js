@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import StockChart from 'components/chart/stock';
+import StockChart from '@components/chart/stock';
 
 import Sidebar from './sidebar';
 import Description from './description';
 
-import formatMoney from 'utils/format-money';
-import roundToMultiple from 'utils/round-to-multiple';
-import percentageDifference from 'utils/percentage-difference';
+import formatMoney from '@utils/format-money';
+import roundToMultiple from '@utils/round-to-multiple';
+import percentageDifference from '@utils/percentage-difference';
 
 import OrderModal from './order-modal';
 

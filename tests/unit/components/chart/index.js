@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import StockChart from 'components/chart/stock';
-import StockChartMinimal from 'components/chart/stock-minimal';
+import StockChart from '@components/chart/stock';
+import StockChartMinimal from '@components/chart/stock-minimal';
 
 describe('StockChart component', () => {
 	const container = render(<StockChart />);

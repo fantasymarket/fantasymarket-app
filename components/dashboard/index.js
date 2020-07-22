@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import StockTable from 'components/table';
-import { columns, sampleData } from 'components/table/columns/stocks';
+import StockTable from '@components/table';
+import { columns, sampleData } from '@components/table/columns/stocks';
 
 import StockOverview from './overview';
 import Stats from './stats';

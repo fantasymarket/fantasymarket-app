@@ -1,4 +1,4 @@
-import generateDateAxis from 'utils/date-axis';
+import generateDateAxis from '@utils/date-axis';
 
 const sampleData = [
 	{ x: new Date(1972, 1, 1), y: 125 },

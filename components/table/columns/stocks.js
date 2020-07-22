@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Link from 'next/link';
-import formatMoney from 'utils/format-money';
+import formatMoney from '@utils/format-money';
 
 export const columns = [
 	{

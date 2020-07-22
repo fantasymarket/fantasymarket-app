@@ -20,10 +20,10 @@ const conf = {
 			{
 				root: [__dirname],
 				alias: {
-					components: './components',
-					pages: './pages',
-					utils: './utils',
-					api: './api',
+					'@components': './components',
+					'@pages': './pages',
+					'@utils': './utils',
+					'@api': './api',
 				},
 			},
 		],

@@ -4,8 +4,8 @@ import { ignore } from 'mobx-sync';
 import jwtDecode from 'jwt-decode';
 
 import { Config, Stores } from '..';
-import { User } from 'api/transport/user';
-import TransportLayer from 'api/transport';
+import { User } from '@api/transport/user';
+import TransportLayer from '@api/transport';
 
 class UserStore {
 	@ignore req: TransportLayer;

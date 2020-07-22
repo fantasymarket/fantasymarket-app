@@ -9,8 +9,8 @@ import 'modern-normalize/modern-normalize.css';
 
 import NextNprogress from 'nextjs-progressbar';
 
-import { GlobalStyle } from 'components/css';
-import { APIProvider, init } from 'api';
+import { GlobalStyle } from '@components/css';
+import { APIProvider, init } from '@api';
 
 const CustomApp = ({ Component, pageProps }) => {
 	const [api] = useState(() => init());

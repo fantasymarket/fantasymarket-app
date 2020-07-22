@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import formatMoney from 'utils/format-money';
-import roundToMultiple from 'utils/round-to-multiple';
-import percentageDifference from 'utils/percentage-difference';
+import formatMoney from '@utils/format-money';
+import roundToMultiple from '@utils/round-to-multiple';
+import percentageDifference from '@utils/percentage-difference';
 
 const Wrapper = styled.div`
 	display: flex;

@@ -1,8 +1,8 @@
 import React from 'react';
-import Layout from 'components/layout';
+import Layout from '@components/layout';
 
-import StockTable from 'components/table';
-import { columns, sampleData } from 'components/table/columns/stocks';
+import StockTable from '@components/table';
+import { columns, sampleData } from '@components/table/columns/stocks';
 
 const PortfolioComponent = () => {
 	return (

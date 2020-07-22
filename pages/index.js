@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Layout from 'components/layout';
-import Button from 'components/ui/button';
+import Layout from '@components/layout';
+import Button from '@components/ui/button';
 import Link from 'next/link';
 
 const Wrapper = styled(Layout)`
