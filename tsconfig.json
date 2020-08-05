@@ -1,6 +1,19 @@
 {
-	"extends": "./jsconfig.json",
-	"compilerOptions": {
-		"allowJs": true,
-	}
+  "extends": "./jsconfig.json",
+  "compilerOptions": {
+		"allowJs": false,
+  },
+	"include": [
+		"**/*.ts",
+		"**/*.tsx",
+		"**/*.js",
+		"**/*.jsx",
+    "next-env.d.ts",
+	],
+	"exclude": [
+		"node_modues",
+		"out",
+		".next",
+		"public/storybook",
+	]
 }

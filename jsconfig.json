@@ -41,7 +41,8 @@
 		"**/*.ts",
 		"**/*.tsx",
 		"**/*.js",
-		"**/*.jsx"
+		"**/*.jsx",
+    "next-env.d.ts",
 	],
 	"exclude": [
 		"node_modues",
