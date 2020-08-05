@@ -82,7 +82,14 @@ const Order = ({ active, onToggle, stock }) => {
 					<div>
 						<h3>Side</h3>
 						<Controller
-							as={<Tab items={orderSide} />}
+							render={({ onChange, onBlur, value }) => (
+								<Tab
+									items={orderSide}
+									onChange={onChange}
+									onBlur={onBlur}
+									value={value}
+								/>
+							)}
 							name="side"
 							control={control}
 							rules={{ required: true }}
@@ -94,7 +101,14 @@ const Order = ({ active, onToggle, stock }) => {
 					<div>
 						<h3>Type</h3>
 						<Controller
-							as={<Tab items={orderType} />}
+							render={({ onChange, onBlur, value }) => (
+								<Tab
+									items={orderType}
+									onChange={onChange}
+									onBlur={onBlur}
+									value={value}
+								/>
+							)}
 							name="type"
 							control={control}
 							rules={{ required: true }}
