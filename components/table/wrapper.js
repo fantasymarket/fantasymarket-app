@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Table = styled.table`
+const TableWrapper = styled.table`
 	color: rgb(255, 255, 255, 0.9);
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -36,4 +36,4 @@ const Table = styled.table`
 	}
 `;
 
-export default Table;
+export default TableWrapper;
