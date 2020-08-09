@@ -2,7 +2,24 @@ import ky from 'ky-universal';
 import { ObservableMap } from 'mobx';
 
 interface AssetsTransport {
-	get: ({ symbol }: { symbol: string }) => Promise<AssetResponse>;
+	get: ({
+		symbol,
+		time,
+	}: {
+		symbol: string;
+		time?: string;
+	}) => Promise<AssetResponse>;
+
+	history: ({
+		symbol,
+		from,
+		to,
+	}: {
+		symbol: string;
+		from?: string;
+		to?: string;
+	}) => Promise<AssetResponse>;
+
 	all: () => Promise<AssetResponse[]>;
 }
 
@@ -12,10 +29,20 @@ export interface AssetResponse {
 	type: AssetType;
 	name: string;
 	description?: string;
-	price: number;
-	price24h?: number;
-	volume?: number;
-	volume24h?: number;
+	tick?: string;
+	date?: string;
+	price: string;
+	price24h?: string;
+	volume?: string;
+	volume24h?: string;
+	from?: string;
+	to?: string;
+	prices?: AssetData[];
+}
+
+export interface AssetData {
+	date: string;
+	index: string;
 }
 
 class AssetsTransport implements AssetsTransport {
@@ -25,16 +52,39 @@ class AssetsTransport implements AssetsTransport {
 		this.cfg = cfg;
 	}
 
-	get = async ({ symbol }: { symbol: string }): Promise<AssetResponse> =>
+	get = async ({
+		symbol,
+		time,
+	}: {
+		symbol: string;
+		time?: string;
+	}): Promise<AssetResponse> =>
 		ky
-			.get(`stocks/${encodeURIComponent(symbol)}`, {
+			.get(`assets/${encodeURIComponent(symbol)}`, {
 				prefixUrl: this.cfg.get('apiBase'),
+				searchParams: { time },
+			})
+			.json();
+
+	history = async ({
+		symbol,
+		from,
+		to,
+	}: {
+		symbol: string;
+		from?: string;
+		to?: string;
+	}): Promise<AssetResponse> =>
+		ky
+			.get(`assets/${encodeURIComponent(symbol)}/history`, {
+				prefixUrl: this.cfg.get('apiBase'),
+				searchParams: { from, to },
 			})
 			.json();
 
 	all = async (): Promise<AssetResponse[]> =>
 		ky
-			.get('stocks', {
+			.get('assets', {
 				prefixUrl: this.cfg.get('apiBase'),
 			})
 			.json();
