@@ -39,13 +39,15 @@ const BasicStockComponent = ({ data }) => {
 	const [zoomDomain, setZoomDomain] = useState(null);
 
 	return (
-		<StockChartWrapper>
+		<StockChartWrapper title="Full Chart">
 			<VictoryChart
+				title="Chart"
 				width={600}
 				height={350}
 				scale={{ x: 'time' }}
 				containerComponent={
 					<VictoryZoomContainer
+						title="Chart"
 						responsive={false}
 						zoomDimension="x"
 						zoomDomain={zoomDomain}
@@ -54,6 +56,7 @@ const BasicStockComponent = ({ data }) => {
 				}
 			>
 				<VictoryLine
+					title="Chart Line"
 					style={{
 						data: { stroke: '#00f100' },
 					}}
@@ -62,12 +65,14 @@ const BasicStockComponent = ({ data }) => {
 			</VictoryChart>
 
 			<VictoryChart
+				title="Chart Zoom Selector"
 				padding={{ top: 0, left: 50, right: 50, bottom: 30 }}
 				width={600}
 				height={90}
 				scale={{ x: 'time' }}
 				containerComponent={
 					<VictoryBrushContainer
+						title="Chart Zoom Selector"
 						responsive={false}
 						brushDimension="x"
 						brushDomain={selectedDomain}
@@ -76,6 +81,7 @@ const BasicStockComponent = ({ data }) => {
 				}
 			>
 				<VictoryAxis
+					title="Chart Zoom Selector Axis"
 					tickValues={generateDateAxis(data, 5)}
 					tickFormat={x => new Date(x).getFullYear()}
 					style={{
@@ -84,6 +90,7 @@ const BasicStockComponent = ({ data }) => {
 					}}
 				/>
 				<VictoryLine
+					title="Chart Zoom Selector Line"
 					style={{
 						data: { stroke: '#00f100' },
 					}}

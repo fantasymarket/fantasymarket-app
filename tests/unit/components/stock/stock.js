@@ -7,6 +7,6 @@ describe('Stock component', () => {
 	const container = render(<Stock />);
 
 	it('renders the component', () => {
-		expect(container.firstChild).toMatchSnapshot();
+		expect(container.baseElement).toMatchSnapshot();
 	});
 });

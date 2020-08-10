@@ -11,7 +11,7 @@ export default {
 
 export const withText = () => <Input label="Text" hiddenLabel />;
 export const withEmoji = () => (
-	<Input label="Emojis" hiddenLabel value="😀 😎 👍 💯" />
+	<Input label="Emojis" hiddenLabel defaultValue="😀 😎 👍 💯" />
 );
 export const withLabel = () => <Input label={text('Label', 'Some Label')} />;
 export const withPlaceholder = () => (
