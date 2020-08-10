@@ -26,8 +26,8 @@ export const columns = [
 	},
 	{
 		Header: 'Market Cap',
-		accessor: ({ price, shares }) => {
-			return formatMoney(parseFloat(price, 10) * shares);
+		accessor: ({ price, count }) => {
+			return formatMoney(parseFloat(price, 10) * parseFloat(count, 10));
 		},
 	},
 ];
@@ -38,27 +38,27 @@ export const sampleData = [
 		symbol: 'GOOG',
 		price: '10030',
 		price24h: '9300',
-		shares: 10000000,
+		count: 10000000,
 	},
 	{
 		name: 'Apple Inc.		',
 		symbol: 'APL',
 		price: '25430',
 		price24h: '23000',
-		shares: 10000000,
+		count: 10000000,
 	},
 	{
 		name: 'Microsoft',
 		symbol: 'MSFT',
 		price: '23432',
 		price24h: '24342',
-		shares: 10000000,
+		count: 10000000,
 	},
 	{
 		name: 'ExxonMobil',
 		symbol: 'EXN',
 		price: '23342',
 		price24h: '21342',
-		shares: 10000000,
+		count: 10000000,
 	},
 ];

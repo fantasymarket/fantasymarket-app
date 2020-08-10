@@ -5,22 +5,34 @@ interface AssetsTransport {
 	get: ({
 		symbol,
 		time,
+		tick,
 	}: {
 		symbol: string;
 		time?: string;
+		tick?: number;
 	}) => Promise<AssetResponse>;
 
 	history: ({
 		symbol,
 		from,
 		to,
+		fromTick,
+		toTick,
 	}: {
 		symbol: string;
 		from?: string;
 		to?: string;
+		fromTick?: number;
+		toTick?: number;
 	}) => Promise<AssetResponse>;
 
-	all: () => Promise<AssetResponse[]>;
+	all: ({
+		time,
+		tick,
+	}: {
+		time?: string;
+		tick?: number;
+	}) => Promise<AssetResponse[]>;
 }
 
 export type AssetType = 'stock' | 'crypto' | 'etf';
@@ -32,9 +44,7 @@ export interface AssetResponse {
 	tick?: string;
 	date?: string;
 	price: string;
-	price24h?: string;
 	volume?: string;
-	volume24h?: string;
 	from?: string;
 	to?: string;
 	prices?: AssetData[];
@@ -55,37 +65,41 @@ class AssetsTransport implements AssetsTransport {
 	get = async ({
 		symbol,
 		time,
+		tick,
 	}: {
 		symbol: string;
 		time?: string;
+		tick?: number;
 	}): Promise<AssetResponse> =>
 		ky
 			.get(`assets/${encodeURIComponent(symbol)}`, {
 				prefixUrl: this.cfg.get('apiBase'),
-				searchParams: { time },
+				searchParams: { time, tick },
 			})
 			.json();
 
-	history = async ({
-		symbol,
-		from,
-		to,
-	}: {
+	history = async (props: {
 		symbol: string;
 		from?: string;
 		to?: string;
+		fromTick?: number;
+		toTick?: number;
 	}): Promise<AssetResponse> =>
 		ky
-			.get(`assets/${encodeURIComponent(symbol)}/history`, {
+			.get(`assets/${encodeURIComponent(props.symbol)}/history`, {
 				prefixUrl: this.cfg.get('apiBase'),
-				searchParams: { from, to },
+				searchParams: props,
 			})
 			.json();
 
-	all = async (): Promise<AssetResponse[]> =>
+	all = async (props: {
+		time?: string;
+		tick?: number;
+	}): Promise<AssetResponse[]> =>
 		ky
 			.get('assets', {
 				prefixUrl: this.cfg.get('apiBase'),
+				searchParams: props,
 			})
 			.json();
 }

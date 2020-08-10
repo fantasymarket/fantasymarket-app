@@ -17,6 +17,7 @@ export interface Stores {
 
 export interface API extends Stores {
 	cfg?: Config;
+	transport?: TransportLayer;
 }
 
 export const hydrateStores = (stores: Stores): void => {
@@ -57,7 +58,7 @@ export const init = (): API => {
 
 	hydrateStores(stores);
 
-	const api: API = { ...stores, cfg };
+	const api: API = { ...stores, cfg, transport: transportLayer };
 
 	if (process.env.NODE_ENV !== 'production' && process.browser) {
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any

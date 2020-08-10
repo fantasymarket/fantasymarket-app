@@ -7,8 +7,10 @@ interface GameTransport {
 
 export interface TimeResponse {
 	timestamp: string;
-	tickesPerSecond: string;
-	timePerTick: string;
+	ticksPerSecond: number;
+	gameSecondsPerTick: number;
+	startDate: string;
+	ticksSinceStart: number;
 }
 
 class GameTransport implements GameTransport {
@@ -20,7 +22,7 @@ class GameTransport implements GameTransport {
 
 	time = async (): Promise<TimeResponse> =>
 		ky
-			.get('game/time', {
+			.get('time', {
 				prefixUrl: this.cfg.get('apiBase'),
 			})
 			.json();

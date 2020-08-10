@@ -59,13 +59,23 @@ const Wrapper = styled.ul`
 	}
 `;
 
-const Overview = ({ stocks }) => {
+const topGainLoose = (today, yesterday) => {
+	let stocks = today.map((stock, i) => ({
+		...stock,
+		price24h: yesterday[i].price,
+	}));
+	stocks = stocks.sort((a, b) => a.diff - b.diff);
+
+	return [...stocks.slice(0, 2), ...stocks.slice(-2)];
+};
+
+const Overview = ({ today, yesterday }) => {
 	return (
 		<Wrapper>
-			{stocks.map(stock => {
-				let { symbol, name, price, price24h } = stock;
-				price = parseFloat(price, 10);
-				price24h = parseFloat(price24h, 10);
+			{topGainLoose(today, yesterday).map(stock => {
+				let { symbol, name } = stock;
+				let price = parseFloat(stock.price, 10);
+				let price24h = parseFloat(stock.price24h, 10);
 
 				const diff = price - price24h;
 				const positiv = diff > 0;
@@ -75,7 +85,7 @@ const Overview = ({ stocks }) => {
 				);
 
 				return (
-					<li key={stocks.indexOf(stock)} className={positiv ? 'up' : 'down'}>
+					<li key={stock.symbol} className={positiv ? 'up' : 'down'}>
 						<h1>
 							{name} <span>({symbol})</span>
 						</h1>
@@ -92,7 +102,8 @@ const Overview = ({ stocks }) => {
 };
 
 Overview.propTypes = {
-	stocks: PropTypes.array.isRequired,
+	today: PropTypes.array.isRequired,
+	yesterday: PropTypes.array.isRequired,
 };
 
 export default Overview;

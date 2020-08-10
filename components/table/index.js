@@ -33,9 +33,10 @@ const Table = ({ data, columns }) => {
 				))}
 			</thead>
 			<tbody {...getTableBodyProps()}>
-				{rows.map(
-					row => prepareRow(row) && <TableRow key={rows.indexOf(rows)} />,
-				)}
+				{rows.map(row => {
+					prepareRow(row);
+					return <TableRow key={rows.indexOf(row)} row={row} />;
+				})}
 			</tbody>
 		</TableWrapper>
 	);
