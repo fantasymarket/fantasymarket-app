@@ -1,3 +1,5 @@
+<img align="left" src="public/logo-gh.png" width=100>
+
 # FantasyMarket [![Website](https://img.shields.io/website?label=staging&url=http%3A%2F%2Fdevelop--fantasymarket.netlify.app%2F)](https://develop--fantasymarket.netlify.app/) [![Website](https://img.shields.io/website?label=production&url=http%3A%2F%2Ffantasymarket.netlify.app%2F)](https://fantasymarket.netlify.app/)
 
 
@@ -8,13 +10,15 @@
 [![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade/develop--fantasymarket.netlify.app?publish)](https://observatory.mozilla.org/analyze/develop--fantasymarket.netlify.app)
 [![Maintainability](https://api.codeclimate.com/v1/badges/0b67777ccab5a08e0546/maintainability)](https://codeclimate.com/github/fantasymarket/fantasymarket-app/maintainability)
 
+
 ## Introduction
 
-FantasyMarket is the best way to learn about the stock market. With no barrier to entry, you can begin exploring right away.
+We are creating a working stock market simulation, where the user can invest in-game currency in a simulated market completely separated from the real world. By providing custom events that pop up randomly and alter the course of our stocks, coupled with a market that never sleeps, we are presenting a fun and fast-paced introduction into the stock market. Our beta is currently in its final phase and we plan to release it fully by the end of august.
+
 
 This repo only contains the frontend, the backend is avilable at [fantasymarket/fantasymarket-api](https://github.com/fantasymarket/fantasymarket-api).
 
-You can check out the full documentation [here](docs).
+**You can check out the full documentation [here](docs)**
 
 ## Repo Structure
 
@@ -67,14 +71,7 @@ $ yarn deploy
 
 ### API Server
 
-For running the API server, check out the documentation of [fantasymarket-api](https://github.com/fantasymarket/fantasymarket-api)
-
-
-### Our storybook
-
-To check out documentation and examples for our own custom and reusable react components, run
-`$ yarn storybook`
-
+To run the API server, check out the documentation of [fantasymarket-api](https://github.com/fantasymarket/fantasymarket-api)
 
 ### Recommended Tools
 
@@ -85,3 +82,7 @@ To check out documentation and examples for our own custom and reusable react co
 
 
 <br>
+
+## Our Current Situation
+
+Currently, the project needs some final refactoring, some last bits of database logic and ultimately testing. Even though some tests are already completed, more are needed to ensure a well tested project. Finally, we have also started to link the frontend to the backend. If all goes smoothly, we will be able to release the project fully by the end of august.
