@@ -23,16 +23,15 @@ exports[`Stock component renders the component 1`] = `
           </h1>
           <h3>
             <span
-              class="up"
+              class="down"
             >
               <b>
-                UP
+                DOWN
               </b>
                
-              $10.00
+              $NaN
                (
-              +
-              0.99
+              NaN
               %)
             </span>
              
@@ -59,14 +58,14 @@ exports[`Stock component renders the component 1`] = `
               >
                 <div>
                   <h1>
-                    Google did an oopsie
+                    No News (Yet)
                   </h1>
                   <h2>
                     21/02/20
                   </h2>
                 </div>
                 <p>
-                  Big oof
+                  :(
                 </p>
               </div>
             </div>
@@ -157,19 +156,19 @@ exports[`Stock component renders the component 1`] = `
             Shares Owned
           </h2>
           <h1>
-            46 Shares
+            0 Shares
           </h1>
           <h2>
             Average Cost
           </h2>
           <h1>
-            $800
+            $0
           </h1>
           <h2>
             Total Cost
           </h2>
           <h1>
-            $36,800
+            $0
           </h1>
         </div>
         <br />

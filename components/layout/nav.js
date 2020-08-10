@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Icon from '@components/ui/icon';
 import Link from 'next/link';
@@ -11,6 +11,7 @@ import { useRouter } from 'next/router';
 import { useAPI } from '@api';
 
 import Button from '@components/ui/button';
+import LoginModal from '@components/auth/login-modal';
 
 const NavWrapper = styled.div`
 	display: flex;
@@ -134,8 +135,12 @@ const Nav = () => {
 	const router = useRouter();
 	const api = useAPI();
 
+	const [loginModalActive, setLoginModalActive] = useState(false);
+	const toggleLoginModal = () => setLoginModalActive(a => !a);
+
 	return (
 		<NavWrapper>
+			<LoginModal onToggle={toggleLoginModal} active={loginModalActive} />
 			<Link href="/">
 				<a>
 					<h1>FantasyMarket</h1>
@@ -182,11 +187,9 @@ const Nav = () => {
 						</Link>
 					</>
 				) : (
-					<Link href="/settings">
-						<a className="settings-btn">
-							<Button>Login</Button>
-						</a>
-					</Link>
+					<a className="settings-btn">
+						<Button onClick={toggleLoginModal}>Login</Button>
+					</a>
 				)}
 			</div>
 		</NavWrapper>

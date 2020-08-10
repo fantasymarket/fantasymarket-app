@@ -49,7 +49,7 @@ const Dashboard = ({ ...rest }) => {
 
 	return (
 		<DashboardWrapper {...rest}>
-			<Stats balance={10000000} balance24h={10000000 - 12345} />
+			<Stats balance={10000000} balance24h={10000000} />
 			<SectionTitle>Todays Top Gainers/Loosers</SectionTitle>
 			{(!today || !yesterday) && <Loading>loading...</Loading>}
 			{today && yesterday && (

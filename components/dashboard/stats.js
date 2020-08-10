@@ -91,7 +91,7 @@ var Stats = ({ balance, balance24h }) => {
 	balance24h = parseFloat(balance24h, 10);
 
 	const diff = balance - balance24h;
-	const positiv = diff > 0;
+	const positiv = diff >= 0;
 	const percentage = roundToMultiple(
 		0.01,
 		percentageDifference(balance24h, balance),
@@ -103,14 +103,12 @@ var Stats = ({ balance, balance24h }) => {
 				<h1>Total Portfolio Value</h1>
 				<h2>{formatMoney(balance)}</h2>
 
-				{percentage !== 0 && (
-					<h3 className={positiv ? 'up' : 'down'}>
-						<b>{positiv ? 'UP' : 'DOWN'}</b>
-						{positiv && '+'}
-						{formatMoney(diff)} ({positiv && '+'}
-						{percentage}%) in the last 24h
-					</h3>
-				)}
+				<h3 className={positiv ? 'up' : 'down'}>
+					<b>{positiv ? 'UP' : 'DOWN'}</b>
+					{positiv && '+'}
+					{formatMoney(diff)} ({positiv && '+'}
+					{percentage}%) in the last 24h
+				</h3>
 			</div>
 		</Wrapper>
 	);
