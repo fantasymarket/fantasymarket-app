@@ -65,7 +65,7 @@ const Stock = ({ symbol, name, news, prices, about, time }) => {
 		time.ticksSinceStart - (60 * 60 * 24) / time.gameSecondsPerTick;
 
 	let price = parseFloat(prices[prices.length - 1].price, 10);
-	let price24h = parseFloat(prices[prices.length - 1 - yesterday].price, 10);
+	let price24h = parseFloat(prices?.[prices.length - 1 - yesterday]?.price, 10);
 
 	const diff = price - price24h;
 	const positiv = diff > 0;

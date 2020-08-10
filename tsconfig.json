@@ -1,7 +1,7 @@
 {
   "extends": "./jsconfig.json",
   "compilerOptions": {
-		"allowJs": true,
+		"allowJs": false,
   },
 	"include": [
 		"**/*.ts",
