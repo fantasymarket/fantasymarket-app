@@ -7,6 +7,6 @@ describe('Layout component', () => {
 	const container = render(<Layout>Page Content </Layout>);
 
 	it('renders the component', () => {
-		expect(container.firstChild).toMatchSnapshot();
+		expect(container.baseElement).toMatchSnapshot();
 	});
 });

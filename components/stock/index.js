@@ -30,16 +30,6 @@ const ChartWrapper = styled.div`
 	margin-right: 2rem;
 `;
 
-const StyledStockChart = styled(StockChart)`
-	height: 40vh;
-	min-height: 30rem;
-
-	@media (max-width: 750px) {
-		height: 30vh;
-		min-height: 10rem;
-	}
-`;
-
 const ChartTitle = styled.div`
 	h1 {
 		&:last-of-type {
@@ -96,7 +86,7 @@ const Stock = ({ symbol, name, news, price, price24h, about }) => {
 						Today
 					</h3>
 				</ChartTitle>
-				<StyledStockChart />
+				<StockChart />
 				<Description news={news} about={about} />
 			</ChartWrapper>
 			<Sidebar onTradeClick={toggleModal} />

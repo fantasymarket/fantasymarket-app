@@ -1,0 +1,700 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table component can sort the table 1`] = `
+<body>
+  <div>
+    <table
+      class="sc-AxjAm dYOqdl"
+    >
+      <thead>
+        <tr
+          role="row"
+        >
+          <th
+            colspan="1"
+            role="columnheader"
+            style="cursor: pointer;"
+            title="Toggle SortBy"
+          >
+            Name
+            <span>
+              <svg
+                fill="none"
+                height="1em"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <polyline
+                  points="18 15 12 9 6 15"
+                />
+              </svg>
+            </span>
+          </th>
+          <th
+            colspan="1"
+            role="columnheader"
+            style="cursor: pointer;"
+            title="Toggle SortBy"
+          >
+            Symbol
+            <span>
+              <svg
+                fill="none"
+                height="1em"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <polyline
+                  points="18 15 12 9 6 15"
+                />
+              </svg>
+            </span>
+          </th>
+          <th
+            colspan="1"
+            role="columnheader"
+            style="cursor: pointer;"
+            title="Toggle SortBy"
+          >
+            Price
+            <span>
+              <svg
+                fill="none"
+                height="1em"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <polyline
+                  points="18 15 12 9 6 15"
+                />
+              </svg>
+            </span>
+          </th>
+          <th
+            colspan="1"
+            role="columnheader"
+            style="cursor: pointer;"
+            title="Toggle SortBy"
+          >
+            Market Cap
+            <span>
+              <svg
+                fill="none"
+                height="1em"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <polyline
+                  points="18 15 12 9 6 15"
+                />
+              </svg>
+            </span>
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        role="rowgroup"
+      >
+        <tr
+          role="row"
+        >
+          <td
+            role="cell"
+          >
+            <a
+              href="/stock/GOOG"
+            >
+              Alphabet Inc.
+            </a>
+          </td>
+          <td
+            role="cell"
+          >
+            GOOG
+          </td>
+          <td
+            role="cell"
+          >
+            $100.30
+          </td>
+          <td
+            role="cell"
+          >
+            $1,003,000,000.00
+          </td>
+        </tr>
+        <tr
+          role="row"
+        >
+          <td
+            role="cell"
+          >
+            <a
+              href="/stock/APL"
+            >
+              Apple Inc.		
+            </a>
+          </td>
+          <td
+            role="cell"
+          >
+            APL
+          </td>
+          <td
+            role="cell"
+          >
+            $254.30
+          </td>
+          <td
+            role="cell"
+          >
+            $2,543,000,000.00
+          </td>
+        </tr>
+        <tr
+          role="row"
+        >
+          <td
+            role="cell"
+          >
+            <a
+              href="/stock/MSFT"
+            >
+              Microsoft
+            </a>
+          </td>
+          <td
+            role="cell"
+          >
+            MSFT
+          </td>
+          <td
+            role="cell"
+          >
+            $234.32
+          </td>
+          <td
+            role="cell"
+          >
+            $2,343,200,000.00
+          </td>
+        </tr>
+        <tr
+          role="row"
+        >
+          <td
+            role="cell"
+          >
+            <a
+              href="/stock/EXN"
+            >
+              ExxonMobil
+            </a>
+          </td>
+          <td
+            role="cell"
+          >
+            EXN
+          </td>
+          <td
+            role="cell"
+          >
+            $233.42
+          </td>
+          <td
+            role="cell"
+          >
+            $2,334,200,000.00
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+`;
+
+exports[`Table component can sort the table 2`] = `
+<body>
+  <div>
+    <table
+      class="sc-AxjAm dYOqdl"
+    >
+      <thead>
+        <tr
+          role="row"
+        >
+          <th
+            colspan="1"
+            role="columnheader"
+            style="cursor: pointer;"
+            title="Toggle SortBy"
+          >
+            Name
+            <span>
+              <svg
+                fill="none"
+                height="1em"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <polyline
+                  points="18 15 12 9 6 15"
+                />
+              </svg>
+            </span>
+          </th>
+          <th
+            colspan="1"
+            role="columnheader"
+            style="cursor: pointer;"
+            title="Toggle SortBy"
+          >
+            Symbol
+            <span>
+              <svg
+                fill="none"
+                height="1em"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <polyline
+                  points="18 15 12 9 6 15"
+                />
+              </svg>
+            </span>
+          </th>
+          <th
+            colspan="1"
+            role="columnheader"
+            style="cursor: pointer;"
+            title="Toggle SortBy"
+          >
+            Price
+            <span>
+              <svg
+                fill="none"
+                height="1em"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <polyline
+                  points="18 15 12 9 6 15"
+                />
+              </svg>
+            </span>
+          </th>
+          <th
+            colspan="1"
+            role="columnheader"
+            style="cursor: pointer;"
+            title="Toggle SortBy"
+          >
+            Market Cap
+            <span>
+              <svg
+                fill="none"
+                height="1em"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <polyline
+                  points="18 15 12 9 6 15"
+                />
+              </svg>
+            </span>
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        role="rowgroup"
+      >
+        <tr
+          role="row"
+        >
+          <td
+            role="cell"
+          >
+            <a
+              href="/stock/GOOG"
+            >
+              Alphabet Inc.
+            </a>
+          </td>
+          <td
+            role="cell"
+          >
+            GOOG
+          </td>
+          <td
+            role="cell"
+          >
+            $100.30
+          </td>
+          <td
+            role="cell"
+          >
+            $1,003,000,000.00
+          </td>
+        </tr>
+        <tr
+          role="row"
+        >
+          <td
+            role="cell"
+          >
+            <a
+              href="/stock/APL"
+            >
+              Apple Inc.		
+            </a>
+          </td>
+          <td
+            role="cell"
+          >
+            APL
+          </td>
+          <td
+            role="cell"
+          >
+            $254.30
+          </td>
+          <td
+            role="cell"
+          >
+            $2,543,000,000.00
+          </td>
+        </tr>
+        <tr
+          role="row"
+        >
+          <td
+            role="cell"
+          >
+            <a
+              href="/stock/MSFT"
+            >
+              Microsoft
+            </a>
+          </td>
+          <td
+            role="cell"
+          >
+            MSFT
+          </td>
+          <td
+            role="cell"
+          >
+            $234.32
+          </td>
+          <td
+            role="cell"
+          >
+            $2,343,200,000.00
+          </td>
+        </tr>
+        <tr
+          role="row"
+        >
+          <td
+            role="cell"
+          >
+            <a
+              href="/stock/EXN"
+            >
+              ExxonMobil
+            </a>
+          </td>
+          <td
+            role="cell"
+          >
+            EXN
+          </td>
+          <td
+            role="cell"
+          >
+            $233.42
+          </td>
+          <td
+            role="cell"
+          >
+            $2,334,200,000.00
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+`;
+
+exports[`Table component renders the component 1`] = `
+<body>
+  <div>
+    <table
+      class="sc-AxjAm dYOqdl"
+    >
+      <thead>
+        <tr
+          role="row"
+        >
+          <th
+            colspan="1"
+            role="columnheader"
+            style="cursor: pointer;"
+            title="Toggle SortBy"
+          >
+            Name
+            <span>
+              <svg
+                fill="none"
+                height="1em"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <polyline
+                  points="18 15 12 9 6 15"
+                />
+              </svg>
+            </span>
+          </th>
+          <th
+            colspan="1"
+            role="columnheader"
+            style="cursor: pointer;"
+            title="Toggle SortBy"
+          >
+            Symbol
+            <span>
+              <svg
+                fill="none"
+                height="1em"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <polyline
+                  points="18 15 12 9 6 15"
+                />
+              </svg>
+            </span>
+          </th>
+          <th
+            colspan="1"
+            role="columnheader"
+            style="cursor: pointer;"
+            title="Toggle SortBy"
+          >
+            Price
+            <span>
+              <svg
+                fill="none"
+                height="1em"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <polyline
+                  points="18 15 12 9 6 15"
+                />
+              </svg>
+            </span>
+          </th>
+          <th
+            colspan="1"
+            role="columnheader"
+            style="cursor: pointer;"
+            title="Toggle SortBy"
+          >
+            Market Cap
+            <span>
+              <svg
+                fill="none"
+                height="1em"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <polyline
+                  points="18 15 12 9 6 15"
+                />
+              </svg>
+            </span>
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        role="rowgroup"
+      >
+        <tr
+          role="row"
+        >
+          <td
+            role="cell"
+          >
+            <a
+              href="/stock/GOOG"
+            >
+              Alphabet Inc.
+            </a>
+          </td>
+          <td
+            role="cell"
+          >
+            GOOG
+          </td>
+          <td
+            role="cell"
+          >
+            $100.30
+          </td>
+          <td
+            role="cell"
+          >
+            $1,003,000,000.00
+          </td>
+        </tr>
+        <tr
+          role="row"
+        >
+          <td
+            role="cell"
+          >
+            <a
+              href="/stock/APL"
+            >
+              Apple Inc.		
+            </a>
+          </td>
+          <td
+            role="cell"
+          >
+            APL
+          </td>
+          <td
+            role="cell"
+          >
+            $254.30
+          </td>
+          <td
+            role="cell"
+          >
+            $2,543,000,000.00
+          </td>
+        </tr>
+        <tr
+          role="row"
+        >
+          <td
+            role="cell"
+          >
+            <a
+              href="/stock/MSFT"
+            >
+              Microsoft
+            </a>
+          </td>
+          <td
+            role="cell"
+          >
+            MSFT
+          </td>
+          <td
+            role="cell"
+          >
+            $234.32
+          </td>
+          <td
+            role="cell"
+          >
+            $2,343,200,000.00
+          </td>
+        </tr>
+        <tr
+          role="row"
+        >
+          <td
+            role="cell"
+          >
+            <a
+              href="/stock/EXN"
+            >
+              ExxonMobil
+            </a>
+          </td>
+          <td
+            role="cell"
+          >
+            EXN
+          </td>
+          <td
+            role="cell"
+          >
+            $233.42
+          </td>
+          <td
+            role="cell"
+          >
+            $2,334,200,000.00
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+`;

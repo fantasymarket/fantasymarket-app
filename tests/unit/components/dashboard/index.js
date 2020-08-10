@@ -6,6 +6,6 @@ describe('Dashboard component', () => {
 	const container = render(<Dashboard />);
 
 	it('renders the component', () => {
-		expect(container.firstChild).toMatchSnapshot();
+		expect(container.baseElement).toMatchSnapshot();
 	});
 });

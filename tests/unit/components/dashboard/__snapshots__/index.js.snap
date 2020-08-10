@@ -1,3 +1,387 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Dashboard component renders the component 1`] = `undefined`;
+exports[`Dashboard component renders the component 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-AxhUy gvFegJ"
+    >
+      <div
+        class="sc-AxiKw JgdsP"
+      >
+        <div>
+          <h1>
+            Total Portfolio Value
+          </h1>
+          <h2>
+            $100,000.00
+          </h2>
+          <h3
+            class="up"
+          >
+            <b>
+              UP
+            </b>
+            +
+            $123.45
+             (
+            +
+            0.12
+            %) in the last 24h
+          </h3>
+        </div>
+      </div>
+      <h1
+        class="sc-AxgMl kDMAwN"
+      >
+        Todays Top Gainers/Loosers
+      </h1>
+      <ul
+        class="sc-AxirZ lliHNC"
+      >
+        <li
+          class="up"
+        >
+          <h1>
+            Alphabet Inc.
+             
+            <span>
+              (
+              GOOG
+              )
+            </span>
+          </h1>
+          <h2>
+            $100.30
+          </h2>
+          <h3>
+            <b>
+              UP
+            </b>
+             
+            +
+            7.85
+            %
+          </h3>
+        </li>
+        <li
+          class="up"
+        >
+          <h1>
+            Apple Inc.		
+             
+            <span>
+              (
+              APL
+              )
+            </span>
+          </h1>
+          <h2>
+            $254.30
+          </h2>
+          <h3>
+            <b>
+              UP
+            </b>
+             
+            +
+            10.57
+            %
+          </h3>
+        </li>
+        <li
+          class="down"
+        >
+          <h1>
+            Microsoft
+             
+            <span>
+              (
+              MSFT
+              )
+            </span>
+          </h1>
+          <h2>
+            $234.32
+          </h2>
+          <h3>
+            <b>
+              DOWN
+            </b>
+             
+            -3.74
+            %
+          </h3>
+        </li>
+        <li
+          class="up"
+        >
+          <h1>
+            ExxonMobil
+             
+            <span>
+              (
+              EXN
+              )
+            </span>
+          </h1>
+          <h2>
+            $233.42
+          </h2>
+          <h3>
+            <b>
+              UP
+            </b>
+             
+            +
+            9.37
+            %
+          </h3>
+        </li>
+      </ul>
+      <br />
+      <h1
+        class="sc-AxgMl kDMAwN"
+      >
+        News (All, My Stocks)
+      </h1>
+      <div
+        class="sc-AxhCb cGywqy"
+      >
+        <ul />
+      </div>
+      <h1
+        class="sc-AxgMl kDMAwN"
+      >
+        All Stocks
+      </h1>
+      <table
+        class="sc-AxjAm dYOqdl"
+      >
+        <thead>
+          <tr
+            role="row"
+          >
+            <th
+              colspan="1"
+              role="columnheader"
+              style="cursor: pointer;"
+              title="Toggle SortBy"
+            >
+              Name
+              <span>
+                <svg
+                  fill="none"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <polyline
+                    points="18 15 12 9 6 15"
+                  />
+                </svg>
+              </span>
+            </th>
+            <th
+              colspan="1"
+              role="columnheader"
+              style="cursor: pointer;"
+              title="Toggle SortBy"
+            >
+              Symbol
+              <span>
+                <svg
+                  fill="none"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <polyline
+                    points="18 15 12 9 6 15"
+                  />
+                </svg>
+              </span>
+            </th>
+            <th
+              colspan="1"
+              role="columnheader"
+              style="cursor: pointer;"
+              title="Toggle SortBy"
+            >
+              Price
+              <span>
+                <svg
+                  fill="none"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <polyline
+                    points="18 15 12 9 6 15"
+                  />
+                </svg>
+              </span>
+            </th>
+            <th
+              colspan="1"
+              role="columnheader"
+              style="cursor: pointer;"
+              title="Toggle SortBy"
+            >
+              Market Cap
+              <span>
+                <svg
+                  fill="none"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <polyline
+                    points="18 15 12 9 6 15"
+                  />
+                </svg>
+              </span>
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          role="rowgroup"
+        >
+          <tr
+            role="row"
+          >
+            <td
+              role="cell"
+            >
+              <a
+                href="/stock/GOOG"
+              >
+                Alphabet Inc.
+              </a>
+            </td>
+            <td
+              role="cell"
+            >
+              GOOG
+            </td>
+            <td
+              role="cell"
+            >
+              $100.30
+            </td>
+            <td
+              role="cell"
+            >
+              $1,003,000,000.00
+            </td>
+          </tr>
+          <tr
+            role="row"
+          >
+            <td
+              role="cell"
+            >
+              <a
+                href="/stock/APL"
+              >
+                Apple Inc.		
+              </a>
+            </td>
+            <td
+              role="cell"
+            >
+              APL
+            </td>
+            <td
+              role="cell"
+            >
+              $254.30
+            </td>
+            <td
+              role="cell"
+            >
+              $2,543,000,000.00
+            </td>
+          </tr>
+          <tr
+            role="row"
+          >
+            <td
+              role="cell"
+            >
+              <a
+                href="/stock/MSFT"
+              >
+                Microsoft
+              </a>
+            </td>
+            <td
+              role="cell"
+            >
+              MSFT
+            </td>
+            <td
+              role="cell"
+            >
+              $234.32
+            </td>
+            <td
+              role="cell"
+            >
+              $2,343,200,000.00
+            </td>
+          </tr>
+          <tr
+            role="row"
+          >
+            <td
+              role="cell"
+            >
+              <a
+                href="/stock/EXN"
+              >
+                ExxonMobil
+              </a>
+            </td>
+            <td
+              role="cell"
+            >
+              EXN
+            </td>
+            <td
+              role="cell"
+            >
+              $233.42
+            </td>
+            <td
+              role="cell"
+            >
+              $2,334,200,000.00
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+`;

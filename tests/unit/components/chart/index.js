@@ -8,7 +8,7 @@ describe('StockChart component', () => {
 	const container = render(<StockChart />);
 
 	it('renders the component', () => {
-		expect(container.firstChild).toMatchSnapshot();
+		expect(container.baseElement).toMatchSnapshot();
 	});
 });
 
@@ -16,6 +16,6 @@ describe('StockChartMinimal component', () => {
 	const container = render(<StockChartMinimal />);
 
 	it('renders the component', () => {
-		expect(container.firstChild).toMatchSnapshot();
+		expect(container.baseElement).toMatchSnapshot();
 	});
 });

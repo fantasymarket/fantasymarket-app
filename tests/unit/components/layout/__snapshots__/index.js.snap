@@ -1,3 +1,93 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Layout component renders the component 1`] = `undefined`;
+exports[`Layout component renders the component 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-AxgMl bALvCm"
+    >
+      <div
+        class="sc-AxiKw evpjia"
+      >
+        <a
+          href="/"
+        >
+          <h1>
+            FantasyMarket
+          </h1>
+        </a>
+        <ul>
+          <li>
+            <a
+              href="/dashboard"
+            >
+              dashboard
+            </a>
+          </li>
+          <li>
+            <a
+              href="/portfolio"
+            >
+              portfolio
+            </a>
+          </li>
+          <li>
+            <a
+              href="/orders"
+            >
+              orders
+            </a>
+          </li>
+          <li>
+            <a
+              href="/help"
+            >
+              help
+            </a>
+          </li>
+          <li>
+            <a
+              href="/settings"
+            >
+              settings
+            </a>
+          </li>
+          <li
+            class="undefined settings-btn"
+          >
+            <a
+              href="/settings"
+            >
+              settings
+            </a>
+          </li>
+        </ul>
+        <div>
+          <a
+            class="settings-btn"
+            href="/settings"
+          >
+            <button
+              class="sc-AxirZ bLrhwI"
+            >
+              Login
+            </button>
+          </a>
+        </div>
+      </div>
+      <div
+        class="sc-AxheI ffkUBe"
+      >
+        Page Content 
+      </div>
+      <div
+        class="sc-AxhUy vnzVH"
+      >
+        <h3>
+          © FantasyMarket 2020
+        </h3>
+      </div>
+    </div>
+  </div>
+</body>
+`;

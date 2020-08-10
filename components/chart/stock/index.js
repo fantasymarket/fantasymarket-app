@@ -8,6 +8,14 @@ import mockGraph from '@utils/mock-graph';
 import { defaultChartSettings } from './settings';
 
 const Wrapper = styled.div`
+	height: 40vh;
+	min-height: 30rem;
+
+	@media (max-width: 750px) {
+		height: 30vh;
+		min-height: 10rem;
+	}
+
 	flex: 1;
 	align-self: normal;
 
@@ -50,7 +58,8 @@ const ChartComponent = ({ chartSettings, data, ...rest }) => {
 			});
 		}
 
-		if (process.browser && !chart && !loading && size.height !== 0) initChart();
+		if (process.browser && !chart && !loading /* && size.height !== 0 */)
+			initChart();
 		return () => {};
 	}, [chart, loading, size, chartSettings, data]);
 
