@@ -1,8 +1,7 @@
-<img align="left" src="public/logo-gh.png" width=100>
+<div align="center">
+<h1> FantasyMarket</h1>
 
-# FantasyMarket [![Website](https://img.shields.io/website?label=staging&url=http%3A%2F%2Fdevelop--fantasymarket.netlify.app%2F)](https://develop--fantasymarket.netlify.app/) [![Website](https://img.shields.io/website?label=production&url=http%3A%2F%2Ffantasymarket.netlify.app%2F)](https://fantasymarket.netlify.app/)
-
-
+[![Website](https://img.shields.io/website?label=staging&url=http%3A%2F%2Fdevelop--fantasymarket.netlify.app%2F)](https://develop--fantasymarket.netlify.app/) [![Website](https://img.shields.io/website?label=production&url=http%3A%2F%2Ffantasymarket.netlify.app%2F)](https://fantasymarket.netlify.app/)
 [![Node.js CI](https://github.com/fantasymarket/fantasymarket-app/workflows/Node.js%20CI/badge.svg?branch=develop)](https://github.com/fantasymarket/fantasymarket-app/actions?query=workflow%3A%22Node.js+CI%22)
 [![netlify](https://img.shields.io/netlify/306db36d-47d1-40d3-9f52-c52a5b7633e5?style=flat)](https://app.netlify.com/sites/fantasymarket/overview)
 [![codecov](https://codecov.io/gh/fantasymarket/fantasymarket-app/branch/develop/graph/badge.svg)](https://codecov.io/gh/fantasymarket/fantasymarket-app)
@@ -10,15 +9,20 @@
 [![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade/develop--fantasymarket.netlify.app?publish)](https://observatory.mozilla.org/analyze/develop--fantasymarket.netlify.app)
 [![Maintainability](https://api.codeclimate.com/v1/badges/0b67777ccab5a08e0546/maintainability)](https://codeclimate.com/github/fantasymarket/fantasymarket-app/maintainability)
 
+YOUR road to success in the stock market
+
+</div>
+<br/>
 
 ## Introduction
+<img align="right" src="public/logo-gh.png" width=200>
 
 We are creating a working stock market simulation, where the user can invest in-game currency in a simulated market completely separated from the real world. By providing custom events that pop up randomly and alter the course of our stocks, coupled with a market that never sleeps, we are presenting a fun and fast-paced introduction into the stock market. Our beta is currently in its final phase and we plan to release it fully by the end of august.
 
 
 This repo only contains the frontend, the backend is avilable at [fantasymarket/fantasymarket-api](https://github.com/fantasymarket/fantasymarket-api).
 
-**You can check out the full documentation [here](docs)**
+Check out [**`our documentation`**](docs) for more information!
 
 ## Repo Structure
 
