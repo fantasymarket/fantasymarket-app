@@ -50,9 +50,12 @@ const ChartTitle = styled.div`
 	}
 `;
 
-const Stock = ({ symbol, name, news, price, price24h, about }) => {
-	price = parseFloat(price, 10);
-	price24h = parseFloat(price24h, 10);
+const Stock = ({ symbol, name, news, prices, about, time }) => {
+	const yesterday =
+		time.ticksSinceStart - (60 * 60 * 24) / time.gameSecondsPerTick;
+
+	let price = parseFloat(prices[prices.length - 1].price, 10);
+	let price24h = parseFloat(prices?.[prices.length - 1 - yesterday]?.price, 10);
 
 	const diff = price - price24h;
 	const positiv = diff > 0;
@@ -63,6 +66,11 @@ const Stock = ({ symbol, name, news, price, price24h, about }) => {
 
 	const [orderModalActive, setOrderModalActive] = useState(false);
 	const toggleModal = () => setOrderModalActive(a => !a);
+
+	const priceData = prices.map(p => ({
+		time: Number(new Date(p.date)) / 1000,
+		value: parseFloat(p.price, 10) / 100,
+	}));
 
 	return (
 		<Wrapper>
@@ -86,7 +94,7 @@ const Stock = ({ symbol, name, news, price, price24h, about }) => {
 						Today
 					</h3>
 				</ChartTitle>
-				<StockChart />
+				<StockChart data={priceData} />
 				<Description news={news} about={about} />
 			</ChartWrapper>
 			<Sidebar onTradeClick={toggleModal} />
@@ -96,22 +104,22 @@ const Stock = ({ symbol, name, news, price, price24h, about }) => {
 
 Stock.propTypes = {
 	symbol: PropTypes.string,
+	time: PropTypes.object,
 	name: PropTypes.string,
 	news: PropTypes.array,
 	about: PropTypes.node,
-	price: PropTypes.number,
-	price24h: PropTypes.number,
+	prices: PropTypes.arrayOf(PropTypes.object),
 };
 
 Stock.defaultProps = {
+	time: {},
 	symbol: 'GOOG',
 	name: 'Alphabet inc.',
-	price: 102212,
-	price24h: 101212,
+	prices: [{ price: 102212 }],
 	news: [
 		{
-			title: 'Google did an oopsie',
-			content: 'Big oof',
+			title: 'No News (Yet)',
+			content: ':(',
 		},
 	],
 	about: '',

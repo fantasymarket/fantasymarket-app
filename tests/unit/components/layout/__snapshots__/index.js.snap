@@ -4,10 +4,10 @@ exports[`Layout component renders the component 1`] = `
 <body>
   <div>
     <div
-      class="sc-AxgMl bALvCm"
+      class="sc-fzoLsD gTbaXh"
     >
       <div
-        class="sc-AxiKw evpjia"
+        class="sc-Axmtr gSEeTk"
       >
         <a
           href="/"
@@ -65,7 +65,6 @@ exports[`Layout component renders the component 1`] = `
         <div>
           <a
             class="settings-btn"
-            href="/settings"
           >
             <button
               class="sc-AxirZ bLrhwI"
@@ -76,12 +75,12 @@ exports[`Layout component renders the component 1`] = `
         </div>
       </div>
       <div
-        class="sc-AxheI ffkUBe"
+        class="sc-fzpans lhAyIL"
       >
         Page Content 
       </div>
       <div
-        class="sc-AxhUy vnzVH"
+        class="sc-fzozJi gXBskI"
       >
         <h3>
           © FantasyMarket 2020

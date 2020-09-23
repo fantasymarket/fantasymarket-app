@@ -150,9 +150,9 @@ Sidebar.propTypes = {
 
 Sidebar.defaultProps = {
 	info: [
-		{ name: 'Shares Owned', value: '46 Shares' },
-		{ name: 'Average Cost', value: '$800' },
-		{ name: 'Total Cost', value: '$36,800' },
+		{ name: 'Shares Owned', value: '0 Shares' },
+		{ name: 'Average Cost', value: '$0' },
+		{ name: 'Total Cost', value: '$0' },
 	],
 	changes: [
 		{ name: '1h', value: '+2.2%', direction: 'up' },
