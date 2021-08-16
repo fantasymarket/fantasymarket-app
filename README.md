@@ -18,7 +18,7 @@ YOUR road to success in the stock market
 
 We are creating a working stock market simulation, where the user can invest in-game currency in a simulated market completely separated from the real world. By providing custom events that pop up randomly and alter the course of our stocks, coupled with a market that never sleeps, we are presenting a fun and fast-paced introduction into the stock market.
 
-This repo only contains the frontend, the backend is avilable at [fantasymarket/fantasymarket-api](https://github.com/fantasymarket/fantasymarket-api).
+This repo only contains the frontend, the backend is available at [fantasymarket/fantasymarket-api](https://github.com/fantasymarket/fantasymarket-api).
 
 Check out [**`our documentation`**](docs) for more information!
 
